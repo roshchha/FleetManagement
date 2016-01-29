@@ -1,0 +1,31 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Fleetmanagement.master.cs" Inherits="Fleetmanagement" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+<link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    <table width="100%">
+    <tr>
+    <td colspan="2" align="center" style="height:100px">
+        <img align="top" src="Images/cabspro.gif" style="width: 666px; height: 120px" id="IMG1" />&nbsp;<br />
+        <%--<a href="login.aspx" style="left: 881px; position: absolute; top: 229px" runat="server">Login</a>--%>
+        <%--<asp:HyperLink ID="HyperLink1" NavigateUrl="~/Login.aspx" runat="server" style="left: 881px; position: absolute; top: 229px">Login</asp:HyperLink>--%>
+        </td>
+    </tr>
+    <tr>
+    
+    <td ><asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder></td>
+    </tr>
+    </table>
+        
+    </div>
+    </form>
+</body>
+</html>
