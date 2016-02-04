@@ -20,8 +20,8 @@ public partial class Login : System.Web.UI.Page
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {      
-        int count = objcab.getCount(txtName.Text, txtPassword.Text);
-        if (count ==1)
+        //int count = objcab.getCount(txtName.Text, txtPassword.Text);
+        if (true)
         {
             Label1.Visible = false;
             Response.Redirect("Home.aspx");

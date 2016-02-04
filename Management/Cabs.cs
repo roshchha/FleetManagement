@@ -83,6 +83,9 @@ namespace Management
             }
         }
 
+        // objInsertvehicles.insertVehiclemaster(ddlVehicletype.SelectedItem.Text, txtRegno.Text, txtRegdate.Text, txtEngno.Text, txtChasisno.Text,  ddlFueltype.SelectedItem.Text,
+                                              //int.Parse(txtTankcapacity.Text), int.Parse(txtSeating.Text), ddlAc.SelectedItem.Text, int.Parse(txtVehiclecost.Text), txtPurchasedate.Text, int.Parse(txtInsuranceamt.Text), txtInsuranceexpdate.Text);
+
         public void insertVehiclemaster(string vehicletype, string regno, string regdate, string engineno, string chasisno, string fueltype, int tankcapacity, int noofseating, int ac, int vehiclecost, string purchasedate, int insuranceamt, string insuranceexpdate)
         {
             SqlCommand cmdInsert = new SqlCommand("sp_insertvehiclemaster", con);

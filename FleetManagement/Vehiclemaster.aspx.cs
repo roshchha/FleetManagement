@@ -30,7 +30,7 @@ public partial class Vehiclemaster : System.Web.UI.Page
     {
         Cabs objInsertvehicles = new Cabs();
         objInsertvehicles.insertVehiclemaster(ddlVehicletype.SelectedItem.Text, txtRegno.Text, txtRegdate.Text, txtEngno.Text, txtChasisno.Text,  ddlFueltype.SelectedItem.Text,
-                                              int.Parse(txtTankcapacity.Text), int.Parse(txtSeating.Text), ddlAc.SelectedItem.Text, int.Parse(txtVehiclecost.Text), txtPurchasedate.Text, int.Parse(txtInsuranceamt.Text), txtInsuranceexpdate.Text);
+                                              int.Parse(txtTankcapacity.Text), int.Parse(txtSeating.Text),int.Parse(ddlAc.SelectedItem.Text), int.Parse(txtVehiclecost.Text), txtPurchasedate.Text, int.Parse(txtInsuranceamt.Text), txtInsuranceexpdate.Text);
         lblMessage.Text = "Vehicle Details added sucessfully";
         lblMessage.Visible = true;
         ddlVehicletype.SelectedIndex = 0;

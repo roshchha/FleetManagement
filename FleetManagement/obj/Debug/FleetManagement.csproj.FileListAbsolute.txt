@@ -1,1 +1,8 @@
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\FleetManagement.csprojResolveAssemblyReference.cache
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\FleetManagement.dll.config
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\FleetManagement.dll
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\FleetManagement.pdb
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\Management.dll
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\Management.pdb
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\FleetManagement.dll
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\FleetManagement.pdb
