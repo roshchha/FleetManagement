@@ -12,20 +12,20 @@
 public partial class Customersrpt {
     
     /// <summary>
-    /// CrystalReportViewer1 control.
+    /// ReportViewer1 control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer1;
+    protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
     
     /// <summary>
-    /// CrystalReportSource1 control.
+    /// ObjectDataSource1 control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::CrystalDecisions.Web.CrystalReportSource CrystalReportSource1;
+    protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
 }

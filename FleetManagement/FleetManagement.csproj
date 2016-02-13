@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -159,6 +160,11 @@
     </Compile>
     <Compile Include="designation.aspx.designer.cs">
       <DependentUpon>designation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DS_employees.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_employees.xsd</DependentUpon>
     </Compile>
     <Compile Include="Employeedetails.aspx.cs">
       <DependentUpon>Employeedetails.aspx</DependentUpon>
@@ -325,6 +331,17 @@
     <Content Include="Fleetmanagement.master" />
     <Content Include="Servicelog.rpt" />
     <Content Include="Vehiclemaster.rpt" />
+    <Content Include="DS_employees.xsc">
+      <DependentUpon>DS_employees.xsd</DependentUpon>
+    </Content>
+    <None Include="DS_employees.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_employees.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DS_employees.xss">
+      <DependentUpon>DS_employees.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -337,6 +354,11 @@
       <Project>{f6c55bd2-ac24-483d-9953-e9b64087e9b5}</Project>
       <Name>Management</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomerBookingsRpt.rdlc" />
+    <EmbeddedResource Include="EmployeesReport.rdlc" />
+    <EmbeddedResource Include="CustomersReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
