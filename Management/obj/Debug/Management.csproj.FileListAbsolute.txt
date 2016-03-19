@@ -2,3 +2,4 @@ E:\Roshni\IGNOU-Sem6-Project\FleetManagement\Management\bin\Debug\Management.dll
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\Management\bin\Debug\Management.pdb
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\Management\obj\Debug\Management.dll
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\Management\obj\Debug\Management.pdb
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\Management\obj\Debug\Management.csprojResolveAssemblyReference.cache

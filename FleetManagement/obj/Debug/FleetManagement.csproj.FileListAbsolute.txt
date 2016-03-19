@@ -6,3 +6,5 @@ E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\Management.dll
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\Management.pdb
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\FleetManagement.dll
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\FleetManagement.pdb
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\RdlCompile.cache
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\RdlCompile.compiled
