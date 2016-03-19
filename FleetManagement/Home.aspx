@@ -11,7 +11,7 @@
 </tr>
 <tr>
 <td align="left">
-<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/VehicleType.aspx">Add Vehicle Type</asp:HyperLink>
+<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/vehecletype.aspx">Add Vehicle Type</asp:HyperLink>
     
 </td>
 </tr>

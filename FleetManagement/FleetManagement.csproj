@@ -38,9 +38,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
@@ -82,7 +79,7 @@
     <Content Include="Service.aspx" />
     <Content Include="Servicedetailsrpt.aspx" />
     <Content Include="StyleSheet.css" />
-    <Content Include="VehicleType.aspx" />
+    <Content Include="vehecletype.aspx" />
     <Content Include="VehicleAllocation.aspx" />
     <Content Include="VehicleMaintenance.aspx" />
     <Content Include="Vehiclemaster.aspx" />
@@ -135,12 +132,6 @@
     </Compile>
     <Compile Include="customers.aspx.designer.cs">
       <DependentUpon>customers.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="customers.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>customers.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Customersrpt.aspx.cs">
       <DependentUpon>Customersrpt.aspx</DependentUpon>
@@ -246,12 +237,12 @@
     <Compile Include="Servicedetailsrpt.aspx.designer.cs">
       <DependentUpon>Servicedetailsrpt.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VehicleType.aspx.cs">
-      <DependentUpon>VehicleType.aspx</DependentUpon>
+    <Compile Include="vehecletype.aspx.cs">
+      <DependentUpon>vehecletype.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VehicleType.aspx.designer.cs">
-      <DependentUpon>VehicleType.aspx</DependentUpon>
+    <Compile Include="vehecletype.aspx.designer.cs">
+      <DependentUpon>vehecletype.aspx</DependentUpon>
     </Compile>
     <Compile Include="VehicleAllocation.aspx.cs">
       <DependentUpon>VehicleAllocation.aspx</DependentUpon>
@@ -335,6 +326,7 @@
     <Content Include="Accidentdetails.rpt" />
     <Content Include="Billingdetails.rpt" />
     <Content Include="Customerbooking.rpt" />
+    <Content Include="Customers.rpt" />
     <Content Include="Employees.rpt" />
     <Content Include="Fleetmanagement.master" />
     <Content Include="Servicelog.rpt" />
@@ -365,14 +357,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustomerBookingsRpt.rdlc" />
-    <EmbeddedResource Include="customers.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>customers.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="EmployeesReport.rdlc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+    <EmbeddedResource Include="CustomersReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

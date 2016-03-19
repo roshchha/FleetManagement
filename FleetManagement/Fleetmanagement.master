@@ -1,154 +1,31 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Fleetmanagement.master.cs" Inherits="Fleetmanagement" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-     <meta charset="utf-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cabs Pro</title>
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FontAwesome Styles-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-   
-        <!-- Custom Styles-->
-    <link href="assets/css/custom-styles.css" rel="stylesheet" />
-     <!-- Google Fonts-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-     <!-- TABLE STYLES-->
-    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-<%--<link href="StyleSheet.css" rel="stylesheet" type="text/css" />--%>
-    <style type="text/css">
-        .form-control[readonly]{background:transparent;}
-    </style>
+    <title>Untitled Page</title>
+<link href="StyleSheet.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div id="wrapper">
-        <nav class="navbar navbar-default top-navbar" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-gear"></i> <strong></strong></a>
-            </div>
-
-            <ul class="nav navbar-top-links navbar-right">               
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-        </nav>
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-
-                    <li>
-                        <a href="Employees.aspx"><i class="fa fa-dashboard"></i> Add Employees</a>
-                    </li>
-                    <li>
-                        <a href="VehicleType.aspx"><i class="fa fa-desktop"></i> Add Vehicle Type</a>
-                    </li>
-					<li>
-                        <a href="Vehiclemaster.aspx"><i class="fa fa-bar-chart-o"></i> Add Vehicle Details</a>
-                    </li>
-                    <li>
-                        <a href="Vehicletariff.aspx" class="active-menu"><i class="fa fa-table"></i>Add Vehicle Tariffs</a>
-                    </li>
-                     <li>
-                        <a href="customers.aspx"><i class="fa fa-qrcode"></i> Add Customers</a>
-                    </li>
-                    <li>
-                        <a href="Clientbooking.aspx"><i class="fa fa-edit"></i> Customer Booking </a>
-                    </li>
-                   <%-- <li>
-                        <a href="VehicleAllocation.aspx"><i class="fa fa-edit"></i> Vehicle Allocation </a>
-                    </li>
-                    <li>
-                        <a href="BillingDetails.aspx"><i class="fa fa-edit"></i> Billing Details </a>
-                    </li>--%>
-                    <li>
-                        <a href="Accidentdetails.aspx"><i class="fa fa-edit"></i> Add Accident Details </a>
-                    </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Reports<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">View Employee Details</a>
-                            </li>
-                            <li>
-                                <a href="#">View Vehicle Details</a>
-                            </li>
-                             <li>
-                                <a href="#">View Customer Booking Details</a>
-                            </li>
-                             <li>
-                                <a href="#">View Customers</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
-        </nav>
-        <div id="page-wrapper" >
-            <div id="page-inner">
-                <form id="form1" runat="server">
-			        <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
-                    </asp:contentplaceholder>
-                </form>
-                <footer><%--<p>All right reserved. </p>--%></footer>
-             </div><!-- /. PAGE INNER  -->
-            
-        </div><!-- /. PAGE WRAPPER  -->
-
-
-    </div><!-- /. WRAPPER -->
-     <!-- JS Scripts-->
-    <!-- jQuery Js -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- Bootstrap Js -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Js -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
-     <!-- DATA TABLE SCRIPTS -->
-    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
-    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#dataTables-example').dataTable();
-            });
-    </script>
-         <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
-
-
-
-
-
-
-
-
-
-
-
+    <form id="form1" runat="server">
+    <div>
+    <table width="100%">
+    <tr>
+    <td colspan="2" align="center" style="height:100px">
+        <img align="top" src="Images/cabspro.gif" style="width: 666px; height: 120px" id="IMG1" />&nbsp;<br />
+        <%--<a href="login.aspx" style="left: 881px; position: absolute; top: 229px" runat="server">Login</a>--%>
+        <%--<asp:HyperLink ID="HyperLink1" NavigateUrl="~/Login.aspx" runat="server" style="left: 881px; position: absolute; top: 229px">Login</asp:HyperLink>--%>
+        </td>
+    </tr>
+    <tr>
     
+    <td ><asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder></td>
+    </tr>
+    </table>
+        
+    </div>
+    </form>
 </body>
 </html>
