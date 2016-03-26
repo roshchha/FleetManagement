@@ -1,29 +1,68 @@
 <%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="ViewVehilcemaster.aspx.cs" Inherits="ViewVehilcemaster" Title="Untitled Page" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<table align="center">
-<tr>
-<td>
- <asp:GridView ID="grdVehiclemaster" runat="server" AutoGenerateColumns="False" OnRowEditing="grdVehiclemaster_RowEditing" OnRowUpdating="grdVehiclemaster_RowUpdating" OnRowCancelingEdit="grdVehiclemaster_RowCancelingEdit" AllowPaging="True" OnPageIndexChanging="grdVehiclemaster_PageIndexChanging" PageSize="5" OnRowDeleting="grdVehiclemaster_RowDeleting" >
-     <Columns>
-    
-   
-         <asp:BoundField DataField="vehicletype" HeaderText="Vehicle" SortExpression="vehicletype" />
-         <asp:BoundField DataField="regno" HeaderText="Registration No" SortExpression="regno"  ReadOnly="true"/>
-         <asp:BoundField DataField="fueltype" HeaderText="Fuel" SortExpression="fueltype" />
-         <asp:BoundField DataField="purchasedate" HeaderText="Purchased Date" SortExpression="purchasedate" />
-         <asp:BoundField DataField="noofseating" HeaderText="Seating No" SortExpression="noofseating" />
-         <asp:BoundField DataField="vehiclecost" HeaderText="Vehicle Cost" SortExpression="vehiclecost" />       
-         <asp:CommandField HeaderText="Edit" ShowDeleteButton="True" ShowEditButton="True"
-             ShowHeader="True" />
-     </Columns>    
-    </asp:GridView>
-</td>
-</tr>
-<tr>
-<td align="center">
-    <asp:Button ID="Button1" runat="server" Text="Back" PostBackUrl="~/Home.aspx" />
-</td>
-</tr>
-</table>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="page-header"></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"></div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <asp:GridView ID="grdVehiclemaster"  CssClass="table table-striped table-bordered table-hover" runat="server" AutoGenerateColumns="False" OnPreRender="grdVehiclemaster_PreRender" OnRowEditing="grdVehiclemaster_RowEditing" OnRowCancelingEdit="grdVehiclemaster_RowCancelingEdit" AllowPaging="False" OnPageIndexChanging="grdVehiclemaster_PageIndexChanging" PageSize="10" OnRowDeleting="grdVehiclemaster_RowDeleting">
+                            <Columns>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                         <input id="HdnVehicleID" type="hidden" value='<%# Eval("VehicleID") %>' runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="VehicleTypeName" HeaderText="Vehicle" SortExpression="VehicleTypeName" />
+                                <asp:BoundField DataField="RegistrationNo" HeaderText="Registration No" SortExpression="RegistrationNo" ReadOnly="true" />
+                                <asp:BoundField DataField="FuelTypeName" HeaderText="Fuel" SortExpression="FuelTypeName" />
+                                <asp:TemplateField HeaderText="Purchase Date">
+                                    <ItemTemplate>
+                                        <%#Eval("PurchaseDate","{0:dd MMM yyyy}") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="noofseating" HeaderText="Seating No" SortExpression="noofseating" />
+                                <asp:BoundField DataField="VehicleCost" HeaderText="Vehicle Cost" SortExpression="VehicleCost" />
+                                <asp:CommandField HeaderText="Edit" ShowDeleteButton="True" ShowEditButton="True"
+                                    ShowHeader="True" />
+                            </Columns>
+                        </asp:GridView>
+                    </div>
+                    <div class="">
+                            <asp:Button CssClass="btn btn-primary" ID="Button1" runat="server" Text="Back" PostBackUrl="~/Home.aspx" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- DATA TABLE SCRIPTS -->
+    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#ContentPlaceHolder1_grdVehiclemaster').dataTable({
+                "bSort": true,
+                "bAutoWidth": true,
+                "aoColumns": [
+                                null,
+                                null, //put as many null values as your columns
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null
+
+
+                ]
+            });
+        });
+    </script>
 </asp:Content>
 

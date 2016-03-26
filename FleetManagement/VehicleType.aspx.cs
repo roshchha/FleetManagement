@@ -10,19 +10,38 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using Management;
 using System.Data.SqlClient;
+using FleetManagement;
+using FleetManagement.Services;
+using FleetManagement.Entities;
+using FleetManagement.Interfaces;
 
-public partial class VehicleType : System.Web.UI.Page
+public partial class VehicleTypes : System.Web.UI.Page
 {
-    Cabs objcabs = new Cabs();
-    
+
+    IEntityService<VehicleType> vehicleTypeService = new VehicleTypeService();
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
     protected void btnInsert_Click(object sender, EventArgs e)
     {
-        objcabs.insertvehicle(txtName.Text);
-        lblMessage.Visible = true;
-        txtName.Text = "";
+        try
+        {
+
+
+            FleetManagement.Entities.VehicleType vehicleType = new FleetManagement.Entities.VehicleType();
+            vehicleType.Name = txtName.Text;
+
+            if (vehicleTypeService.Insert(vehicleType))
+            {
+                lblMessage.Text = "Inserted Successfully";
+                lblMessage.Visible = true;
+            }
+            txtName.Text = string.Empty;
+        }
+        catch (Exception ex)
+        {
+
+        }
     }
 }

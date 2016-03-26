@@ -9,38 +9,119 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
+using FleetManagement.Entities;
+using FleetManagement.Interfaces;
+using FleetManagement.Services;
+using System.Collections.Generic;
+using System.Linq;
+using FleetManagement.Common;
 public partial class customers : System.Web.UI.Page
 {
-    
-    SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["connect"]);
+
+    IEntityService<Customer> customerService = new CustomerService();
+
+    private int CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
         lblMessage.Visible = false;
+        if (!string.IsNullOrWhiteSpace(Request.QueryString["CustomerID"]))
+        {
+            int.TryParse(Request.QueryString["CustomerID"].ToString(), out CustomerID);
+            this.hdnCustomerID.Value = CustomerID.ToString();
+            this.btnSubmit.PostBackUrl = "Customers.aspx";
+        }
+       
+        if (!IsPostBack)
+        {
+            BindCountries();
+            if (CustomerID > 0)
+            {
+                LoadData();
+            }
+        }
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        SqlCommand cmdCount = new SqlCommand("select count(*) from customers where name='" + txtCustomername.Text + "'", con);
-        con.Open();
-        int count = (int)cmdCount.ExecuteScalar();
-        if (count > 0)
+        Customer customer = new Customer();
+
+        bool updateOrInsert = true;
+        int.TryParse(this.hdnCustomerID.Value, out CustomerID);
+        if (CustomerID > 0)
         {
-            lblMessage.Text = "Customer already exists";
-            lblMessage.Visible = true;
+            customer.ID = CustomerID;
+        }
+        else { 
+            List<Customer> customers = customerService.Get();
+            if (customers.Any(c => c.Name == txtCustomername.Text.Trim() && c.Email == txtEmail.Text.Trim()))
+            {
+                lblMessage.Text = "Customer already exists";
+                lblMessage.Visible = true;
+                updateOrInsert = false;
+            }
+        }
+        if (updateOrInsert)
+        {
+
+            customer.Name = txtCustomername.Text.Trim();
+            customer.Address = txtAddress.Text.Trim();
+            customer.Country = ddlCountry.SelectedItem.Text;
+            customer.Email = txtEmail.Text.Trim();
+            customer.Phone = txtPhoneno.Text.Trim();
+            customer.State = txtState.Text.Trim();
+            bool isSuccess = false;
+            if (CustomerID > 0)
+            {
+                isSuccess = customerService.Update(customer);
+            }
+            else
+            {
+               isSuccess= customerService.Insert(customer);
+            }
+            if (isSuccess)
+            {
+                lblMessage.Text = "Customer details added sucessfully";
+                lblMessage.Visible = true;
+            }
+            else
+            {
+                lblMessage.Text = "Error adding new customer!";
+                lblMessage.Visible = true;
+            }
+        }
+        ClearEntries();
+        
+    }
+    private void BindCountries()
+    {
+        ddlCountry.Items.Clear();
+        ddlCountry.Items.AddRange(Common.ToListItems<FleetManagement.Enums.Country>().ToArray());
+    }
+    private void LoadData(){
+        Customer customer= customerService.Get(CustomerID).FirstOrDefault();
+        if (customer != null)
+        {
+            this.txtCustomername.Text = customer.Name;
+            this.txtEmail.Text = customer.Email;
+            this.txtAddress.Text = customer.Address;
+            this.txtPhoneno.Text = customer.Phone;
+            this.txtState.Text = customer.State;
+            FleetManagement.Enums.Country country;
+            if(Enum.TryParse(customer.Country,out country)){
+                this.ddlCountry.SelectedValue = ((int)country).ToString();
+            }
         }
         else
-        {
-            string insemp = "insert into customers values('" + txtCustomername.Text + "',  '" + txtAddress.Text + "',  '" + txtPhoneno.Text + "', '" + txtEmail.Text + "','" + ddlCountry.SelectedItem.Text + "','" + txtState.Text + "')";
-            SqlCommand cmd = new SqlCommand(insemp, con);
-            cmd.ExecuteNonQuery();            
-            lblMessage.Text = "Customer details added sucessfully";
-            lblMessage.Visible = true;
-            txtCustomername.Text = "";
-            txtAddress.Text = "";
-            ddlCountry.SelectedIndex = 0;
-            txtState.Text = "";
-            txtPhoneno.Text = "";
-            txtEmail.Text = "";
+        {//customer doesn't exist ,so make this field's value as 0
+            this.hdnCustomerID.Value = "0";
         }
-        con.Close();
+    }
+    private void ClearEntries()
+    {
+        txtCustomername.Text = "";
+        txtAddress.Text = "";
+        ddlCountry.SelectedIndex = 0;
+        txtState.Text = "";
+        txtPhoneno.Text = "";
+        txtEmail.Text = "";
     }
 }

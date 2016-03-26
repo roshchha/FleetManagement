@@ -67,6 +67,7 @@
     <Content Include="BillingDetails.aspx" />
     <Content Include="Billingdetailsrpt.aspx" />
     <Content Include="Clientbooking.aspx" />
+    <Content Include="CustomerBooking.aspx" />
     <Content Include="customers.aspx" />
     <Content Include="Customersrpt.aspx" />
     <Content Include="Default.aspx" />
@@ -129,18 +130,22 @@
     <Compile Include="Clientbooking.aspx.designer.cs">
       <DependentUpon>Clientbooking.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\Extension.cs" />
+    <Compile Include="Common\SQLHelper.cs" />
+    <Compile Include="CustomerBooking.aspx.cs">
+      <DependentUpon>CustomerBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerBooking.aspx.designer.cs">
+      <DependentUpon>CustomerBooking.aspx</DependentUpon>
+    </Compile>
     <Compile Include="customers.aspx.cs">
       <DependentUpon>customers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="customers.aspx.designer.cs">
       <DependentUpon>customers.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="customers.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>customers.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Customersrpt.aspx.cs">
       <DependentUpon>Customersrpt.aspx</DependentUpon>
@@ -170,6 +175,16 @@
     <Compile Include="designation.aspx.designer.cs">
       <DependentUpon>designation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DSVehicleMaster.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSVehicleMaster.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_Customers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Customers.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_employees.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,6 +211,15 @@
     <Compile Include="Employees.aspx.designer.cs">
       <DependentUpon>Employees.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Designation.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Tariff.cs" />
+    <Compile Include="Entities\Vehicle.cs" />
+    <Compile Include="Entities\VehicleType.cs" />
+    <Compile Include="Interfaces\IEntityService.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Fleetmanagement.master.cs">
       <DependentUpon>Fleetmanagement.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -246,6 +270,11 @@
     <Compile Include="Servicedetailsrpt.aspx.designer.cs">
       <DependentUpon>Servicedetailsrpt.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\TariffService.cs" />
+    <Compile Include="Services\VehicleService.cs" />
+    <Compile Include="Services\VehicleTypeService.cs" />
     <Compile Include="VehicleType.aspx.cs">
       <DependentUpon>VehicleType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -334,13 +363,33 @@
   <ItemGroup>
     <Content Include="Accidentdetails.rpt" />
     <Content Include="Billingdetails.rpt" />
-    <Content Include="Customerbooking.rpt" />
-    <Content Include="Employees.rpt" />
     <Content Include="Fleetmanagement.master" />
     <Content Include="Servicelog.rpt" />
     <Content Include="Vehiclemaster.rpt" />
     <Content Include="DS_employees.xsc">
       <DependentUpon>DS_employees.xsd</DependentUpon>
+    </Content>
+    <Content Include="DS_Customers.xsc">
+      <DependentUpon>DS_Customers.xsd</DependentUpon>
+    </Content>
+    <Content Include="DSVehicleMaster.xsc">
+      <DependentUpon>DSVehicleMaster.xsd</DependentUpon>
+    </Content>
+    <None Include="DSVehicleMaster.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSVehicleMaster.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DSVehicleMaster.xss">
+      <DependentUpon>DSVehicleMaster.xsd</DependentUpon>
+    </Content>
+    <None Include="DS_Customers.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Customers.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DS_Customers.xss">
+      <DependentUpon>DS_Customers.xsd</DependentUpon>
     </Content>
     <None Include="DS_employees.xsd">
       <SubType>Designer</SubType>
@@ -365,15 +414,14 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustomerBookingsRpt.rdlc" />
-    <EmbeddedResource Include="customers.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>customers.cs</LastGenOutput>
-    </EmbeddedResource>
+    <EmbeddedResource Include="CustomersRPT.rdlc" />
     <EmbeddedResource Include="EmployeesReport.rdlc" />
+    <EmbeddedResource Include="VehicleMaster.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

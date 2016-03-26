@@ -86,7 +86,7 @@ namespace Management
         // objInsertvehicles.insertVehiclemaster(ddlVehicletype.SelectedItem.Text, txtRegno.Text, txtRegdate.Text, txtEngno.Text, txtChasisno.Text,  ddlFueltype.SelectedItem.Text,
                                               //int.Parse(txtTankcapacity.Text), int.Parse(txtSeating.Text), ddlAc.SelectedItem.Text, int.Parse(txtVehiclecost.Text), txtPurchasedate.Text, int.Parse(txtInsuranceamt.Text), txtInsuranceexpdate.Text);
 
-        public void insertVehiclemaster(string vehicletype, string regno, string regdate, string engineno, string chasisno, string fueltype, int tankcapacity, int noofseating, int ac, int vehiclecost, string purchasedate, int insuranceamt, string insuranceexpdate)
+        public void insertVehiclemaster(string vehicletype, string regno, string regdate, string engineno, string chasisno, string fueltype, int tankcapacity, int noofseating, string ac, int vehiclecost, string purchasedate, int insuranceamt, string insuranceexpdate)
         {
             SqlCommand cmdInsert = new SqlCommand("sp_insertvehiclemaster", con);
             cmdInsert.CommandType = CommandType.StoredProcedure;
@@ -98,7 +98,7 @@ namespace Management
             cmdInsert.Parameters.Add("@fueltype", SqlDbType.Char).Value = fueltype;
             cmdInsert.Parameters.Add("@tankcapacity", SqlDbType.Int).Value = tankcapacity;
             cmdInsert.Parameters.Add("@noofseating", SqlDbType.Int).Value = noofseating;
-            cmdInsert.Parameters.Add("@ac", SqlDbType.Int).Value = ac;
+            cmdInsert.Parameters.Add("@ac", SqlDbType.Char).Value = ac;
             cmdInsert.Parameters.Add("@vehiclecost", SqlDbType.BigInt).Value = vehiclecost;
             cmdInsert.Parameters.Add("@purchasedate", SqlDbType.VarChar).Value = purchasedate;
             cmdInsert.Parameters.Add("@insuranceamt", SqlDbType.Int).Value = insuranceamt;

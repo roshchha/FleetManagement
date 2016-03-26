@@ -9,7 +9,7 @@
 
 
 
-public partial class VehicleType {
+public partial class VehicleTypes {
     
     /// <summary>
     /// lblName control.

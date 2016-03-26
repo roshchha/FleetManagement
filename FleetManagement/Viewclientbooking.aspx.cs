@@ -78,7 +78,7 @@ public partial class Viewclientbooking : System.Web.UI.Page
 
     public DataSet bind()
     {
-        string strGetcustomer = "select bookingid, customername, phoneno, email, pickup,droppoint, driver, fromdate from customerbooking";
+        string strGetcustomer = "select bookingid, customername, phoneno, email, pickupPoint,droppoint, DriverName, fromdate from customerbooking";
         SqlDataAdapter daGetcustomer = new SqlDataAdapter(strGetcustomer, con);
         DataSet dsGetcustomer = new DataSet();
         daGetcustomer.Fill(dsGetcustomer);

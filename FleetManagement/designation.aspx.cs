@@ -20,6 +20,6 @@ public partial class designation : System.Web.UI.Page
     {
         Cabs objcab = new Cabs();
         objcab.insertdesignation(txtName.Text);
-        lblMessage.Visible = true;
+        //lblMessage.Visible = true;
     }
 }

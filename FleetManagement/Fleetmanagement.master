@@ -7,16 +7,31 @@
      <meta charset="utf-8" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cabs Pro</title>
+       <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+
+         <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
+    <script src="assets/js/jquery.jscrollpane.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-   
         <!-- Custom Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
      <!-- TABLE STYLES-->
     <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/jquery.jscrollpane.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
 <%--<link href="StyleSheet.css" rel="stylesheet" type="text/css" />--%>
     <style type="text/css">
         .form-control[readonly]{background:transparent;}
@@ -32,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-gear"></i> <strong></strong></a>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-gear"></i> <strong>CABS Pro</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">               
@@ -77,30 +92,51 @@
                     <li>
                         <a href="Clientbooking.aspx"><i class="fa fa-edit"></i> Customer Booking </a>
                     </li>
-                   <%-- <li>
+                    <li>
                         <a href="VehicleAllocation.aspx"><i class="fa fa-edit"></i> Vehicle Allocation </a>
                     </li>
                     <li>
                         <a href="BillingDetails.aspx"><i class="fa fa-edit"></i> Billing Details </a>
-                    </li>--%>
+                    </li>
+                     <li>
+                        <a href="service.aspx"><i class="fa fa-edit"></i> Add Service Details </a>
+                    </li>
                     <li>
                         <a href="Accidentdetails.aspx"><i class="fa fa-edit"></i> Add Accident Details </a>
+                    </li>
+                    <li>
+                        <a href="viewcustomers.aspx"><i class="fa fa-edit"></i> View Customers </a>
+                    </li>
+                    <li>
+                        <a href="EmployeeDetails.aspx"><i class="fa fa-edit"></i> View Employee Details </a>
+                    </li>
+                    <li>
+                        <a href="viewclientbooking.aspx"><i class="fa fa-edit"></i> View Customer Booking Details </a>
+                    </li>
+                    <li>
+                        <a href="ViewVehilcemaster.aspx"><i class="fa fa-edit"></i> View Vehicle Details </a>
                     </li>
 
                     <li>
                         <a href="#"><i class="fa fa-sitemap"></i> Reports<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">View Employee Details</a>
+                                <a href="Employeerpt.apsx">Employee Details</a>
                             </li>
                             <li>
-                                <a href="#">View Vehicle Details</a>
+                                <a href="billingdetailsrpt.aspx">Billing Details</a>
                             </li>
                              <li>
-                                <a href="#">View Customer Booking Details</a>
+                                <a href="servicedetailsrpt.aspx"> Service Details</a>
                             </li>
                              <li>
-                                <a href="#">View Customers</a>
+                                <a href="vehiclemasterrpt.aspx">Vehicle Details</a>
+                            </li>
+                             <li>
+                                <a href="accidentdetailsrpt.aspx">Accident Details</a>
+                            </li>
+                             <li>
+                                <a href="customersrpt.aspx">Customer Details</a>
                             </li>
                         </ul>
                     </li>
@@ -121,34 +157,6 @@
 
 
     </div><!-- /. WRAPPER -->
-     <!-- JS Scripts-->
-    <!-- jQuery Js -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- Bootstrap Js -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Js -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
-     <!-- DATA TABLE SCRIPTS -->
-    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
-    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#dataTables-example').dataTable();
-            });
-    </script>
-         <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-    
+      
 </body>
 </html>

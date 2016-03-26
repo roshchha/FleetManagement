@@ -24,7 +24,7 @@ public partial class VehicleAllocation : System.Web.UI.Page
                 SqlDataAdapter daDriver = new SqlDataAdapter("select firstname from a_employee where designation='driver'", con);
                 
                 daDriver.Fill(ds, "driver");
-                daDriver.SelectCommand = new SqlCommand("select bookingid from customerbooking where driver='Not Allocated'", con);
+                daDriver.SelectCommand = new SqlCommand("select bookingid from customerbooking where DriverName='Not Allocated'", con);
                 daDriver.Fill(ds, "bookingid");
                 ddlDriver.DataTextField = "firstname";
                 ddlDriver.DataSource = ds;

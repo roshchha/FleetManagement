@@ -342,6 +342,7 @@ function ds_onclick(d, m, y) {
                         <tr>
                             <td colspan="3" align="center">
                                 <asp:Label ID="lblMessage" runat="server" Visible="False" CssClass="lblMessage"></asp:Label>
+                                <asp:HiddenField ID="HdnVehicleID" runat="server" Value="0" />
                             </td>
                         </tr>
                         <tr>
