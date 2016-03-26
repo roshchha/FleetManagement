@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,32 +63,26 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Accidentdetailrpt.aspx" />
     <Content Include="Accidentdetails.aspx" />
     <Content Include="BillingDetails.aspx" />
-    <Content Include="Billingdetailsrpt.aspx" />
     <Content Include="Clientbooking.aspx" />
     <Content Include="CustomerBooking.aspx" />
     <Content Include="customers.aspx" />
-    <Content Include="Customersrpt.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Default2.aspx" />
     <Content Include="designation.aspx" />
     <Content Include="Employeedetails.aspx" />
-    <Content Include="Employeerpt.aspx" />
     <Content Include="Employees.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Reports.aspx" />
     <Content Include="Service.aspx" />
-    <Content Include="Servicedetailsrpt.aspx" />
     <Content Include="StyleSheet.css" />
     <Content Include="VehicleType.aspx" />
     <Content Include="VehicleAllocation.aspx" />
     <Content Include="VehicleMaintenance.aspx" />
     <Content Include="Vehiclemaster.aspx" />
-    <Content Include="Vehiclemasterrpt.aspx" />
     <Content Include="Vehicletariff.aspx" />
     <Content Include="Viewclientbooking.aspx" />
     <Content Include="Viewcustomers.aspx" />
@@ -98,10 +93,6 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accidentdetailrpt.aspx.cs">
-      <DependentUpon>Accidentdetailrpt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Accidentdetails.aspx.cs">
       <DependentUpon>Accidentdetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -115,13 +106,6 @@
     </Compile>
     <Compile Include="BillingDetails.aspx.designer.cs">
       <DependentUpon>BillingDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Billingdetailsrpt.aspx.cs">
-      <DependentUpon>Billingdetailsrpt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Billingdetailsrpt.aspx.designer.cs">
-      <DependentUpon>Billingdetailsrpt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientbooking.aspx.cs">
       <DependentUpon>Clientbooking.aspx</DependentUpon>
@@ -147,13 +131,6 @@
     <Compile Include="customers.aspx.designer.cs">
       <DependentUpon>customers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customersrpt.aspx.cs">
-      <DependentUpon>Customersrpt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customersrpt.aspx.designer.cs">
-      <DependentUpon>Customersrpt.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,34 +152,12 @@
     <Compile Include="designation.aspx.designer.cs">
       <DependentUpon>designation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DSVehicleMaster.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSVehicleMaster.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DS_Customers.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_Customers.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DS_employees.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_employees.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Employeedetails.aspx.cs">
       <DependentUpon>Employeedetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Employeedetails.aspx.designer.cs">
       <DependentUpon>Employeedetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Employeerpt.aspx.cs">
-      <DependentUpon>Employeerpt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Employeerpt.aspx.designer.cs">
-      <DependentUpon>Employeerpt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Employees.aspx.cs">
       <DependentUpon>Employees.aspx</DependentUpon>
@@ -263,13 +218,6 @@
     <Compile Include="Service.aspx.designer.cs">
       <DependentUpon>Service.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Servicedetailsrpt.aspx.cs">
-      <DependentUpon>Servicedetailsrpt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Servicedetailsrpt.aspx.designer.cs">
-      <DependentUpon>Servicedetailsrpt.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\TariffService.cs" />
@@ -302,13 +250,6 @@
     </Compile>
     <Compile Include="Vehiclemaster.aspx.designer.cs">
       <DependentUpon>Vehiclemaster.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vehiclemasterrpt.aspx.cs">
-      <DependentUpon>Vehiclemasterrpt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vehiclemasterrpt.aspx.designer.cs">
-      <DependentUpon>Vehiclemasterrpt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vehicletariff.aspx.cs">
       <DependentUpon>Vehicletariff.aspx</DependentUpon>
@@ -361,44 +302,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Accidentdetails.rpt" />
-    <Content Include="Billingdetails.rpt" />
     <Content Include="Fleetmanagement.master" />
-    <Content Include="Servicelog.rpt" />
-    <Content Include="Vehiclemaster.rpt" />
-    <Content Include="DS_employees.xsc">
-      <DependentUpon>DS_employees.xsd</DependentUpon>
-    </Content>
-    <Content Include="DS_Customers.xsc">
-      <DependentUpon>DS_Customers.xsd</DependentUpon>
-    </Content>
-    <Content Include="DSVehicleMaster.xsc">
-      <DependentUpon>DSVehicleMaster.xsd</DependentUpon>
-    </Content>
-    <None Include="DSVehicleMaster.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSVehicleMaster.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="DSVehicleMaster.xss">
-      <DependentUpon>DSVehicleMaster.xsd</DependentUpon>
-    </Content>
-    <None Include="DS_Customers.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_Customers.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="DS_Customers.xss">
-      <DependentUpon>DS_Customers.xsd</DependentUpon>
-    </Content>
-    <None Include="DS_employees.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_employees.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="DS_employees.xss">
-      <DependentUpon>DS_employees.xsd</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -411,12 +315,6 @@
       <Project>{f6c55bd2-ac24-483d-9953-e9b64087e9b5}</Project>
       <Name>Management</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="CustomerBookingsRpt.rdlc" />
-    <EmbeddedResource Include="CustomersRPT.rdlc" />
-    <EmbeddedResource Include="EmployeesReport.rdlc" />
-    <EmbeddedResource Include="VehicleMaster.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
