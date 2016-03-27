@@ -1,38 +1,60 @@
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
 using System;
-using System.Data;
-using System.Configuration;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using Management;
-using System.Data.SqlClient;
-public partial class Login : System.Web.UI.Page
+
+namespace FleetManagement
 {
-    Cabs objcab = new Cabs();
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class Login : System.Web.UI.Page
     {
-        //Page.ClientScript.RegisterStartupScript(this.GetType(), "CustomValidationTestForFirstName", "var txtName='" + this.txtName.ClientID + "'", true);
-       //Page.ClientScript.RegisterStartupScript(this.GetType(), "CustomValidationTestForFirstName", "var txtTestForLength='" + this.txtTest.ClientID + "';", true); 
-    }
-    protected void btnLogin_Click(object sender, EventArgs e)
-    {      
-        //int count = objcab.getCount(txtName.Text, txtPassword.Text);
-        if (true)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Visible = false;
-            Response.Redirect("Home.aspx");
-            
+            if (!IsPostBack)
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    StatusText.Text = string.Format("Hello {0}!!", User.Identity.GetUserName());
+                    LoginStatus.Visible = true;
+                    LogoutButton.Visible = true;
+                }
+                else
+                {
+                    LoginForm.Visible = true;
+                }
+            }
         }
-        else
+
+        protected void SignIn(object sender, EventArgs e)
         {
-            Label1.Visible = true;
-            Label1.Text = "Invalid Credentials";
+            var userStore = new UserStore<IdentityUser>();
+            var userManager = new UserManager<IdentityUser>(userStore);
+            var user = userManager.Find(UserName.Text, Password.Text);
+
+            if (user != null)
+            {
+                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+                authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                StatusText.Text = "Invalid username or password.";
+                LoginStatus.Visible = true;
+            }
         }
-        
+
+        protected void SignOut(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/Login.aspx");
+        }
     }
-   
 }

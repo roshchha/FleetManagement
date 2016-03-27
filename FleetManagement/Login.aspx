@@ -1,59 +1,48 @@
-<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" Trace="true" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Login" Title="Untitled Page" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    &nbsp;
-    <script type="text/javascript" language="javascript">
-    function validation(sender,args)
-    {        
-      var check=document.getElementById("ctl00_ContentPlaceHolder1_txtName").value       
-     
-//     
-      if(check.length>0)
-      {
-      alert(check.length)
-      args.isValid=true
-      }
-      else
-      {
-       alert(check.length)
-       args.isValid=false       
-      }
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="FleetManagement.Login" %>
 
-    }
-    </script>
-    
-    <div class="center-block">
-        <div class="panel panel-default center-block" style="width:35%">
-            <div class="panel-heading text-center">Login</div>
-            <div class="panel-body">
-                <table style="text-align:center;" align="center">
-            <tr>
-                <td style="height: 26px"><asp:Label ID="lblName" runat="server" Text="Username"></asp:Label></td>
-                <td style="height: 26px"><asp:TextBox ID="txtName" CssClass="form-control input-sm" runat="server"></asp:TextBox></td>
-                <td style="height: 26px">
-                    <asp:CustomValidator ID="CustomValidator1" runat="server" ClientValidationFunction="validation" EnableClientScript="true" ErrorMessage="invalid" ControlToValidate="txtName" ValidateEmptyText="True" SetFocusOnError="True"></asp:CustomValidator> 
-                </td>
-            </tr>
-            <tr><td style="height:5px"></td></tr>
-            <tr>
-                <td><asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label></td>
-                <td><asp:TextBox ID="txtPassword" CssClass="form-control input-sm" runat="server"></asp:TextBox></td>
-                <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword"
-            ErrorMessage="*" ></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr><td style="height:5px"></td></tr>
-        
-            <tr>
-                <td  colspan="3">
-                    <asp:Button ID="btnLogin" CssClass="btn btn-primary" runat="server" Text="Login" OnClick="btnLogin_Click" />
-                    <asp:Label ID="Label1" runat="server" Visible="False"></asp:Label>
-                </td>
-            </tr>
-        </table>
+<!DOCTYPE html>
 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+   <title></title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; font-size: small">
+   <form id="form1" runat="server">
+      <div>
+         <h4 style="font-size: medium">Log In</h4>
+         <hr />
+         <asp:PlaceHolder runat="server" ID="LoginStatus" Visible="false">
+            <p>
+               <asp:Literal runat="server" ID="StatusText" />
+            </p>
+         </asp:PlaceHolder>
+         <asp:PlaceHolder runat="server" ID="LoginForm" Visible="false">
+            <div style="margin-bottom: 10px">
+               <asp:Label runat="server" AssociatedControlID="UserName">User name</asp:Label>
+               <div>
+                  <asp:TextBox runat="server" ID="UserName" />
+               </div>
             </div>
-        </div>
-    </div>       
-</asp:Content>
-
+            <div style="margin-bottom: 10px">
+               <asp:Label runat="server" AssociatedControlID="Password">Password</asp:Label>
+               <div>
+                  <asp:TextBox runat="server" ID="Password" TextMode="Password" />
+               </div>
+            </div>
+            <div style="margin-bottom: 10px">
+               <div>
+                  <asp:Button runat="server" OnClick="SignIn" Text="Log in" />
+               </div>
+            </div>
+         </asp:PlaceHolder>
+         <asp:PlaceHolder runat="server" ID="LogoutButton" Visible="false">
+            <div>
+               <div>
+                  <asp:Button runat="server" OnClick="SignOut" Text="Log out" />
+               </div>
+            </div>
+         </asp:PlaceHolder>
+      </div>
+   </form>
+</body>
+</html>

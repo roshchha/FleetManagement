@@ -1,41 +1,43 @@
-<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Register" Title="Untitled Page" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<table align="center">
-        <tr>
-        <td><asp:Label ID="lblFirstname" runat="server" Text="First Name"></asp:Label></td>
-        <td><asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox></td>
-        <td><%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName"
-        ErrorMessage="*"/>--%> </td>
-        </tr>
-        <tr>
-        <td><asp:Label ID="lblLastname" runat="server" Text="lblLastName"></asp:Label></td>
-        <td><asp:TextBox ID="txtLastName" runat="server"></asp:TextBox></td>
-        <td><%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword"
-        ErrorMessage="*" ></asp:RequiredFieldValidator>--%></td>
-        </tr>
-        <tr>
-        <td colspan="3">
-            <asp:RadioButtonList ID="RadioButtonList1" runat="server">
-                <asp:ListItem>Male</asp:ListItem>
-                <asp:ListItem>Female</asp:ListItem>
-            </asp:RadioButtonList>
-        
-        </td>
-        </tr>
-        <tr>
-        <td><asp:Label ID="Label2" runat="server" Text="lblLastName"></asp:Label></td>
-        <td><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
-        <td><%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPassword"
-        ErrorMessage="*" ></asp:RequiredFieldValidator>--%></td>
-        </tr>
-        <tr>
-        <td  colspan="3">
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <asp:Button ID="btnLogin" runat="server" Text="Login"  />
-        &nbsp
-        <asp:Label ID="Label1" runat="server" Visible="False"></asp:Label>
-        </td>
-        </tr>
-        </table>
-</asp:Content>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="FleetManagement.Register" %>
 
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; font-size: small">
+    <form id="form1" runat="server">
+    <div>
+        <h4 style="font-size: medium">Register a new user</h4>
+        <hr />
+        <p>
+            <asp:Literal runat="server" ID="StatusMessage" />
+        </p>                
+        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="UserName">User name</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="UserName" />                
+            </div>
+        </div>
+        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="Password">Password</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="Password" TextMode="Password" />                
+            </div>
+        </div>
+        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="ConfirmPassword">Confirm password</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" />                
+            </div>
+        </div>
+        <div>
+            <div>
+                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" />
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
