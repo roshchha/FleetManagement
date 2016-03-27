@@ -227,6 +227,7 @@
     <Compile Include="Entities\Designation.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\ServiceLog.cs" />
     <Compile Include="Entities\Tariff.cs" />
     <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="Entities\VehicleAllocation.cs" />
@@ -283,6 +284,7 @@
     <Compile Include="Services\CustomerBookingService.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\ServiceLogService.cs" />
     <Compile Include="Services\TariffService.cs" />
     <Compile Include="Services\VehicleAllocationService.cs" />
     <Compile Include="Services\VehicleService.cs" />
@@ -367,7 +369,6 @@
     </Compile>
     <Compile Include="WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
