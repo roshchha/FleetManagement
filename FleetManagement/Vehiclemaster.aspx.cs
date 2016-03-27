@@ -68,6 +68,7 @@ public partial class Vehiclemaster : System.Web.UI.Page
         vehicle.AC = ddlAc.SelectedValue == ((int)YesNo.Yes).ToString() ? true : false;
         vehicle.FuelType = int.Parse(ddlFueltype.SelectedValue);
         vehicle.VehicleType = int.Parse(ddlVehicletype.SelectedValue);
+        vehicle.VehicleNo = txtVehicleNo.Text;
 
         bool success = false;
         if (VehicleID > 0)
@@ -143,6 +144,7 @@ public partial class Vehiclemaster : System.Web.UI.Page
             txtInsuranceexpdate.Text = vehicle.InsuranceExpirationDate.GetValueOrDefault().ToShortDateString();
             txtTankcapacity.Text = vehicle.TankCapacity.ToString();
             txtVehiclecost.Text = Math.Ceiling(vehicle.VehicleCost).ToString();
+            txtVehicleNo.Text = vehicle.VehicleNo;
             ddlAc.SelectedValue = (vehicle.AC ? (int)YesNo.Yes : (int)YesNo.No).ToString();
             ddlFueltype.SelectedValue = vehicle.FuelType.ToString();
             ddlVehicletype.SelectedValue = vehicle.VehicleType.ToString();

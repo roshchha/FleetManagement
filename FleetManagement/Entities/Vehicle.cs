@@ -13,7 +13,7 @@ namespace FleetManagement.Entities
         public int VehicleID { get; set; }
 
         public string RegistrationNo { get; set; }
-
+        public string VehicleNo { get; set; }
         public int VehicleType { get; set; }
 
         public DateTime RegistrationDate { get; set; }
@@ -89,6 +89,7 @@ namespace FleetManagement.Entities
                 sqlParamList.Add(new SqlParameter("PurchaseDate", PurchaseDate));
                 sqlParamList.Add(new SqlParameter("InsuranceAmount", InsuranceAmount));
                 sqlParamList.Add(new SqlParameter("InsuranceExpirationDate", InsuranceExpirationDate));
+                sqlParamList.Add(new SqlParameter("VehicleNo", VehicleNo));
                 sqlParamList.Add(new SqlParameter("ObjectState", this.ObjState));
 
             }
@@ -105,6 +106,7 @@ namespace FleetManagement.Entities
         } 
 
     }
+
 
    
 }

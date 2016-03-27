@@ -9,6 +9,6 @@ namespace FleetManagement.Interfaces
 {
     interface IVehicleService : IEntityService<Vehicle>
     {
-        Enums.VehicleAvailabilityStatus ChooseVehicleForAllocation(int vehicleType, int fuelType, bool ac, bool driverNeeded, DateTime fromDate, DateTime toDate, out int vehicleID, out int? empID);
+        Enums.VehicleAvailabilityStatus ChooseVehicleForAllocation(int vehicleType, int fuelType, bool ac, bool driverNeeded, DateTime fromDate, DateTime toDate, out int vehicleID, out int? empID, out int tariffID);
     }
 }

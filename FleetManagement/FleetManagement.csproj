@@ -115,6 +115,7 @@
     <Content Include="BillingDetails.aspx" />
     <Content Include="Clientbooking.aspx" />
     <Content Include="customers.aspx" />
+    <Content Include="CustomersReport.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Default2.aspx" />
     <Content Include="designation.aspx" />
@@ -138,6 +139,7 @@
     <Content Include="ViewVehilcemaster.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accidentdetails.aspx.cs">
@@ -147,6 +149,7 @@
     <Compile Include="Accidentdetails.aspx.designer.cs">
       <DependentUpon>Accidentdetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\AccidentDetails.cs" />
     <Compile Include="BillingDetails.aspx.cs">
       <DependentUpon>BillingDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,6 +174,13 @@
     <Compile Include="customers.aspx.designer.cs">
       <DependentUpon>customers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomersReport.aspx.cs">
+      <DependentUpon>CustomersReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomersReport.aspx.designer.cs">
+      <DependentUpon>CustomersReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,6 +201,11 @@
     </Compile>
     <Compile Include="designation.aspx.designer.cs">
       <DependentUpon>designation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSCustomers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSCustomers.xsd</DependentUpon>
     </Compile>
     <Compile Include="Employeedetails.aspx.cs">
       <DependentUpon>Employeedetails.aspx</DependentUpon>
@@ -263,6 +278,7 @@
     <Compile Include="Service.aspx.designer.cs">
       <DependentUpon>Service.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Services\AccidentDetailsService.cs" />
     <Compile Include="Services\CustomerBillingService.cs" />
     <Compile Include="Services\CustomerBookingService.cs" />
     <Compile Include="Services\CustomerService.cs" />
@@ -349,10 +365,28 @@
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Fleetmanagement.master" />
     <Content Include="packages.config" />
+    <Content Include="DSCustomers.xsc">
+      <DependentUpon>DSCustomers.xsd</DependentUpon>
+    </Content>
+    <None Include="DSCustomers.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSCustomers.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DSCustomers.xss">
+      <DependentUpon>DSCustomers.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -368,6 +402,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RPTCustomers.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

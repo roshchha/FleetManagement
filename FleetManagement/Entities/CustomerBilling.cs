@@ -19,6 +19,7 @@ namespace FleetManagement.Entities
         public decimal GrossAmount { get; set; }
         public decimal Discount { get; set; }
 
+        public int TariffID { get; set; }
         public string DutySlipNo { get; set; }
 
         public DateTime? DutySlipDate { get; set; }

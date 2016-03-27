@@ -25,8 +25,10 @@ namespace FleetManagement.Entities
         public string Phone { get; set; }
         //non-table
         public string AltPhone { get; set; }
+        public string CustomerName { get; set; }
 
         public CustomerBilling BillingDetails { get; set; }
+        public Tariff TariffDetails { get; set; }
     }
 
 }

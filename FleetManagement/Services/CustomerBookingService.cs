@@ -48,6 +48,7 @@ namespace FleetManagement.Services
             customerBooking.Phone = item.GetValue("Phone");
             customerBooking.AltPhone = item.GetValue("AltPhone");
             customerBooking.GuestName = item.GetValue("GuestName");
+            customerBooking.CustomerName = item.GetValue("CustomerName");
             customerBooking.BillingDetails = new CustomerBilling();
             customerBooking.BillingDetails.BillingID = item.GetIntValue("BillingID");
             customerBooking.BillingDetails.BookingID = customerBooking.BookingID;
@@ -57,6 +58,15 @@ namespace FleetManagement.Services
             customerBooking.BillingDetails.OutMeterReading = item.GetLongValue("OutMeterReading");
             customerBooking.BillingDetails.Discount = item.GetDecimalValue("Discount") ?? 0;
             customerBooking.BillingDetails.GrossAmount = item.GetDecimalValue("GrossAmount") ?? 0;
+            customerBooking.BillingDetails.TariffID = item.GetIntValue("TariffID");
+            customerBooking.TariffDetails = new Tariff();
+            customerBooking.TariffDetails.TariffID = customerBooking.BillingDetails.TariffID;
+            customerBooking.TariffDetails.TariffCode = item.GetValue("TariffCode");
+            customerBooking.TariffDetails.StandCharges = item.GetDecimalValue("StandCharges") ?? 0;
+            customerBooking.TariffDetails.BasePrice = item.GetDecimalValue("BasePrice") ?? 0;
+            customerBooking.TariffDetails.ExtraHourRate = item.GetDecimalValue("ExtraHourRate") ?? 0;
+            customerBooking.TariffDetails.ExtraKmRate = item.GetDecimalValue("ExtraKmRate") ?? 0;
+            customerBooking.TariffDetails.Kms = item.GetIntValue("Kms");
 
             return customerBooking;
         }
@@ -77,6 +87,7 @@ namespace FleetManagement.Services
                 sqlParams.Add(new SqlParameter("Phone", customerBooking.Phone));
                 sqlParams.Add(new SqlParameter("VehicleID", vehicleAllocation.VehicleID));
                 sqlParams.Add(new SqlParameter("EmpID", vehicleAllocation.EmployeeID));
+                sqlParams.Add(new SqlParameter("TariffID", customerBooking.BillingDetails.TariffID));
 
                 object objBookingId = SqlHelper.ExecuteScalar("Create_CustomerBooking", sqlParams.ToArray());
                 int bookingId = Convert.ToInt32(objBookingId);

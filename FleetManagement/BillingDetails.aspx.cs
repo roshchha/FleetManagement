@@ -13,11 +13,12 @@ using FleetManagement.Services;
 using FleetManagement.Interfaces;
 using FleetManagement.Entities;
 using System.Collections.Generic;
-
+using System.Linq;
 public partial class BillingDetails : System.Web.UI.Page
 {
     ICustomerBookingService customerBookingService = new CustomerBookingService();
     List<CustomerBooking> pendingBookingsForBilling = new List<CustomerBooking>();
+    public CustomerBooking CurrentBooking = null;
     protected void Page_Load(object sender, EventArgs e)
     {
         lblMessage.Visible = false;
@@ -38,8 +39,10 @@ public partial class BillingDetails : System.Web.UI.Page
         }
         else
         {
+            pendingBookingsForBilling = Session["PendingBookingsForBilling"] as List<CustomerBooking>;
             int selBookingId = int.Parse(ddlBookingRef.SelectedValue);
-            if(selBookingId > 0 && (Session["BookingID"] == null || Session["BookingID"].ToString() != selBookingId.ToString()))
+            CurrentBooking = pendingBookingsForBilling.FirstOrDefault(b => b.BookingID == selBookingId);
+            if (CurrentBooking != null)
             {
 
             }
@@ -63,6 +66,8 @@ public partial class BillingDetails : System.Web.UI.Page
         //    }
         //}
     }
+
+   
     protected void txtInmeterreading_TextChanged(object sender, EventArgs e)
     {
 

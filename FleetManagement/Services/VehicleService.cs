@@ -68,10 +68,10 @@ namespace FleetManagement.Services
         /// <param name="toDate"></param>
         /// <param name="vehicleID"></param>
         /// <returns></returns>
-        public Enums.VehicleAvailabilityStatus ChooseVehicleForAllocation(int vehicleType, int fuelType, bool ac,bool driverNeeded, DateTime fromDate, DateTime toDate, out int vehicleID, out int? empId)
+        public Enums.VehicleAvailabilityStatus ChooseVehicleForAllocation(int vehicleType, int fuelType, bool ac,bool driverNeeded, DateTime fromDate, DateTime toDate, out int vehicleID, out int? empId, out int tariffID)
         {
             Enums.VehicleAvailabilityStatus vehicleAvailStatus = Enums.VehicleAvailabilityStatus.NONE;
-            vehicleID = 0; empId = null;
+            vehicleID = 0; empId = null; tariffID = 0;
             List<SqlParameter> sqlParams = new List<SqlParameter>();
             sqlParams.Add(new SqlParameter("VehicleType", vehicleType));
             sqlParams.Add(new SqlParameter("FuelType", fuelType));
@@ -88,16 +88,18 @@ namespace FleetManagement.Services
                 if (vehicleAvailStatus == Enums.VehicleAvailabilityStatus.Available)
                 {
                     vehicleID = ds.Tables[0].Rows[0].GetIntValue("VehicleID");
-                }
-                if (driverNeeded)
-                {
-                    empId = ds.Tables[0].Rows[0].GetIntValue("EmpID");
-                }
-                else
-                {
-                    empId = null;
-                }
+                    tariffID = ds.Tables[0].Rows[0].GetIntValue("TariffID");
+                    if (driverNeeded)
+                    {
+                        empId = ds.Tables[0].Rows[0].GetIntValue("EmpID");
+                    }
+                    else
+                    {
+                        empId = null;
+                    }
 
+                }
+              
             }
             return vehicleAvailStatus;
         }
@@ -119,6 +121,7 @@ namespace FleetManagement.Services
             vehicle.VehicleType = item.GetIntValue("VehicleType");
             vehicle.VehicleTypeName = item.GetValue("VehicleTypeName");
             vehicle.TankCapacity = item.GetIntValue("TankCapacity");
+            vehicle.VehicleNo = item.GetValue("VehicleNo");
 
             return vehicle;
         }

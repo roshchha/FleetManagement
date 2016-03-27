@@ -19,7 +19,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Label ID="lblVehicleno" runat="server" Text="Vehicle Num" meta:resourcekey="lblFirstNameResource1"></asp:Label>
+                                <asp:Label ID="lblVehicleno" runat="server" Text="Vehicle No" meta:resourcekey="lblFirstNameResource1"></asp:Label>
                             </td>
                             <td>
                                 <asp:DropDownList CssClass="form-control" ID="ddlVehicleno" runat="server">

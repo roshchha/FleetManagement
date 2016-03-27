@@ -45,9 +45,9 @@ public partial class Clientbooking : System.Web.UI.Page
         DateTime toDate = txtTodate.Text.ToDateTime();
         bool driverNeeded = chkDriverNeeded.Checked;
 
-        int vehicleToAllocate = 0;
+        int vehicleToAllocate = 0, tariffID = 0;
         int? driverToAllocate = null;
-       VehicleAvailabilityStatus vehicleAvailStatus = vehicleService.ChooseVehicleForAllocation(vehicleType, fuelType, ac,driverNeeded, fromDate, toDate, out vehicleToAllocate, out driverToAllocate);
+       VehicleAvailabilityStatus vehicleAvailStatus = vehicleService.ChooseVehicleForAllocation(vehicleType, fuelType, ac,driverNeeded, fromDate, toDate, out vehicleToAllocate, out driverToAllocate,out tariffID);
 
        if (vehicleAvailStatus == VehicleAvailabilityStatus.NONE)
        {
@@ -83,6 +83,8 @@ public partial class Clientbooking : System.Web.UI.Page
            customerBooking.DropPoint = txtDroppoint.Text;
            customerBooking.GuestName = txtGuestname.Text;
            customerBooking.CustomerID = int.Parse(ddlCustomername.SelectedValue);
+           customerBooking.BillingDetails = new CustomerBilling();
+           customerBooking.BillingDetails.TariffID = tariffID;
 
            FleetManagement.Entities.VehicleAllocation vehicleAllocation = new FleetManagement.Entities.VehicleAllocation();
            vehicleAllocation.VehicleID = vehicleToAllocate;
