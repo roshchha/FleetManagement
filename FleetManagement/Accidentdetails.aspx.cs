@@ -15,11 +15,13 @@ using FleetManagement;
 using FleetManagement.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using FleetManagement.Common;
 
 public partial class Accidentdetails : System.Web.UI.Page
 {
     IEntityService<Vehicle> vehicleService = new VehicleService();
     IEntityService<Employee> employeeService = new EmployeeService();
+    IEntityService<AccidentDetails> accidentDetailsService = new AccidentDetailsService();
     protected void Page_Load(object sender, EventArgs e)
     {
         lblMessage.Visible = false;
@@ -46,19 +48,44 @@ public partial class Accidentdetails : System.Web.UI.Page
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        //string insertDetails = "insert into accidentdetails values('" + ddlVehicleno.SelectedItem.Text + "', '" + txtAccidentdate.Text + "','" + txtAccidentlocation.Text + "','" + txtAccidentdetails.Text + "','" + txtNatureofdamage.Text + "','" + txtEstimatedcostofrepair.Text + "','" + ddlDrivername.SelectedItem.Text + "')";
-        //SqlCommand cmdInsert = new SqlCommand(insertDetails, con);
-        //con.Open();
-        //cmdInsert.ExecuteNonQuery();
-        //con.Close();
-        //lblMessage.Text = "Accident details added successfully";
-        //lblMessage.Visible = true;
-        //ddlVehicleno.SelectedIndex = 0;
-        //txtEstimatedcostofrepair.Text = "";
-        //txtAccidentdate.Text = "";
-        //txtAccidentdetails.Text = "";
-        //txtAccidentlocation.Text = "";
-        //txtNatureofdamage.Text = "";
-        //ddlDrivername.SelectedIndex = 0;
+        try
+        {
+            AccidentDetails accidentDetails = new AccidentDetails();
+            accidentDetails.AccidentDate = txtAccidentdate.Text.ToDateTime();
+            accidentDetails.AccidentDesc = txtAccidentdetails.Text;
+            accidentDetails.AccidentLocation = txtAccidentlocation.Text;
+            accidentDetails.Damage = txtNatureofdamage.Text;
+            accidentDetails.EmployeeID = int.Parse(ddlDrivername.SelectedValue);
+            if (accidentDetails.EmployeeID == 0) accidentDetails.EmployeeID = null;
+            accidentDetails.RepairCost = decimal.Parse(txtEstimatedcostofrepair.Text);
+            accidentDetails.VehicleID = int.Parse(ddlVehicleno.SelectedValue);
+
+            if (accidentDetailsService.Insert(accidentDetails))
+            {
+                lblMessage.Text = "Accident details added successfully";
+                lblMessage.Visible = true;
+            }
+            else
+            {
+                lblMessage.Text = "Error adding accident details";
+                lblMessage.Visible = true;
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }
+        ClearEntries();
+        
+    }
+    private void ClearEntries()
+    {
+        ddlVehicleno.SelectedIndex = 0;
+        txtEstimatedcostofrepair.Text = "";
+        txtAccidentdate.Text = "";
+        txtAccidentdetails.Text = "";
+        txtAccidentlocation.Text = "";
+        txtNatureofdamage.Text = "";
+        ddlDrivername.SelectedIndex = 0;
     }
 }
