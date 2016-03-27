@@ -3,27 +3,26 @@
     
   <div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header">Add Accident Details</h3>
+            <h3 class="page-header">Billing Details</h3>
         </div>
     </div>
     <div  class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Personal Information</div>
+                <div class="panel-heading"></div>
                 <div class="panel-body">
                     <table align="center">
-                         <tr>
-                          <td>
-                              <asp:Label ID="lblDutyslipno" runat="server" Text="Duty Slip no"></asp:Label>&nbsp;
-                          </td>
-                          <td>
-                              <asp:DropDownList CssClass="form-control" ID="ddldutyslipno" runat="server" AutoPostBack="True">
-                              </asp:DropDownList>
-                          </td>
-                          <td style="width: 209px">
-                              <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="ddldutyslipno" InitialValue="Select" SetFocusOnError="True" ValidationGroup="first">Select Slip No</asp:RequiredFieldValidator>
-                          </td>
-                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblBookingRef" Text="Booking Reference" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlBookingRef" runat="server" AutoPostBack="true" />
+                            </td>
+                            <td>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="ddlBookingRef" InitialValue="Select" SetFocusOnError="True" ValidationGroup="first">Select</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>             
                         <tr>
                             <td><asp:Label ID="lblCustomername" runat="server" Text="Customer Name"></asp:Label>&nbsp;</td>
                             <td>
@@ -115,19 +114,7 @@
                                 <asp:TextBox CssClass="form-control" ID="txtDriver" runat="server" ReadOnly="True"></asp:TextBox>
                             </td>
                         </tr>
-                                    <%--<tr>
-                 
-                        <td>
-                            <asp:Label ID="lblGarageoutdate" runat="server" Text="Garage out Date"></asp:Label>&nbsp;
-                        </td>
-                        <td>
-                            <asp:TextBox CssClass="form-control" ID="txtGarageoutdate" runat="server"></asp:TextBox>
-                        </td>
-                        <td>
-                        <asp:Label ID="lblGarageouttime" runat="server" Text="Garage out Time"></asp:Label>&nbsp;:
-                         <asp:TextBox CssClass="form-control" ID="TextBox6" runat="server"></asp:TextBox>
-                         </td>
-                        </tr>--%>
+                                
 
                         <tr>
                             <td><asp:Label ID="lblMeterreading" runat="server" Text="Meter Reading"></asp:Label>&nbsp;</td>
@@ -137,18 +124,7 @@
                                 <%--<asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="*" ControlToCompare="txtInmeterreading" ControlToValidate="txtOutmeterreading" Operator="LessThan"></asp:CompareValidator>--%>
                             </td>
                         </tr>     
-                        <%--<tr>
-                        <td>
-                            <asp:Label ID="lblGarageindate" runat="server" Text="Garage In Date"></asp:Label>&nbsp;
-                        </td>
-                        <td>
-                            <asp:TextBox CssClass="form-control" ID="txtGarageindate" runat="server"></asp:TextBox>
-                        </td>
-                        <td>
-                        <asp:Label ID="lblGarageintime" runat="server" Text="Garage In Time"></asp:Label>&nbsp;:
-                        <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server"></asp:TextBox>
-                        </td>
-                        </tr>--%>
+                       
 
                         <tr>
                             <td><asp:Label ID="lblInmeterreading" runat="server" Text="In Meter Reading"></asp:Label>&nbsp;</td>

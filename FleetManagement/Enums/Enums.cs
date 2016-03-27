@@ -29,4 +29,12 @@ namespace FleetManagement.Enums
         India = 1,
         Others = 2
     }
+    public enum VehicleAvailabilityStatus
+    {
+        NONE = 0,
+        AllBooked = 1,
+        NotAvailableForSelectedOptions = 2,
+        Available = 3,
+        NoDriverAvailable = 4
+    }
 }

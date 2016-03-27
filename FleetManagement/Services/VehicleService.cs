@@ -10,7 +10,7 @@ using System.Web;
 
 namespace FleetManagement.Services
 {
-    public class VehicleService : IEntityService<Vehicle>
+    public class VehicleService : IEntityService<Vehicle>, IVehicleService
     {
         /// <summary>
         /// 
@@ -58,6 +58,49 @@ namespace FleetManagement.Services
             return obj.Manage();
         }
 
+        /// <summary>
+        /// Get vehicle availability status and top available vehicle id
+        /// </summary>
+        /// <param name="vehicleType"></param>
+        /// <param name="fuelType"></param>
+        /// <param name="ac"></param>
+        /// <param name="fromDate"></param>
+        /// <param name="toDate"></param>
+        /// <param name="vehicleID"></param>
+        /// <returns></returns>
+        public Enums.VehicleAvailabilityStatus ChooseVehicleForAllocation(int vehicleType, int fuelType, bool ac,bool driverNeeded, DateTime fromDate, DateTime toDate, out int vehicleID, out int? empId)
+        {
+            Enums.VehicleAvailabilityStatus vehicleAvailStatus = Enums.VehicleAvailabilityStatus.NONE;
+            vehicleID = 0; empId = null;
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            sqlParams.Add(new SqlParameter("VehicleType", vehicleType));
+            sqlParams.Add(new SqlParameter("FuelType", fuelType));
+            sqlParams.Add(new SqlParameter("AC", ac));
+            sqlParams.Add(new SqlParameter("FromDate", fromDate));
+            sqlParams.Add(new SqlParameter("ToDate", toDate));
+            sqlParams.Add(new SqlParameter("DriverNeeded", driverNeeded));
+
+            DataSet ds = SqlHelper.ExecuteDataset("ChooseVehicleForAllocation", sqlParams.ToArray());
+            if (ds.ValidDataSet())
+            {
+                int status = ds.Tables[0].Rows[0].GetIntValue("VehicleAvailStatus");
+                vehicleAvailStatus = (Enums.VehicleAvailabilityStatus)status;
+                if (vehicleAvailStatus == Enums.VehicleAvailabilityStatus.Available)
+                {
+                    vehicleID = ds.Tables[0].Rows[0].GetIntValue("VehicleID");
+                }
+                if (driverNeeded)
+                {
+                    empId = ds.Tables[0].Rows[0].GetIntValue("EmpID");
+                }
+                else
+                {
+                    empId = null;
+                }
+
+            }
+            return vehicleAvailStatus;
+        }
         public Vehicle Fill(System.Data.DataRow item)
         {
             Vehicle vehicle = new Vehicle();

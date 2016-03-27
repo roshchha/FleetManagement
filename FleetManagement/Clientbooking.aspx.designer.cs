@@ -75,22 +75,76 @@ public partial class Clientbooking {
     protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
     
     /// <summary>
-    /// lblAddress control.
+    /// lblFueltype control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblAddress;
+    protected global::System.Web.UI.WebControls.Label lblFueltype;
     
     /// <summary>
-    /// txtAddress control.
+    /// ddlFueltype control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox txtAddress;
+    protected global::System.Web.UI.WebControls.DropDownList ddlFueltype;
+    
+    /// <summary>
+    /// RequiredFieldValidator11 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
+    
+    /// <summary>
+    /// lblAc control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblAc;
+    
+    /// <summary>
+    /// ddlAc control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList ddlAc;
+    
+    /// <summary>
+    /// RequiredFieldValidator12 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
+    
+    /// <summary>
+    /// lblNoOfSeating control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblNoOfSeating;
+    
+    /// <summary>
+    /// ddlNoOfSeating control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList ddlNoOfSeating;
     
     /// <summary>
     /// RequiredFieldValidator3 control.
@@ -138,40 +192,22 @@ public partial class Clientbooking {
     protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
     
     /// <summary>
-    /// lblEmail control.
+    /// lblDriverNeeded control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblEmail;
+    protected global::System.Web.UI.WebControls.Label lblDriverNeeded;
     
     /// <summary>
-    /// txtEmail control.
+    /// chkDriverNeeded control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox txtEmail;
-    
-    /// <summary>
-    /// RequiredFieldValidator10 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
-    
-    /// <summary>
-    /// RegularExpressionValidator1 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+    protected global::System.Web.UI.WebControls.CheckBox chkDriverNeeded;
     
     /// <summary>
     /// lblGuestname control.

@@ -161,7 +161,6 @@
                                 <asp:TextBox CssClass="form-control" ID="txtEmailid" runat="server" meta:resourcekey="txtEmailidResource1"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="*" ControlToValidate="txtEmailid" meta:resourcekey="RequiredFieldValidator12Resource1"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator id="RegularExpressionValidator2" runat="server" SetFocusOnError="True" ControlToValidate="txtEmailid" ErrorMessage="*" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Eg: proj@g.com</asp:RegularExpressionValidator>
                             </td>
                         </tr>

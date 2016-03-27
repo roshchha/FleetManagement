@@ -22,6 +22,11 @@
                                 <asp:BoundField DataField="VehicleTypeName" HeaderText="Vehicle" SortExpression="VehicleTypeName" />
                                 <asp:BoundField DataField="RegistrationNo" HeaderText="Registration No" SortExpression="RegistrationNo" ReadOnly="true" />
                                 <asp:BoundField DataField="FuelTypeName" HeaderText="Fuel" SortExpression="FuelTypeName" />
+                                <asp:TemplateField HeaderText="Has AC">
+                                    <ItemTemplate>
+                                        <%#Boolean.Parse(Eval("AC").ToString()) ? "Yes" : "No" %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Purchase Date">
                                     <ItemTemplate>
                                         <%#Eval("PurchaseDate","{0:dd MMM yyyy}") %>
@@ -52,6 +57,7 @@
                 "aoColumns": [
                                 null,
                                 null, //put as many null values as your columns
+                                null,
                                 null,
                                 null,
                                 null,

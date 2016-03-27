@@ -398,19 +398,10 @@ function ds_onclick(d, m, y) {
                             <td><asp:TextBox CssClass="form-control" ID="txtSeating" runat="server"></asp:TextBox></td>
                             <td><asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*" ControlToValidate="txtSeating">Num of Seating required</asp:RequiredFieldValidator></td>
                         </tr>
-                        <%--<tr>
-                        <td><asp:Label ID="lblMeterreading" runat="server" Text="Meter Reading"></asp:Label></td>
-                        <td>
-                            <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server"></asp:TextBox></td>
-                        <td></td>
-                        </tr>--%>
                         <tr>
                             <td><asp:Label ID="lblAc" runat="server" Text="A/C "></asp:Label></td>
                             <td>
                                 <asp:DropDownList CssClass="form-control" ID="ddlAc" runat="server">
-                                    <asp:ListItem Value="Select">Select</asp:ListItem>
-                                    <asp:ListItem Value="Yes">Yes</asp:ListItem>
-                                    <asp:ListItem Value="No">No</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                             <td><asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*" ControlToValidate="ddlAc" InitialValue="Select">Select</asp:RequiredFieldValidator></td>

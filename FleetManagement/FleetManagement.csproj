@@ -207,12 +207,16 @@
       <DependentUpon>Employees.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\CustomerBilling.cs" />
+    <Compile Include="Entities\CustomerBooking.cs" />
     <Compile Include="Entities\Designation.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Tariff.cs" />
     <Compile Include="Entities\Vehicle.cs" />
+    <Compile Include="Entities\VehicleAllocation.cs" />
     <Compile Include="Entities\VehicleType.cs" />
+    <Compile Include="Interfaces\ICustomerBookingService.cs" />
     <Compile Include="Interfaces\IEntityService.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="Fleetmanagement.master.cs">
@@ -229,6 +233,7 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IVehicleService.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -258,9 +263,12 @@
     <Compile Include="Service.aspx.designer.cs">
       <DependentUpon>Service.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Services\CustomerBillingService.cs" />
+    <Compile Include="Services\CustomerBookingService.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\TariffService.cs" />
+    <Compile Include="Services\VehicleAllocationService.cs" />
     <Compile Include="Services\VehicleService.cs" />
     <Compile Include="Services\VehicleTypeService.cs" />
     <Compile Include="Startup.cs" />
@@ -361,7 +369,6 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

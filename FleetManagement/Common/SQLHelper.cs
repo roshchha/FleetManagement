@@ -19,7 +19,7 @@ namespace FleetManagement.Common
         {
             get
             {
-                return System.Configuration.ConfigurationManager.ConnectionStrings["connect"].ConnectionString;        
+                return System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;        
             }
         }
 

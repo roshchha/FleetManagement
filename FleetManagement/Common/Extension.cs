@@ -27,6 +27,11 @@ namespace FleetManagement.Common
             string data = dr.Table.Columns.Contains(columnName) && dr[columnName] != DBNull.Value ? dr[columnName].ToString() : null;
             return (string.IsNullOrEmpty(data)) ? 0 : int.Parse(data);
         }
+        public static long GetLongValue(this System.Data.DataRow dr, string columnName)
+        {
+            string data = dr.Table.Columns.Contains(columnName) && dr[columnName] != DBNull.Value ? dr[columnName].ToString() : null;
+            return (string.IsNullOrEmpty(data)) ? 0 : long.Parse(data);
+        }
 
         public static decimal? GetDecimalValue(this System.Data.DataRow dr, string columnName)
         {
