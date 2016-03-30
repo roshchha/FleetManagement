@@ -9,34 +9,46 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
+using FleetManagement.Interfaces;
+using FleetManagement.Services;
+using System.Collections.Generic;
+using FleetManagement.Entities;
+using System.Linq;
+using FleetManagement.Common;
 
 public partial class Service : System.Web.UI.Page
 {
-    SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["connect"]);
+    IVehicleService verhicleService = new VehicleService();
+    IEntityService<ServiceLog> serviceLogService = new ServiceLogService();
     protected void Page_Load(object sender, EventArgs e)
     {
         lblMessage.Visible = false;
         if (!IsPostBack)
         {
-            string getvehicleno = "select regno from a_vehiclemaster";          
-            SqlDataAdapter daGetvehicleno = new SqlDataAdapter(getvehicleno, con);
-            DataSet dsGetvehicleno = new DataSet();
-            daGetvehicleno.Fill(dsGetvehicleno, "regno");          
-            ddlVehicleno.DataSource = dsGetvehicleno;
-            ddlVehicleno.DataValueField = "regno";            
-            ddlVehicleno.DataBind();
-            ddlVehicleno.Items.Insert(0, new ListItem("Select"));
+           List<Vehicle> lstVehicles = verhicleService.Get();
+
+
+           ddlVehicleno.DataSource = lstVehicles.Select(v => new { VehicleID = v.VehicleID, VehicleNo = v.VehicleNo });
+           ddlVehicleno.DataValueField = "VehicleID";
+           ddlVehicleno.DataTextField = "VehicleNo";
+           ddlVehicleno.DataBind();
+           ddlVehicleno.Items.Insert(0, new ListItem("Select"));
           
         }
 
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        string insertDetails = "insert into servicelog  values('" + ddlVehicleno.SelectedItem.Text + "', '" + txtServicingdate.Text + "','" + txtMeterReading.Text + "','" + txtReasonforservice.Text + "','" + txtExpenditureonspares.Text + "','" + txtExpenditureonmanpower.Text + "','" + txtNextservicedate.Text + "')";
-        SqlCommand cmdInsert = new SqlCommand(insertDetails, con);
-        con.Open();
-        cmdInsert.ExecuteNonQuery();
-        con.Close();
+        ServiceLog obj = new ServiceLog();
+        obj.LabourExpenditure = decimal.Parse(txtExpenditureonmanpower.ToString());
+        obj.MileageReading = int.Parse(txtMeterReading.Text);
+        obj.NextServiceDate = txtNextservicedate.Text.ToDateTime();
+        obj.SentDate = txtServicingdate.Text.ToDateTime();
+        obj.ServiceReason = txtReasonforservice.Text;
+        obj.SpareExpenditure = decimal.Parse(txtExpenditureonspares.Text);
+        obj.VehicleID = int.Parse(ddlVehicleno.SelectedValue);
+        serviceLogService.Insert(obj);
+       
         lblMessage.Text = "Accident details added successfully";
         lblMessage.Visible = true;
         ddlVehicleno.SelectedIndex = 0;

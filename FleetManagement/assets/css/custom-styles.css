@@ -13,7 +13,7 @@ body {
   background: #32C2CD url(../img/bg-img.jpg) !important;
   
 }
-body.home{
+body.home, row.home{
 background: rgba(0, 0, 0, 0.05) url(../img/homepage-img.jpg) !important;
 background-size:100% auto!important;
 background-repeat:no-repeat;

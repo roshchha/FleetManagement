@@ -12,22 +12,36 @@
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <asp:GridView ID="grdClient"  CssClass="table table-striped table-bordered table-hover" runat="server" AutoGenerateColumns="False" OnRowEditing="grdClient_RowEditing" OnRowUpdating="grdClient_RowUpdating" OnRowCancelingEdit="grdClient_RowCancelingEdit" AllowPaging="True" OnPageIndexChanging="grdClient_PageIndexChanging" PageSize="5" OnRowDeleting="grdClient_RowDeleting">
+                        <asp:GridView ID="grdClient"  CssClass="table table-striped table-bordered table-hover" runat="server" OnPreRender="grdClient_PreRender" AutoGenerateColumns="False" AllowPaging="False" PageSize="10" >
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <input id="Hidden1" type="hidden" value='<%# Eval("bookingid") %>' runat="server" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="customername" HeaderText="Name" SortExpression="customername" />
-                                <asp:BoundField DataField="phoneno" HeaderText="Phone No" SortExpression="phoneno" />
-                                <asp:BoundField DataField="email" HeaderText="Email Id" SortExpression="email" />
-                                <asp:BoundField DataField="PickupPoint" HeaderText="Pickup Point" SortExpression="pickup"></asp:BoundField>
+                                <asp:BoundField DataField="BookingRef" HeaderText="Booking Reference No" SortExpression="BookingRef" />
+                                <asp:TemplateField HeaderText="Booking Date">
+                                    <ItemTemplate>
+                                        <%#Eval("BookingDate","{0:dd MMM yyyy}") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="Phone" HeaderText="Phone No" SortExpression="Phone" />
+                                <asp:BoundField DataField="GuestName" HeaderText="Guest Name" SortExpression="GuestName" />
+                                <asp:BoundField DataField="PickupPoint" HeaderText="Pickup Point" SortExpression="PickupPoint"></asp:BoundField>
                                 <asp:BoundField DataField="droppoint" HeaderText="Drop Point" SortExpression="droppoint"></asp:BoundField>
-                                <asp:BoundField DataField="fromdate" HeaderText="Pickup Date" SortExpression="fromdate" />
-                                <asp:BoundField DataField="DriverName" HeaderText="Driver" SortExpression="driver" ReadOnly="true" />
-                                <asp:CommandField HeaderText="Edit" ShowDeleteButton="True" ShowEditButton="True"
-                                    ShowHeader="True" />
+                                 <asp:TemplateField HeaderText="From Date">
+                                    <ItemTemplate>
+                                        <%#Eval("FromDate","{0:dd MMM yyyy}") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                 <asp:TemplateField HeaderText ="To Date">
+                                    <ItemTemplate>
+                                        <%#Eval("ToDate","{0:dd MMM yyyy}") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                               <%-- <asp:CommandField HeaderText="Edit" ShowDeleteButton="True" ShowEditButton="True"
+                                    ShowHeader="True" />--%>
                             </Columns>
                         </asp:GridView>
                     </div>
@@ -56,6 +70,7 @@
                                 null,
                                 null,
                                 null
+                                
 
 
                 ]

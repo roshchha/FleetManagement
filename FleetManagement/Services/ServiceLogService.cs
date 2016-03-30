@@ -19,9 +19,9 @@ namespace FleetManagement.Services
             List<ServiceLog> serviceLogs = new List<ServiceLog>();
             if (ID > 0)
             {
-                sqlParams.Add(new SqlParameter("CustomerID", ID));
+                sqlParams.Add(new SqlParameter("ID", ID));
             }
-            DataSet ds = SqlHelper.ExecuteDataset("Get_Customer", sqlParams.ToArray());
+            DataSet ds = SqlHelper.ExecuteDataset("Get_ServiceLog", sqlParams.ToArray());
             if (ds.ValidDataSet())
             {
                 foreach (DataRow row in ds.Tables[0].Rows)
@@ -47,7 +47,7 @@ namespace FleetManagement.Services
         public bool Delete(int ID)
         {
             ServiceLog obj = new ServiceLog();
-            obj.Id = ID;
+            obj.ID = ID;
             obj.ObjState = Enums.ObjectState.DELETE;
             if (obj.Validate())
             {
@@ -60,7 +60,7 @@ namespace FleetManagement.Services
         {
             if (item == null) return null;
             ServiceLog serviceLog = new ServiceLog();
-            serviceLog.Id                   = item.GetIntValue("ID");
+            serviceLog.ID                   = item.GetIntValue("ID");
             serviceLog.VehicleID            = item.GetIntValue("VehicleID");
             serviceLog.SentDate             = item.GetDateTimeValue("SentDate");
             serviceLog.MileageReading       = item.GetIntValue("MileageReading");
@@ -69,6 +69,7 @@ namespace FleetManagement.Services
             serviceLog.LabourExpenditure    = item.GetDecimalValue("LabourExpenditure");
             serviceLog.NextServiceDate      = item.GetDateTimeValue("NextServiceDate");
             serviceLog.InsertTimeStamp      = item.GetDateTimeValue("InsertTimeStamp");
+            serviceLog.VehicleNo            = item.GetValue("VehicleNo");
             return serviceLog;
         }
     }

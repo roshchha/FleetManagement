@@ -10,9 +10,10 @@ namespace FleetManagement.Entities
 {
     public class ServiceLog : BaseEntity
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         public int VehicleID { get; set; }
+        public string VehicleNo { get; set; }
 
         public DateTime SentDate { get; set; }
 
@@ -47,7 +48,7 @@ namespace FleetManagement.Entities
 
             if (ObjState == ObjectState.DELETE)
             {
-                sqlParamList.Add(new SqlParameter("@Id", Id));
+                sqlParamList.Add(new SqlParameter("@ID", ID));
             }
             else
             {
@@ -66,7 +67,7 @@ namespace FleetManagement.Entities
         }
         public bool Validate()
         {
-            if (this.Id <= 0)
+            if (this.ID <= 0)
             {
                 return false;
             }

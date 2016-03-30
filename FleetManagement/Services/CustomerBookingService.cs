@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using FleetManagement.Common;
+
 
 namespace FleetManagement.Services
 {
@@ -15,7 +15,16 @@ namespace FleetManagement.Services
     {
         public List<CustomerBooking> Get(int ID = 0)
         {
-            throw new NotImplementedException();
+            List<CustomerBooking> custBooking = new List<CustomerBooking>();
+            DataSet ds = SqlHelper.ExecuteDataset("Get_CustomerBooking", new SqlParameter[] { });
+            if (ds.ValidDataSet())
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    custBooking.Add(Fill(row));
+                }
+            }
+            return custBooking;
         }
 
         public bool Insert(CustomerBooking obj)
@@ -58,6 +67,7 @@ namespace FleetManagement.Services
             customerBooking.BillingDetails.OutMeterReading = item.GetLongValue("OutMeterReading");
             customerBooking.BillingDetails.Discount = item.GetDecimalValue("Discount") ?? 0;
             customerBooking.BillingDetails.GrossAmount = item.GetDecimalValue("GrossAmount") ?? 0;
+            customerBooking.BillingDetails.TotalAmount = item.GetDecimalValue("TotalAmount") ?? 0;
             customerBooking.BillingDetails.TariffID = item.GetIntValue("TariffID");
             customerBooking.TariffDetails = new Tariff();
             customerBooking.TariffDetails.TariffID = customerBooking.BillingDetails.TariffID;
