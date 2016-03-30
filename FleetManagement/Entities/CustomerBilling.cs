@@ -23,7 +23,7 @@ namespace FleetManagement.Entities
         public string DutySlipNo { get; set; }
 
         public DateTime? DutySlipDate { get; set; }
-
+        public bool Billing { get; set; }
 
         //public bool Validate()
         //{

@@ -16,10 +16,12 @@ body {
 body.home{
 background: rgba(0, 0, 0, 0.05) url(../img/homepage-img.jpg) !important;
 background-size:100% auto!important;
+background-repeat:no-repeat;
 }
 .home .section-content{margin-top:80px;}
 .home .section-content h1{font-size:44px;margin-bottom:10px;}
 .home .section-content h2{font-size:24px;color:#4f5c61;}
+.errorText{color:red;}
 table tr td{padding-bottom:5px;}
 .table-responsive{overflow:hidden;}
  #wrapper {
@@ -95,7 +97,7 @@ position: fixed;
   top: 80px;
   height:auto;
  /* bottom:0;*/
-  overflow-y:scroll!important;
+  /*overflow-y:scroll!important;*/
   
 }
 .jspContainer{height:1200px!important;}

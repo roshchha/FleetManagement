@@ -8,7 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using Management;
+
 using System.Data.SqlClient;
 using FleetManagement;
 using FleetManagement.Services;
@@ -41,7 +41,8 @@ public partial class VehicleTypes : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-
+            lblMessage.Text = "Error inserting data";
+            lblMessage.Visible = true;
         }
     }
 }

@@ -15,7 +15,7 @@ public partial class Fleetmanagement : System.Web.UI.MasterPage
     {
         if (!this.Page.User.Identity.IsAuthenticated)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("Default.aspx");
         }
     }
 }

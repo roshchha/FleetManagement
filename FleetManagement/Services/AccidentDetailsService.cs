@@ -11,11 +11,21 @@ namespace FleetManagement.Services
 {
     public class AccidentDetailsService : IEntityService<AccidentDetails>
     {
+        /// <summary>
+        /// Get accident details
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         public List<AccidentDetails> Get(int ID = 0)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Insert accident details
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Insert(AccidentDetails obj)
         {
             List<SqlParameter> sqlParams = new List<SqlParameter>();

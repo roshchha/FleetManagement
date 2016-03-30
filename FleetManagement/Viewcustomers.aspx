@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="Viewcustomers.aspx.cs" Inherits="Viewcustomers" Title="Untitled Page" %>
+<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="Viewcustomers.aspx.cs" Inherits="Viewcustomers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="row">

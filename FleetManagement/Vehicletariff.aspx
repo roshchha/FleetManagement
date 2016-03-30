@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="Vehicletariff.aspx.cs" Inherits="Vehicletariff" Title="Untitled Page" %>
+<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="Vehicletariff.aspx.cs" Inherits="Vehicletariff" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     <div class="row">
@@ -25,14 +25,14 @@
                                 </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="ddlVehicletype" InitialValue="Select"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="ddlVehicletype" InitialValue="Select"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <%--<tr>
                         <td><asp:Label ID="lblBaseprice" runat="server" Text="Base Price"></asp:Label>&nbsp;</td>
                         <td>
                             <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox></td>
-                        <td><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*"></asp:RequiredFieldValidator></td>
+                        <td><asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator2" runat="server" ErrorMessage="*"></asp:RequiredFieldValidator></td>
                         </tr>--%>
                         <tr>
                             <td><asp:Label ID="lblAc" runat="server" Text="A/C"></asp:Label>&nbsp;</td>
@@ -41,7 +41,7 @@
                                 </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="ddlAc" InitialValue="Select"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="ddlAc" InitialValue="Select"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                          <tr>
@@ -51,7 +51,7 @@
                                 </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*" ControlToValidate="ddlFuelType" InitialValue="Select"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator8" runat="server" ErrorMessage="*" ControlToValidate="ddlFuelType" InitialValue="Select"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
 
@@ -59,7 +59,7 @@
                         <td><asp:Label ID="lblPrice" runat="server" Text="Price per Km"></asp:Label>&nbsp;</td>
                         <td>
                             <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server"></asp:TextBox></td>
-                        <td><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*"></asp:RequiredFieldValidator></td>
+                        <td><asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator4" runat="server" ErrorMessage="*"></asp:RequiredFieldValidator></td>
                         </tr>--%>
                         <tr>
                             <td>
@@ -69,7 +69,7 @@
                                 <asp:TextBox CssClass="form-control" ID="txtBaseprice" runat="server"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtBaseprice" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtBaseprice" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -80,7 +80,7 @@
                                 <asp:TextBox CssClass="form-control" ID="txtKms" runat="server"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtKms"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtKms"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -91,7 +91,7 @@
                                 <asp:TextBox CssClass="form-control" ID="txtExtrakm" runat="server"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="txtExtrakm"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="txtExtrakm"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -102,7 +102,7 @@
                                 <asp:TextBox CssClass="form-control" ID="txtExtrahour" runat="server"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ControlToValidate="txtExtrahour"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ControlToValidate="txtExtrahour"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -111,7 +111,7 @@
                                 <asp:TextBox CssClass="form-control" ID="txtStandcharges" runat="server"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*" ControlToValidate="txtStandcharges"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator7" runat="server" ErrorMessage="*" ControlToValidate="txtStandcharges"></asp:RequiredFieldValidator>
 
                             </td>
                         </tr>

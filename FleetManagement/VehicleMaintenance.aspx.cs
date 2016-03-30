@@ -8,7 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using Management;
+
 using System.Data.SqlClient;
 
 public partial class VehicleMaintenance : System.Web.UI.Page
@@ -19,14 +19,14 @@ public partial class VehicleMaintenance : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            Cabs objGetvehicles = new Cabs();
-            DataSet dsGetvehicles = new DataSet();
-            dsGetvehicles = objGetvehicles.getVehicles();
-            ddlVehicletype.DataSource = dsGetvehicles;
-            ddlVehicletype.DataTextField = "vehicleName";
-            ddlVehicletype.DataBind();
-            ddlVehicletype.Items.Insert(0, "Select");
-            ddlVehicleno.Items.Insert(0, "Select");
+            //Cabs objGetvehicles = new Cabs();
+            //DataSet dsGetvehicles = new DataSet();
+            //dsGetvehicles = objGetvehicles.getVehicles();
+            //ddlVehicletype.DataSource = dsGetvehicles;
+            //ddlVehicletype.DataTextField = "vehicleName";
+            //ddlVehicletype.DataBind();
+            //ddlVehicletype.Items.Insert(0, "Select");
+            //ddlVehicleno.Items.Insert(0, "Select");
         }
         lblMessage.Visible = false;
         //if (ddlVehicletype.SelectedItem.Text != "Select")

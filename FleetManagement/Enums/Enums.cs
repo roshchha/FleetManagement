@@ -5,6 +5,9 @@ using System.Web;
 
 namespace FleetManagement.Enums
 {
+    /// <summary>
+    /// databse object state
+    /// </summary>
     public enum ObjectState
     {
         NONE = 0,
@@ -12,11 +15,17 @@ namespace FleetManagement.Enums
         UPDATE = 2,
         DELETE = 3
     }
+    /// <summary>
+    /// Yes or no
+    /// </summary>
     public enum YesNo
     {
         No = 0,
         Yes = 1
     }
+    /// <summary>
+    /// Fuel type
+    /// </summary>
     public enum FuelType 
     {
         Select = 0,
@@ -29,6 +38,9 @@ namespace FleetManagement.Enums
         India = 1,
         Others = 2
     }
+    /// <summary>
+    /// Availability status of vehicle
+    /// </summary>
     public enum VehicleAvailabilityStatus
     {
         NONE = 0,

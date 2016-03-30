@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="Clientbooking.aspx.cs" Inherits="Clientbooking" Title="Untitled Page" %>
+<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="Clientbooking.aspx.cs" Inherits="Clientbooking" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
@@ -25,7 +25,7 @@
                                 <asp:DropDownList CssClass="form-control" ID="ddlCustomername" runat="server"></asp:DropDownList>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="ddlCustomername" SetFocusOnError="True" InitialValue="Select">Name Reqiured</asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="ddlCustomername" SetFocusOnError="True" InitialValue="Select">Name Reqiured</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -36,7 +36,7 @@
                                 <asp:DropDownList CssClass="form-control" ID="ddlVehicletype" runat="server"></asp:DropDownList>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="ddlVehicletype" InitialValue="Select">Select Vehicle</asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="ddlVehicletype" InitialValue="Select">Select Vehicle</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                          <tr>
@@ -45,7 +45,7 @@
                                 <asp:DropDownList CssClass="form-control" ID="ddlFueltype" runat="server">
                                 </asp:DropDownList>
                             </td>
-                            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="*" ControlToValidate="ddlFueltype" InitialValue="Select" SetFocusOnError="True">Select Fuel</asp:RequiredFieldValidator></td>
+                            <td><asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator11" runat="server" ErrorMessage="*" ControlToValidate="ddlFueltype" InitialValue="Select" SetFocusOnError="True">Select Fuel</asp:RequiredFieldValidator></td>
                         </tr>
                          <tr>
                             <td><asp:Label ID="lblAc" runat="server" Text="A/C "></asp:Label></td>
@@ -53,7 +53,7 @@
                                 <asp:DropDownList CssClass="form-control" ID="ddlAc" runat="server">
                                 </asp:DropDownList>
                             </td>
-                            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="*" ControlToValidate="ddlAc" InitialValue="Select">Select</asp:RequiredFieldValidator></td>
+                            <td><asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator12" runat="server" ErrorMessage="*" ControlToValidate="ddlAc" InitialValue="Select">Select</asp:RequiredFieldValidator></td>
                         </tr>
                          <tr>
                             <td><asp:Label ID="lblNoOfSeating" runat="server" Text="NoOfSeating "></asp:Label></td>
@@ -67,7 +67,7 @@
                                     <asp:ListItem Value="4">10</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
-                            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="ddlNoOfSeating" InitialValue="Select">Select</asp:RequiredFieldValidator></td>
+                            <td><asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="ddlNoOfSeating" InitialValue="Select">Select</asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
                             <td style="width: 146px">
@@ -77,7 +77,7 @@
                                 <asp:TextBox CssClass="form-control" ID="txtPhoneno" runat="server" MaxLength="13"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtPhoneno"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtPhoneno"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtPhoneno" SetFocusOnError="True" ValidationExpression="^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$">Eg: 9885098850</asp:RegularExpressionValidator>
                             </td>
                         </tr>
@@ -103,7 +103,7 @@
                             <td>
                                 <asp:TextBox CssClass="form-control" ID="txtGuestname" runat="server"></asp:TextBox></td>
                             <td>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="txtGuestname" SetFocusOnError="True">Name Required</asp:RequiredFieldValidator></td>
+                            <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="txtGuestname" SetFocusOnError="True">Name Required</asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
                             <td style="width: 146px">
@@ -113,7 +113,7 @@
                                 <asp:TextBox CssClass="form-control" ID="txtPickup" runat="server" TextMode="MultiLine"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ControlToValidate="txtPickup" SetFocusOnError="True">Pickup Address Required</asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ControlToValidate="txtPickup" SetFocusOnError="True">Pickup Address Required</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -124,7 +124,7 @@
                                 <asp:TextBox CssClass="form-control" ID="txtDroppoint" runat="server" TextMode="MultiLine"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*" ControlToValidate="txtDroppoint" SetFocusOnError="True">Address Required</asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator7" runat="server" ErrorMessage="*" ControlToValidate="txtDroppoint" SetFocusOnError="True">Address Required</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -135,7 +135,7 @@
                                 <asp:TextBox ID="txtFromdate" CssClass="form-control" runat="server"></asp:TextBox>      
                             </td>
                             <td valign="bottom">
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*" ControlToValidate="txtFromdate">Date Required</asp:RequiredFieldValidator>&nbsp;
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator8" runat="server" ErrorMessage="*" ControlToValidate="txtFromdate">Date Required</asp:RequiredFieldValidator>&nbsp;
                             </td>
                         </tr>
                         <tr>
@@ -146,7 +146,7 @@
                                 <asp:TextBox CssClass="form-control" ID="txtTodate" runat="server"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="*" ControlToValidate="txtTodate">Date Required</asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator9" runat="server" ErrorMessage="*" ControlToValidate="txtTodate">Date Required</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>

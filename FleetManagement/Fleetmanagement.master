@@ -57,12 +57,12 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i><%=FleetManagement.Common.Common.GetUserName(this.Page) %></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
+                        <%--<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>--%>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="Default.aspx?SOut=1"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -75,26 +75,26 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a href="Employees.aspx"><i class="fa fa-dashboard"></i> Add Employees</a>
+                        <a href="Employees.aspx"><i class="fa fa-edit"></i> Add Employees</a>
                     </li>
                     <li>
-                        <a href="VehicleType.aspx"><i class="fa fa-desktop"></i> Add Vehicle Type</a>
+                        <a href="VehicleType.aspx"><i class="fa fa-edit"></i> Add Vehicle Type</a>
                     </li>
 					<li>
-                        <a href="Vehiclemaster.aspx"><i class="fa fa-bar-chart-o"></i> Add Vehicle Details</a>
+                        <a href="Vehiclemaster.aspx"><i class="fa fa-edit"></i> Add Vehicle Details</a>
                     </li>
-                    <li>
-                        <a href="Vehicletariff.aspx" class="active-menu"><i class="fa fa-table"></i>Add Vehicle Tariffs</a>
+                    <li><!--active-menu-->
+                        <a href="Vehicletariff.aspx" class=""><i class="fa fa-edit"></i>Add Vehicle Tariffs</a>
                     </li>
                      <li>
-                        <a href="customers.aspx"><i class="fa fa-qrcode"></i> Add Customers</a>
+                        <a href="customers.aspx"><i class="fa fa-edit"></i> Add Customers</a>
                     </li>
                     <li>
                         <a href="Clientbooking.aspx"><i class="fa fa-edit"></i> Customer Booking </a>
                     </li>
-                    <li>
+                   <%-- <li>
                         <a href="VehicleAllocation.aspx"><i class="fa fa-edit"></i> Vehicle Allocation </a>
-                    </li>
+                    </li>--%>
                     <li>
                         <a href="BillingDetails.aspx"><i class="fa fa-edit"></i> Billing Details </a>
                     </li>
@@ -105,16 +105,16 @@
                         <a href="Accidentdetails.aspx"><i class="fa fa-edit"></i> Add Accident Details </a>
                     </li>
                     <li>
-                        <a href="viewcustomers.aspx"><i class="fa fa-edit"></i> View Customers </a>
+                        <a href="viewcustomers.aspx"><i class="fa fa-desktop"></i> View Customers </a>
                     </li>
                     <li>
-                        <a href="EmployeeDetails.aspx"><i class="fa fa-edit"></i> View Employee Details </a>
+                        <a href="EmployeeDetails.aspx"><i class="fa fa-desktop"></i> View Employee Details </a>
                     </li>
                     <li>
-                        <a href="viewclientbooking.aspx"><i class="fa fa-edit"></i> View Customer Booking Details </a>
+                        <a href="viewclientbooking.aspx"><i class="fa fa-desktop"></i> View Customer Booking Details </a>
                     </li>
                     <li>
-                        <a href="ViewVehilcemaster.aspx"><i class="fa fa-edit"></i> View Vehicle Details </a>
+                        <a href="ViewVehilcemaster.aspx"><i class="fa fa-desktop"></i> View Vehicle Details </a>
                     </li>
 
                     <li>

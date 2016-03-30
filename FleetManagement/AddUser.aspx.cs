@@ -5,15 +5,15 @@ using System;
 using System.Linq;
 using System.Web;
 
-namespace FleetManagement
-{
-    public partial class Register : System.Web.UI.Page
+
+    public partial class AddUser : System.Web.UI.Page
     {
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var userStore = new UserStore<IdentityUser>();
             var manager = new UserManager<IdentityUser>(userStore);
 
+            
             if(Password.Text.Equals(ConfirmPassword.Text))
             {
                 StatusMessage.Text = "password & confirm password do not match!";
@@ -24,10 +24,10 @@ namespace FleetManagement
 
             if (result.Succeeded)
             {
-                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-                authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
-                Response.Redirect("~/Login.aspx");
+                //var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                //var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                //authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
+                //Response.Redirect("~/Default.aspx");
             }
             else
             {
@@ -36,4 +36,3 @@ namespace FleetManagement
         }
     }
 
-}

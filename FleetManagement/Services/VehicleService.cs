@@ -13,7 +13,7 @@ namespace FleetManagement.Services
     public class VehicleService : IEntityService<Vehicle>, IVehicleService
     {
         /// <summary>
-        /// 
+        /// Get vehicles
         /// </summary>
         /// <param name="ID">Registration No</param>
         /// <returns></returns>

@@ -9,50 +9,41 @@
 
 
 
-public partial class Default2 {
+public partial class AddUser {
     
     /// <summary>
-    /// TextBox1 control.
+    /// StatusMessage control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox TextBox1;
+    protected global::System.Web.UI.WebControls.Literal StatusMessage;
     
     /// <summary>
-    /// date control.
+    /// UserName control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox date;
+    protected global::System.Web.UI.WebControls.TextBox UserName;
     
     /// <summary>
-    /// ListBox1 control.
+    /// Password control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ListBox ListBox1;
+    protected global::System.Web.UI.WebControls.TextBox Password;
     
     /// <summary>
-    /// DropDownList1 control.
+    /// ConfirmPassword control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-    
-    /// <summary>
-    /// Button1 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button1;
+    protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
 }

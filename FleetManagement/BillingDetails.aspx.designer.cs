@@ -39,22 +39,31 @@ public partial class BillingDetails {
     protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
     
     /// <summary>
-    /// lblMeterreading control.
+    /// lblOutMeterreading control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblMeterreading;
+    protected global::System.Web.UI.WebControls.Label lblOutMeterreading;
     
     /// <summary>
-    /// txtOutmeterreading control.
+    /// txtOutMeterReading control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox txtOutmeterreading;
+    protected global::System.Web.UI.WebControls.TextBox txtOutMeterReading;
+    
+    /// <summary>
+    /// RequiredFieldValidator6 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
     
     /// <summary>
     /// lblInmeterreading control.
@@ -66,22 +75,175 @@ public partial class BillingDetails {
     protected global::System.Web.UI.WebControls.Label lblInmeterreading;
     
     /// <summary>
-    /// txtInmeterreading control.
+    /// txtInMeterReading control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox txtInmeterreading;
+    protected global::System.Web.UI.WebControls.TextBox txtInMeterReading;
     
     /// <summary>
-    /// CompareValidator2 control.
+    /// RequiredFieldValidator7 control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+    
+    /// <summary>
+    /// lblExtraHours control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblExtraHours;
+    
+    /// <summary>
+    /// txtExtraHours control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtExtraHours;
+    
+    /// <summary>
+    /// lblStandCharges control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblStandCharges;
+    
+    /// <summary>
+    /// chkStandCharges control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.CheckBox chkStandCharges;
+    
+    /// <summary>
+    /// lblAmtPaid control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblAmtPaid;
+    
+    /// <summary>
+    /// chkPaid control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.CheckBox chkPaid;
+    
+    /// <summary>
+    /// lblDutySlipNo control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblDutySlipNo;
+    
+    /// <summary>
+    /// txtDutySlipNo control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtDutySlipNo;
+    
+    /// <summary>
+    /// lblDutySlipDate control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblDutySlipDate;
+    
+    /// <summary>
+    /// txtDutySlipDate control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtDutySlipDate;
+    
+    /// <summary>
+    /// lblGrossAmount control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblGrossAmount;
+    
+    /// <summary>
+    /// txtGrossAmount control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtGrossAmount;
+    
+    /// <summary>
+    /// lblDiscount control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblDiscount;
+    
+    /// <summary>
+    /// txtDiscount control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtDiscount;
+    
+    /// <summary>
+    /// lblTotalAmount control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblTotalAmount;
+    
+    /// <summary>
+    /// txtTotalAmount control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtTotalAmount;
+    
+    /// <summary>
+    /// btnCalculate control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button btnCalculate;
     
     /// <summary>
     /// btnSubmit control.

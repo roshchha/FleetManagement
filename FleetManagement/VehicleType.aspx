@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="VehicleType.aspx.cs" Inherits="VehicleTypes" Title="Untitled Page" %>
+<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="VehicleType.aspx.cs" Inherits="VehicleTypes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="row">
          <div class="col-lg-12">
@@ -15,7 +15,7 @@
                             <td><asp:Label ID="lblName" runat="server" Text="Vehicle Name"></asp:Label>&nbsp;</td>
                             <td><asp:TextBox ID="txtName" runat="server" CssClass="form-control" AutoCompleteType="Disabled"></asp:TextBox></td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName"
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName"
                                 ErrorMessage="Vehicle name Required" SetFocusOnError="True"/>&nbsp;
                             </td>
                         </tr>

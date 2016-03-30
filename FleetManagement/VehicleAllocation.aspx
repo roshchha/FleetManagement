@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="VehicleAllocation.aspx.cs" Inherits="VehicleAllocation" Title="Untitled Page" %>
+<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="VehicleAllocation.aspx.cs" Inherits="VehicleAllocation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
@@ -303,7 +303,7 @@
                                     <asp:ListItem>Select</asp:ListItem>
                                 </asp:DropDownList></td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Select ID" ControlToValidate="ddlBookingid" InitialValue="Select" SetFocusOnError="True"></asp:RequiredFieldValidator></td>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Select ID" ControlToValidate="ddlBookingid" InitialValue="Select" SetFocusOnError="True"></asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
                             <td style="height: 26px">Customer Name</td>
@@ -326,7 +326,7 @@
                                 <asp:TextBox CssClass="form-control" ID="txtVehicleno" runat="server"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="txtVehicleno" SetFocusOnError="True">Vehicle no required</asp:RequiredFieldValidator></td>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="txtVehicleno" SetFocusOnError="True">Vehicle no required</asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
                             <td>
@@ -381,7 +381,7 @@
                                 <asp:DropDownList CssClass="form-control" ID="ddlDriver" runat="server">
                                 </asp:DropDownList></td>
                             <td>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="ddlDriver" InitialValue="Select">Select Driver</asp:RequiredFieldValidator></td>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="ddlDriver" InitialValue="Select">Select Driver</asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
                             <td colspan="2" align="center">

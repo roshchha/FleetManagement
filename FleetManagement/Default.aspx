@@ -50,6 +50,46 @@
             <h1>Control the chaos <br>of fleet management</h1>
             <h2>Get visibility into fleet operations with CabsPro</h2>
             <br>
+
+            <form id="form1" runat="server">
+                <div class="panel panel-default col-md-5 center-block">
+                    <div class="panel-heading">Log In</div>
+                    <div class="panel-body">
+   
+                        <asp:PlaceHolder runat="server" ID="LoginStatus" Visible="false">
+                            <span style="color:red;">
+                                <asp:Literal runat="server" ID="StatusText" />
+                            </span>
+                        </asp:PlaceHolder>
+                        <asp:PlaceHolder runat="server" ID="LoginForm" Visible="false">
+                            <div style="margin-bottom: 5px">
+                               <asp:Label runat="server" AssociatedControlID="UserName">User name</asp:Label>
+                               <div>
+                                  <asp:TextBox CssClass="form-control" runat="server" ID="UserName" />
+                               </div>
+                            </div>
+                            <div style="margin-bottom: 5px">
+                               <asp:Label runat="server" AssociatedControlID="Password">Password</asp:Label>
+                               <div>
+                                  <asp:TextBox CssClass="form-control" runat="server" ID="Password" TextMode="Password" />
+                               </div>
+                            </div>
+                            <div style="margin-bottom: 5px">
+                               <div>
+                                  <asp:Button runat="server" CssClass="btn btn-primary" OnClick="SignIn" Text="Log in" />
+                               </div>
+                            </div>
+                        </asp:PlaceHolder>
+                        <asp:PlaceHolder runat="server" ID="LogoutButton" Visible="false">
+                            <div>
+                               <div>
+                                  <asp:Button runat="server" CssClass="btn btn-primary" OnClick="SignOut" Text="Log out" />
+                               </div>
+                            </div>
+                         </asp:PlaceHolder>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
          

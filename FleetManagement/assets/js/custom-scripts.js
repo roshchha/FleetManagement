@@ -207,7 +207,7 @@
 
     $(document).ready(function () {
         mainApp.initFunction();
-        $('.navbar-side').jScrollPane();
+       // $('.navbar-side').jScrollPane();
 		$("#sideNav").click(function(){
 			if($(this).hasClass('closed')){
 				$('.navbar-side').animate({left: '0px'});
