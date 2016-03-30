@@ -165,7 +165,6 @@
     <Content Include="VehicleDetailsReport.aspx" />
     <Content Include="VehicleType.aspx" />
     <Content Include="VehicleAllocation.aspx" />
-    <Content Include="VehicleMaintenance.aspx" />
     <Content Include="Vehiclemaster.aspx" />
     <Content Include="Vehicletariff.aspx" />
     <Content Include="Viewclientbooking.aspx" />
@@ -355,13 +354,6 @@
     </Compile>
     <Compile Include="VehicleAllocation.aspx.designer.cs">
       <DependentUpon>VehicleAllocation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="VehicleMaintenance.aspx.cs">
-      <DependentUpon>VehicleMaintenance.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="VehicleMaintenance.aspx.designer.cs">
-      <DependentUpon>VehicleMaintenance.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vehiclemaster.aspx.cs">
       <DependentUpon>Vehiclemaster.aspx</DependentUpon>
