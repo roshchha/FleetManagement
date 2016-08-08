@@ -21,6 +21,24 @@ public partial class AddUser {
     protected global::System.Web.UI.WebControls.Literal StatusMessage;
     
     /// <summary>
+    /// TXTEmail control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox TXTEmail;
+    
+    /// <summary>
+    /// RequiredFieldValidator5 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+    
+    /// <summary>
     /// UserName control.
     /// </summary>
     /// <remarks>

@@ -21,7 +21,7 @@ using System.Web.Security;
             }
             else
             {
-                var user = new IdentityUser() { UserName = UserName.Text };
+                var user = new IdentityUser() { UserName = UserName.Text , Email = TXTEmail.Text };
                 IdentityResult result = manager.Create(user, Password.Text);
 
                 if (result.Succeeded)

@@ -7,11 +7,16 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register a new user</div>
                 <div class="panel-body">
-
-
                     <p>
                         <asp:Literal runat="server" ID="StatusMessage"/>
                     </p>
+                    <div style="margin-bottom: 10px">
+                        <asp:Label runat="server" AssociatedControlID="UserName">Email</asp:Label>
+                        <div>
+                            <asp:TextBox CssClass="form-control" runat="server" ID="TXTEmail" />
+                            <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator5" runat="server" ErrorMessage="Enter LastName" ControlToValidate="TXTLName" InitialValue="" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
                     <div style="margin-bottom: 10px">
                         <asp:Label runat="server" AssociatedControlID="UserName">User name</asp:Label>
                         <div>
