@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Home" description="" url="" >
+    <siteMapNode url="" title="Employee Details"  description="" cssClass="">
+      <siteMapNode url="Employees.aspx" title="Add Employee"  description=""  cssClass="fa fa-edit" />
+      <siteMapNode url="EmployeeDetails.aspx" title="View Employee Details"  description="" cssClass="fa fa-desktop" />
+    </siteMapNode>
+    <siteMapNode url="" title="Customer Details"  description="" cssClass="">
+      <siteMapNode url="customers.aspx" title="Add Customer"  description="" cssClass="fa fa-edit" />
+      <siteMapNode url="viewcustomers.aspx" title="View Customer Details"  description="" cssClass="fa fa-desktop" />
+    </siteMapNode>
+    <siteMapNode url="" title="Booking"  description="" cssClass="">
+      <siteMapNode url="Clientbooking.aspx" title="Customer Booking"  description="" cssClass="fa fa-edit" />
+      <siteMapNode url="viewclientbooking.aspx" title="View Customer Booking Details"  description="" cssClass="fa fa-desktop" />
+    </siteMapNode>
+    <siteMapNode url="" title="Vehicle"  description="" cssClass="">
+      <siteMapNode url="VehicleType.aspx" title="Add Vehicle Type"  description="" cssClass="fa fa-edit" />
+      <siteMapNode url="Vehiclemaster.aspx" title="Add Vehicle Details"  description="" cssClass="fa fa-edit" />
+      <siteMapNode url="Vehicletariff.aspx" title="Add Vehicle Tariffs"  description="" cssClass="fa fa-edit" />
+      <siteMapNode url="ViewVehilcemaster.aspx" title="View Vehicle Details"  description="" cssClass="fa fa-desktop" />
+    </siteMapNode>
+    <siteMapNode url="BillingDetails.aspx" title="Billing Details" roles="Admin" description="" cssClass="fa fa-edit" />
+    <siteMapNode url="service.aspx" title="Add Service Details"  description="" cssClass="fa fa-edit" />
+    <siteMapNode url="Accidentdetails.aspx" title="Add Accident Details"  description="" cssClass="fa fa-edit" />
+    <siteMapNode url="" title="Reports"  description="" roles="Admin" cssClass="fa fa-sitemap">
+      <siteMapNode url="BookingReport.aspx" title="Booking Details"  description="" cssClass="fa fa-desktop" />
+      <siteMapNode url="VehicleDetailsReport.aspx" title="Vehicle Details"  description="" cssClass="fa fa-desktop" />
+      <siteMapNode url="CustomersReport.aspx" title="Customer Details"  description="" cssClass="fa fa-desktop" />
+      <!--<siteMapNode url="billingdetailsrpt.aspx" title="Billing Details"  description="" cssClass="fa fa-desktop" />
+      <siteMapNode url="servicedetailsrpt.aspx" title="Service Details"  description="" cssClass="fa fa-desktop" />
+      <siteMapNode url="accidentdetailsrpt.aspx" title="Accident Details"  description="" cssClass="fa fa-desktop" />
+      <siteMapNode url="Employeerpt.aspx" title="Employee Details"  description="" cssClass="fa fa-desktop" />-->
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
