@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -42,7 +43,7 @@ public partial class _Default : System.Web.UI.Page
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-
+            
             authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
             Response.Redirect("~/Home.aspx");
         }

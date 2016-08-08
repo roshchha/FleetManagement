@@ -49,4 +49,9 @@ namespace FleetManagement.Enums
         Available = 3,
         NoDriverAvailable = 4
     }
+    public enum UserRoles
+    {
+        Admin = 1,
+        Member = 2
+    }
 }

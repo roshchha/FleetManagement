@@ -1,2 +1,0 @@
-# FleetManagement
-College project

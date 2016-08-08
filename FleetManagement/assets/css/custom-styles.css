@@ -10,7 +10,8 @@ http://creativecommons.org/licenses/by/3.0/
 ------------------------------------------------*/
 body {
     font-family: 'Open Sans', sans-serif;
-  background: #32C2CD url(../img/bg-img.jpg) !important;
+    background:#e6e6e6;
+  /*background: #32C2CD url(../img/bg-img.jpg) !important;*/
   
 }
 body.home, row.home{
@@ -30,7 +31,7 @@ table tr td{padding-bottom:5px;}
 
 #page-wrapper {
     padding: 15px 15px;
-    min-height: 600px;
+    /*min-height: 600px;*/
     background: #E6E6E6;
 }
 #page-inner {
@@ -38,7 +39,7 @@ table tr td{padding-bottom:5px;}
     margin:10px 20px 10px 0px;
     background-color:transparent;
     padding:10px;
-    min-height:1200px;
+    /*min-height:1200px;*/
 }
 
 .text-center {
@@ -78,7 +79,7 @@ border-radius:0px;
 }
 .navbar-side .nav > li > a > i{
 color: #FFFFFF;
-padding: 8px;
+padding-left: 8px;
 width: 30px;
 text-align: center;
 }
@@ -94,7 +95,7 @@ position: fixed;
   z-index: 1;
   position: fixed;
   width: 260px;
-  top: 80px;
+  top: 50px;
   height:auto;
  /* bottom:0;*/
   /*overflow-y:scroll!important;*/
@@ -477,6 +478,7 @@ color: #fff !important;
 
 .fa.arrow:before {
     content: "\f104";
+    font-size:16px;
 }
 
 .active > a > .fa.arrow:before {
@@ -490,7 +492,7 @@ color: #fff !important;
 }
 
 .nav-second-level li a {
-    padding-left: 37px;
+    padding:5px 5px 5px 20px;
 }
 
 .nav-third-level li a {
@@ -498,6 +500,9 @@ color: #fff !important;
 }
 .sidebar-collapse , .sidebar-collapse .nav{
 	background:none;
+}
+.sidebar-collapse{
+    margin-top:20px;
 }
 .sidebar-collapse .nav {
 	padding:0;
@@ -508,18 +513,23 @@ color: #fff !important;
 	text-shadow:none;
 }
 .sidebar-collapse > .nav > li > a {
-	padding: 10px 10px;
+    padding: 10px 10px;
 }
+.sidebar-collapse > .nav > li > a :hover{
+    color:#f2f2f2;
+}
+
 .sidebar-collapse > .nav > li {
 	border-bottom: 1px solid rgba(107, 108, 109, 0.19);
 }
 ul.nav.nav-second-level.collapse.in {
-background: #096E75;
+background: #37B3BE;
 }
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
 	 
 	outline:0;
+    color:#f2f2f2;
 }
  
 .navbar-side {
@@ -608,7 +618,7 @@ line-height: 1.428571429;
                margin: 0 0 0 260px;
         padding: 15px 30px;
         
-               min-height: 1200px;
+               /*min-height: 1200px;*/
 		
     }
 	
@@ -616,6 +626,7 @@ line-height: 1.428571429;
     .navbar-side {
         width: 260px;
         z-index: 1;
+        height:100%;
     }
 
    .navbar {

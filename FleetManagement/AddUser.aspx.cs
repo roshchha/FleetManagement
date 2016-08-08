@@ -4,6 +4,7 @@ using Microsoft.Owin.Security;
 using System;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 
 
     public partial class AddUser : System.Web.UI.Page
@@ -13,25 +14,28 @@ using System.Web;
             var userStore = new UserStore<IdentityUser>();
             var manager = new UserManager<IdentityUser>(userStore);
 
-            
-            if(Password.Text.Equals(ConfirmPassword.Text))
-            {
-                StatusMessage.Text = "password & confirm password do not match!";
-            }
 
-            var user = new IdentityUser() { UserName = UserName.Text };
-            IdentityResult result = manager.Create(user, Password.Text);
-
-            if (result.Succeeded)
+            if (!Password.Text.Equals(ConfirmPassword.Text))
             {
-                //var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                //var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-                //authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
-                //Response.Redirect("~/Default.aspx");
+                StatusMessage.Text = "<span class='errorText'>Password & Confirm Password do not match</span>!";
             }
             else
             {
-                StatusMessage.Text = result.Errors.FirstOrDefault();
+                var user = new IdentityUser() { UserName = UserName.Text };
+                IdentityResult result = manager.Create(user, Password.Text);
+
+                if (result.Succeeded)
+                {
+                    short role = UserRoles.SelectedValue == "-1" ? (short)2 : Convert.ToInt16(UserRoles.SelectedValue);
+                    string roleName = ((FleetManagement.Enums.UserRoles)role).ToString();
+                    Roles.AddUserToRole(UserName.Text, roleName);
+                    StatusMessage.Text = "<span class='errorText'>User Added Successfully!</span>";
+                    UserName.Text = "";
+                }
+                else
+                {
+                    StatusMessage.Text = "<span class='errorText'>"+result.Errors.FirstOrDefault()+"</span>";
+                }
             }
         }
     }

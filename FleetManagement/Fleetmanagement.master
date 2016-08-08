@@ -57,8 +57,12 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i><%=FleetManagement.Common.Common.GetUserName(this.Page) %></a>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i><%=FleetManagement.Common.Common.GetUserName(this.Page) %></a>
                         </li>
+                        <%if(FleetManagement.Common.Common.IsAdminUser(Page)){ %>
+                         <li><a href="AddUser.aspx"><i class="fa fa-sign-out fa-fw"></i>Add New User</a>
+                        <%} %>
                         <%--<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>--%>
                         <li class="divider"></li>
@@ -72,75 +76,34 @@
         </nav>
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
+               <%-- <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />--%>
+                <asp:SiteMapDataSource ID="DefaultSiteMapDataSource" SiteMapProvider="DefaultSiteMapProvider" runat="server" ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="AdminSiteMapDataSource" SiteMapProvider="AdminSiteMapProvider" runat="server" ShowStartingNode="false" />
                 <ul class="nav" id="main-menu">
-
-                    <li>
-                        <a href="Employees.aspx"><i class="fa fa-edit"></i> Add Employees</a>
-                    </li>
-                    <li>
-                        <a href="VehicleType.aspx"><i class="fa fa-edit"></i> Add Vehicle Type</a>
-                    </li>
-					<li>
-                        <a href="Vehiclemaster.aspx"><i class="fa fa-edit"></i> Add Vehicle Details</a>
-                    </li>
-                    <li><!--active-menu-->
-                        <a href="Vehicletariff.aspx" class=""><i class="fa fa-edit"></i>Add Vehicle Tariffs</a>
-                    </li>
-                     <li>
-                        <a href="customers.aspx"><i class="fa fa-edit"></i> Add Customers</a>
-                    </li>
-                    <li>
-                        <a href="Clientbooking.aspx"><i class="fa fa-edit"></i> Customer Booking </a>
-                    </li>
+        <asp:Repeater ID="NodesRPT" runat="server" >
+            <ItemTemplate>    
+                  <li>  
+                  <a href="<%#Eval("url") %>"><i class="<%#Eval("[cssClass]") %>"></i> <%#Eval("title") %>
+                      <%#Eval("url") == string.Empty ? "<span class=\"fa arrow\">" : "" %></span>
+                  </a>                 
+                    <asp:Repeater ID="ChildNodesRPT" runat="server" DataSource='<%# ((SiteMapNode) Container.DataItem).ChildNodes %>'>
+                        <ItemTemplate>
+                            <%#Container.ItemIndex == 0 ? "<ul class=\"nav nav-second-level\">" : "" %>
+                            <li>
+                                 <a href="<%#Eval("url") %>"><i class="<%#Eval("[cssClass]") %>"></i> <%#Eval("title") %></a>
+                            </li>
+                             <%#Container.ItemIndex == (((Container.Parent as Repeater).DataSource as IList).Count-1)? "</ul>" : "" %>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </li>
+           
+            </ItemTemplate>
+            </asp:Repeater>
+                     </ul>
+                                 
                    <%-- <li>
                         <a href="VehicleAllocation.aspx"><i class="fa fa-edit"></i> Vehicle Allocation </a>
                     </li>--%>
-                    <li>
-                        <a href="BillingDetails.aspx"><i class="fa fa-edit"></i> Billing Details </a>
-                    </li>
-                     <li>
-                        <a href="service.aspx"><i class="fa fa-edit"></i> Add Service Details </a>
-                    </li>
-                    <li>
-                        <a href="Accidentdetails.aspx"><i class="fa fa-edit"></i> Add Accident Details </a>
-                    </li>
-                    <li>
-                        <a href="viewcustomers.aspx"><i class="fa fa-desktop"></i> View Customers </a>
-                    </li>
-                    <li>
-                        <a href="EmployeeDetails.aspx"><i class="fa fa-desktop"></i> View Employee Details </a>
-                    </li>
-                    <li>
-                        <a href="viewclientbooking.aspx"><i class="fa fa-desktop"></i> View Customer Booking Details </a>
-                    </li>
-                    <li>
-                        <a href="ViewVehilcemaster.aspx"><i class="fa fa-desktop"></i> View Vehicle Details </a>
-                    </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Reports<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="Employeerpt.apsx">Employee Details</a>
-                            </li>
-                            <li>
-                                <a href="billingdetailsrpt.aspx">Billing Details</a>
-                            </li>
-                             <li>
-                                <a href="servicedetailsrpt.aspx"> Service Details</a>
-                            </li>
-                             <li>
-                                <a href="vehiclemasterrpt.aspx">Vehicle Details</a>
-                            </li>
-                             <li>
-                                <a href="accidentdetailsrpt.aspx">Accident Details</a>
-                            </li>
-                             <li>
-                                <a href="customersrpt.aspx">Customer Details</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
 
             </div>
         </nav>

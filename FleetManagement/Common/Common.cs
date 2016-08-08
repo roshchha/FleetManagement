@@ -4,11 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using System.Web.UI;
 
 namespace FleetManagement.Common
 {
     public class Common
     {
+        #region Properties
+        public static string HomePageLink
+        {
+            get { return System.Configuration.ConfigurationSettings.AppSettings["HomePageLink"].ToString(); }
+        }
+        #endregion
+
+        #region Methods
         /// <summary>
         /// This will return liste item array from enum
         /// </summary>
@@ -25,5 +34,10 @@ namespace FleetManagement.Common
         {
             return string.Format("Hello {0}!", page.User.Identity.GetUserName());
         }
+        public static bool IsAdminUser(Page page){
+            return page.User.IsInRole("Admin");
+        }
+
+        #endregion
     }
 }
