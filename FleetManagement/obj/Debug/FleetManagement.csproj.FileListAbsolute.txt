@@ -1,8 +1,6 @@
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\FleetManagement.dll.config
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\FleetManagement.dll
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\FleetManagement.pdb
-E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\FleetManagement.dll
-E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\FleetManagement.pdb
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\EntityFramework.dll
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\EntityFramework.SqlServer.dll
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\Microsoft.AspNet.Identity.Core.dll
@@ -28,4 +26,6 @@ E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\Microsoft.Owin.
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\bin\Newtonsoft.Json.xml
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\RdlCompile.cache
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\RdlCompile.compiled
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\FleetManagement.dll
+E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\FleetManagement.pdb
 E:\Roshni\IGNOU-Sem6-Project\FleetManagement\FleetManagement\obj\Debug\FleetManagement.csprojResolveAssemblyReference.cache

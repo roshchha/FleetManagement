@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -127,5 +128,37 @@ namespace FleetManagement.Services
            }
            return custBookings;
         }
+
+         public List<BookingLight> GetMonthlyBookingCount()
+        {
+            List<BookingLight> bookingCountList = new List<BookingLight>();
+            DataSet ds = SqlHelper.ExecuteDataset("GET_MonthlyBookingCount", new SqlParameter[] { });
+            if (ds.ValidDataSet())
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                  DateTimeFormatInfo datetimeFormat = new DateTimeFormatInfo();
+                    CultureInfo cultureInfo = new CultureInfo("en-US");
+                    DateTime dt = Convert.ToDateTime(row.GetValue("BookingDate"),cultureInfo.DateTimeFormat);
+                    string dateStr = dt.ToString("dd MMM yy");
+                    bookingCountList.Add(new BookingLight { BookingDateTime = dt, BookingDate = dateStr, BookingCount = row.GetIntValue("BookingCount") });
+                    
+                }
+                DateTime today = DateTime.Today;
+                for (int i = 0; i < 30; i++)
+                {
+                    DateTime dt = today.AddDays(-i);
+                    string dateStr = dt.ToString("dd MMM yy");
+                    if (!bookingCountList.Any(b => b.BookingDateTime == dt))
+                    {
+                        bookingCountList.Add(new BookingLight {BookingDateTime =dt, BookingDate = dateStr, BookingCount = 0 });
+                    }
+                }
+                bookingCountList.Sort((a, b) => a.BookingDateTime.CompareTo(b.BookingDateTime));
+               
+            }
+            return bookingCountList;
+        }
     }
+
 }

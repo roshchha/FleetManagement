@@ -149,6 +149,7 @@
     <Content Include="assets\js\morris\raphael-2.1.0.min.js" />
     <Content Include="BillingDetails.aspx" />
     <Content Include="BookingReport.aspx" />
+    <Content Include="ChangePassword.aspx" />
     <Content Include="Clientbooking.aspx" />
     <Content Include="customers.aspx" />
     <Content Include="CustomersReport.aspx" />
@@ -163,6 +164,7 @@
     <Content Include="Error.aspx" />
     <Content Include="Service.aspx" />
     <Content Include="StyleSheet.css" />
+    <Content Include="UserDetails.aspx" />
     <Content Include="VehicleDetailsReport.aspx" />
     <Content Include="VehicleType.aspx" />
     <Content Include="VehicleAllocation.aspx" />
@@ -185,12 +187,20 @@
     <Compile Include="Accidentdetails.aspx.designer.cs">
       <DependentUpon>Accidentdetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="BookingReport.aspx.cs">
       <DependentUpon>BookingReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BookingReport.aspx.designer.cs">
       <DependentUpon>BookingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entities\AccidentDetails.cs" />
     <Compile Include="BillingDetails.aspx.cs">
@@ -257,6 +267,7 @@
     <Compile Include="Employees.aspx.designer.cs">
       <DependentUpon>Employees.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BookingLight.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\CustomerBilling.cs" />
     <Compile Include="Entities\CustomerBooking.cs" />
@@ -339,6 +350,13 @@
     <Compile Include="Services\VehicleService.cs" />
     <Compile Include="Services\VehicleTypeService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="UserDetails.aspx.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserDetails.aspx.designer.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="VehicleDetailsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

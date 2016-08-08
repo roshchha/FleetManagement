@@ -89,6 +89,7 @@ namespace FleetManagement.Services
                 {
                     vehicleID = ds.Tables[0].Rows[0].GetIntValue("VehicleID");
                     tariffID = ds.Tables[0].Rows[0].GetIntValue("TariffID");
+                    if (tariffID == 0) { tariffID = 1; }//deafult
                     if (driverNeeded)
                     {
                         empId = ds.Tables[0].Rows[0].GetIntValue("EmpID");

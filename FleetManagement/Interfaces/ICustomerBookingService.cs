@@ -11,5 +11,6 @@ namespace FleetManagement.Interfaces
     {
         bool CreateCustomerBooking(CustomerBooking customerBooking, Entities.VehicleAllocation vehicleAllocation);
         List<CustomerBooking> GetPendingBookingsForBilling();
-    }
+        List<BookingLight> GetMonthlyBookingCount();
+        }
 }

@@ -94,6 +94,7 @@ public partial class Clientbooking : System.Web.UI.Page
            {
 
                lblMessage.Text = "Booking created successfully";
+               clearFields();
                lblMessage.Visible = true;
                return;
            }
@@ -134,5 +135,19 @@ public partial class Clientbooking : System.Web.UI.Page
         customers.ForEach(c => {
             ddlCustomername.Items.Add(new ListItem(c.Name, c.ID.ToString()));
         });
+    }
+    private void clearFields()
+    {
+        ddlCustomername.SelectedIndex = 0;
+        ddlAc.SelectedIndex = 0;
+        ddlFueltype.SelectedIndex = 0;
+        ddlNoOfSeating.SelectedIndex = 0;
+        ddlVehicletype.SelectedIndex = 0;
+        txtDroppoint.Text = string.Empty;
+        txtFromdate.Text = string.Empty;
+        txtGuestname.Text = string.Empty;
+        txtPhoneno.Text = string.Empty;
+        txtPickup.Text = string.Empty;
+        txtTodate.Text = string.Empty;
     }
 }
