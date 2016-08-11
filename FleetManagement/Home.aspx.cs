@@ -25,7 +25,7 @@ public partial class Home : System.Web.UI.Page
 
         JsonBookingCountData = JsonConvert.SerializeObject(monthlyBookingCount);
 
-       
+        List<GrossRevenue> grossRevenueForVehicles = bookingService.GetGrossMonthlyRevenueForVehicles();
                
     }
 }

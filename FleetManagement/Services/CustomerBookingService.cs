@@ -159,6 +159,57 @@ namespace FleetManagement.Services
             }
             return bookingCountList;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+         public List<GrossRevenue> GetGrossMonthlyRevenueForVehicles()
+         {
+             List<GrossRevenue> grossRevenueForVehiclesList = new List<GrossRevenue>();
+            DataSet ds = SqlHelper.ExecuteDataset("Get_MonthlyGrossRevenueFromVehicles", new SqlParameter[] { });
+            if (ds.ValidDataSet())
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    CultureInfo cultureInfo = new CultureInfo("en-US");
+                    DateTime dt = Convert.ToDateTime(row.GetValue("BookingDate"), cultureInfo.DateTimeFormat);
+                    string dateStr = dt.ToString("dd MMM yy");
+                    grossRevenueForVehiclesList.Add(new GrossRevenue
+                    {
+                        BookingDateTime = dt,
+                        BookingDate = dateStr,
+                        VehicleID = row.GetIntValue("VehicleID"),
+                        VehicleType = row.GetIntValue("VehicleType"),
+                        VehicleTypeName = row.GetValue("VehicleTypeName")
+
+                    });
+
+                }
+                DateTime today = DateTime.Today;
+                for (int i = 0; i < 30; i++)
+                {
+                    DateTime dt = today.AddDays(-i);
+                    string dateStr = dt.ToString("dd MMM yy");
+                    if (!grossRevenueForVehiclesList.Any(b => b.BookingDateTime == dt))
+                    {
+
+                        grossRevenueForVehiclesList.Add(new GrossRevenue
+                        {
+                            BookingDateTime = dt,
+                            BookingDate = dateStr,
+                            VehicleID = 0,
+                            VehicleType = 0,
+                            VehicleTypeName = string.Empty
+
+                        });
+                    }
+                }
+                grossRevenueForVehiclesList.Sort((a, b) => a.BookingDateTime.CompareTo(b.BookingDateTime));
+
+            }
+            return grossRevenueForVehiclesList;
+        }
+         
     }
 
 }

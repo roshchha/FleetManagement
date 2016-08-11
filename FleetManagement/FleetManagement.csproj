@@ -274,6 +274,7 @@
     <Compile Include="Entities\Designation.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\GrossRevenue.cs" />
     <Compile Include="Entities\ServiceLog.cs" />
     <Compile Include="Entities\Tariff.cs" />
     <Compile Include="Entities\Vehicle.cs" />

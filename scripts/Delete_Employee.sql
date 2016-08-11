@@ -1,0 +1,15 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[Delete_Employee]
+	@EmpID INT
+
+	AS
+		BEGIN
+			DELETE FROM Employee
+			WHERE EmpID = @EmpID
+		END
+
+GO

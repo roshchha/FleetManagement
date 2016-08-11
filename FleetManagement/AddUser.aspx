@@ -14,7 +14,7 @@
                         <asp:Label runat="server" AssociatedControlID="UserName">Email</asp:Label>
                         <div>
                             <asp:TextBox CssClass="form-control" runat="server" ID="TXTEmail" />
-                            <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator5" runat="server" ErrorMessage="Enter LastName" ControlToValidate="TXTLName" InitialValue="" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator5" runat="server" ErrorMessage="Enter LastName" ControlToValidate="TXTEmail" InitialValue="" SetFocusOnError="True"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div style="margin-bottom: 10px">
