@@ -180,7 +180,8 @@ namespace FleetManagement.Services
                         BookingDate = dateStr,
                         VehicleID = row.GetIntValue("VehicleID"),
                         VehicleType = row.GetIntValue("VehicleType"),
-                        VehicleTypeName = row.GetValue("VehicleTypeName")
+                        VehicleTypeName = row.GetValue("VehicleTypeName"),
+                        TotalAmount = row.GetDecimalValue("TotalAmount") ?? 0
 
                     });
 
