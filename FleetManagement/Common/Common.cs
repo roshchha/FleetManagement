@@ -36,9 +36,16 @@ namespace FleetManagement.Common
                     select new ListItem { Text = e.ToString(), Value = Convert.ToInt32(e).ToString() }).ToList();
 
         }
-        public static string GetUserName(System.Web.UI.Page page)
+        public static string GetUserName(System.Web.UI.Page page, string greeting = "")
         {
-            return string.Format("Hello {0}!", page.User.Identity.GetUserName());
+            if (string.IsNullOrWhiteSpace(greeting))
+            {
+                return page.User.Identity.GetUserName();
+            }
+            else
+            {
+                   return string.Format(greeting+ " {0}!", page.User.Identity.GetUserName());
+            }
         }
         public static bool IsAdminUser(Page page)
         {

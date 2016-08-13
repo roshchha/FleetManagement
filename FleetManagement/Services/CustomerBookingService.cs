@@ -176,36 +176,15 @@ namespace FleetManagement.Services
                     string dateStr = dt.ToString("dd MMM yy");
                     grossRevenueForVehiclesList.Add(new GrossRevenue
                     {
-                        BookingDateTime = dt,
-                        BookingDate = dateStr,
-                        VehicleID = row.GetIntValue("VehicleID"),
                         VehicleType = row.GetIntValue("VehicleType"),
                         VehicleTypeName = row.GetValue("VehicleTypeName"),
-                        TotalAmount = row.GetDecimalValue("TotalAmount") ?? 0
-
+                        TotalAmount = row.GetDecimalValue("TotalAmount") ?? 0,
+                        BookingCount = row.GetIntValue("BookingCount") 
                     });
 
                 }
-                DateTime today = DateTime.Today;
-                for (int i = 0; i < 30; i++)
-                {
-                    DateTime dt = today.AddDays(-i);
-                    string dateStr = dt.ToString("dd MMM yy");
-                    if (!grossRevenueForVehiclesList.Any(b => b.BookingDateTime == dt))
-                    {
 
-                        grossRevenueForVehiclesList.Add(new GrossRevenue
-                        {
-                            BookingDateTime = dt,
-                            BookingDate = dateStr,
-                            VehicleID = 0,
-                            VehicleType = 0,
-                            VehicleTypeName = string.Empty
-
-                        });
-                    }
-                }
-                grossRevenueForVehiclesList.Sort((a, b) => a.BookingDateTime.CompareTo(b.BookingDateTime));
+                grossRevenueForVehiclesList.Sort((a, b) => a.VehicleType.CompareTo(b.VehicleType));
 
             }
             return grossRevenueForVehiclesList;

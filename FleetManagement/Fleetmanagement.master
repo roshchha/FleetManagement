@@ -59,7 +59,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i><%=FleetManagement.Common.Common.GetUserName(this.Page) %></a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i><%=FleetManagement.Common.Common.GetUserName(this.Page, "Hello") %></a>
                         </li>
                         <%if(FleetManagement.Common.Common.IsAdminUser(Page)){ %>
                          <li><a href="AddUser.aspx"><i class="fa fa-sign-out fa-fw"></i>Add New User</a>

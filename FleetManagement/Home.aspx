@@ -14,7 +14,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Monthly Booking Count</div>
                 <div class="panel-body">
-                    <div id="chart">
+                    <div id="BarChart">
+
+                    </div>
+                    <div id="PieChart">
 
                     </div>
                 </div>
@@ -24,52 +27,54 @@
     </div>
     <script type="text/javascript">
         $(function(){
-        var chart = c3.generate({
-            data: {            
-                json:  <%=JsonBookingCountData%>,
-                keys: {
-                     x: 'BookingDate', // it's possible to specify 'x' when category axis
-                    value: ['BookingCount'],
+            var barChart = c3.generate({
+                bindto:'#BarChart',
+                data: {            
+                    json:  <%=JsonBookingCountData%>,
+                    keys: {
+                        x: 'BookingDate', // it's possible to specify 'x' when category axis
+                        value: ['BookingCount'],
+                    },
+                    type: 'bar'
                 },
-                //columns: [
-                //    ['x','1 aug', '2 aug', '3 aug', '4 aug', '5 aug'],
-                //    ['Booking Count', 30, 200, 100, 400, 150, 250]  
-                //],
-                type: 'bar'
-            },
-            bar: {
-                width: {
-                    ratio: 0.5 // this makes bar width 50% of length between ticks
-                }
-                // or
-                //width: 100 // this makes bar width 100px
-            },
-            legend: {
-                show: false
-            },
-            axis: {
-                x: {
-                    type: 'category' // this needed to load string x value
+                bar: {
+                    width: {
+                        ratio: 0.5 // this makes bar width 50% of length between ticks
+                    }
                 },
-                y:{
-                    tick: {
-                       // format: d3.format('d')
+                legend: {
+                    show: false
+                },
+                axis: {
+                    x: {
+                        type: 'category' // this needed to load string x value
+                    },
+                    y:{
+                        tick: {
+                            // format: d3.format('d')
                        
+                        }
                     }
                 }
-            }
-        });
-            
-            
-            //d3.select("svg").append("text")
-            //    .attr("x", 100 )
-            //    .attr("y", 50)
-            //    .style("text-anchor", "middle")
-            //    .text("Monthly Booking Count");
+            });
 
+            var pieChart = c3.generate({
+                bindto: '#PieChart',
+                data:{
+                    json:'<%=JsonGrossRevenueForVehiclesData%>',
+                    keys: {
+                        x: 'VehicleTypeName', // it's possible to specify 'x' when category axis
+                        value: ['TotalAmount'],
+                    },
+                    type:'pie'
+                },
+                axis: {
+                    x: {
+                        type: 'category' // this needed to load string x value
+                    }
+                }
+            });
 
-
-      
         });
 
     </script>
