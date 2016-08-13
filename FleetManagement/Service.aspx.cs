@@ -22,10 +22,6 @@ public partial class Service : System.Web.UI.Page
     IEntityService<ServiceLog> serviceLogService = new ServiceLogService();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Common.IsAdminUser(this.Page))
-        {
-            Response.Redirect("~/AccessDenied.aspx");
-        }
         lblMessage.Visible = false;
         if (!IsPostBack)
         {

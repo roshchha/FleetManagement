@@ -23,10 +23,6 @@ public partial class customers : System.Web.UI.Page
     private int CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Common.IsAdminUser(this.Page))
-        {
-            Response.Redirect("~/AccessDenied.aspx");
-        }
         lblMessage.Visible = false;
         if (!string.IsNullOrWhiteSpace(Request.QueryString["CustomerID"]))
         {
