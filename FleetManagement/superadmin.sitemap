@@ -2,6 +2,7 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode title="Home" description="" url="" >
     <siteMapNode url="" title="Employee Details"  description="" cssClass="">
+      <siteMapNode url="designation.aspx" title="Designation"  description=""  cssClass="fa fa-edit" />
       <siteMapNode url="Employees.aspx" title="Add Employee"  description=""  cssClass="fa fa-edit" />
       <siteMapNode url="EmployeeDetails.aspx" title="View Employee Details"  description="" cssClass="fa fa-desktop" />
     </siteMapNode>
