@@ -20,7 +20,7 @@ public partial class Fleetmanagement : System.Web.UI.MasterPage
     {
         if (!this.Page.User.Identity.IsAuthenticated)
         {
-            Response.Redirect("Default.aspx");
+            Response.Redirect("Login.aspx");
         }
         if (Common.GetCurrentUserRole(Page) == UserRoles.SuperAdmin)
         {

@@ -154,12 +154,12 @@
     <Content Include="Clientbooking.aspx" />
     <Content Include="customers.aspx" />
     <Content Include="CustomersReport.aspx" />
-    <Content Include="Default.aspx" />
     <Content Include="designation.aspx" />
     <Content Include="Employeedetails.aspx" />
     <Content Include="Employees.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="AddUser.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="PageNotFound.aspx" />
     <Content Include="Reports.aspx" />
     <Content Include="Error.aspx" />
@@ -242,13 +242,6 @@
     <Compile Include="CustomersReport.aspx.designer.cs">
       <DependentUpon>CustomersReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="designation.aspx.cs">
       <DependentUpon>designation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -311,6 +304,12 @@
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IVehicleService.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PageNotFound.aspx.cs">
       <DependentUpon>PageNotFound.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

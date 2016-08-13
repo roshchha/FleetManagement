@@ -62,6 +62,6 @@ public partial class _Default : System.Web.UI.Page
     {
         var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
         authenticationManager.SignOut();
-        Response.Redirect("~/Default.aspx");
+        Response.Redirect("~/Login.aspx");
     }
 }
