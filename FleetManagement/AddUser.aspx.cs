@@ -14,21 +14,15 @@ public partial class AddUser : System.Web.UI.Page
     {
         if (!FleetManagement.Common.Common.IsAdminUser(this.Page))
         {
-<<<<<<< HEAD
             Response.Redirect("~/AccessDenied.aspx");
         }
     }
     protected void CreateUser_Click(object sender, EventArgs e)
     {
+        ApplicationDbContext context = new ApplicationDbContext();
         var userStore = new UserStore<IdentityUser>();
         var manager = new UserManager<IdentityUser>(userStore);
-=======
-            ApplicationDbContext context = new ApplicationDbContext();
-            var userStore = new UserStore<IdentityUser>();
-            var manager = new UserManager<IdentityUser>(userStore);
-            var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
->>>>>>> aa29eb84ac42e2c5c347bc95e976bcf54b7a078e
-
+        var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
         if (!Password.Text.Equals(ConfirmPassword.Text))
         {
@@ -43,39 +37,22 @@ public partial class AddUser : System.Web.UI.Page
             {
                 short role = UserRoles.SelectedValue == "-1" ? (short)2 : Convert.ToInt16(UserRoles.SelectedValue);
                 string roleName = ((FleetManagement.Enums.UserRoles)role).ToString();
-                Roles.AddUserToRole(UserName.Text, roleName);
+
+                if (!RoleManager.RoleExists(roleName))
+                {
+                    IdentityResult roleResult = RoleManager.Create(new IdentityRole(roleName));
+                }
+
+                manager.AddToRole(user.Id, roleName);
                 StatusMessage.Text = "<span class='errorText'>User Added Successfully!</span>";
                 UserName.Text = "";
             }
             else
             {
-<<<<<<< HEAD
                 StatusMessage.Text = "<span class='errorText'>" + result.Errors.FirstOrDefault() + "</span>";
-=======
-                var user = new IdentityUser() { UserName = UserName.Text , Email = TXTEmail.Text };
-                IdentityResult result = manager.Create(user, Password.Text);
-
-                if (result.Succeeded)
-                {
-                    short role = UserRoles.SelectedValue == "-1" ? (short)2 : Convert.ToInt16(UserRoles.SelectedValue);
-                    string roleName = ((FleetManagement.Enums.UserRoles)role).ToString();
-
-                    if (!RoleManager.RoleExists(roleName))
-                    {
-                       IdentityResult roleResult = RoleManager.Create(new IdentityRole(roleName));
-                    }
-
-                    manager.AddToRole(user.Id, roleName);
-                    StatusMessage.Text = "<span class='errorText'>User Added Successfully!</span>";
-                    UserName.Text = "";
-                }
-                else
-                {
-                    StatusMessage.Text = "<span class='errorText'>"+result.Errors.FirstOrDefault()+"</span>";
-                }
->>>>>>> aa29eb84ac42e2c5c347bc95e976bcf54b7a078e
             }
         }
     }
 }
+
 
