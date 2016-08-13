@@ -21,7 +21,10 @@ public partial class VehicleTypes : System.Web.UI.Page
     IEntityService<VehicleType> vehicleTypeService = new VehicleTypeService();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if(FleetManagement.Common.Common.IsStaffUser(Page))
+        {
+            Response.Redirect("~/AccessDenied.aspx");
+        }
     }
     protected void btnInsert_Click(object sender, EventArgs e)
     {

@@ -11,7 +11,7 @@ namespace FleetManagement
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Common.Common.IsAdminUser(this.Page))
+            if (!Common.Common.IsSuperAdminUser(this.Page))
             {
                 Response.Redirect("~/AccessDenied.aspx");
             }

@@ -13,14 +13,14 @@ using FleetManagement.Entities;
 using FleetManagement;
 using FleetManagement.Services;
 using FleetManagement.Interfaces;
-
+using FleetManagement.Common;
 
 public partial class Employeedetails : System.Web.UI.Page
 {
     IEntityService<Employee> employeeService = new EmployeeService();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!FleetManagement.Common.Common.IsAdminUser(this.Page))
+        if (Common.IsStaffUser(this.Page))
         {
             Response.Redirect("~/AccessDenied.aspx");
         }

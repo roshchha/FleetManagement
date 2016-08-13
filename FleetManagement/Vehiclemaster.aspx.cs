@@ -27,7 +27,7 @@ public partial class Vehiclemaster : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Common.IsAdminUser(this.Page))
+        if (Common.IsStaffUser(Page))
         {
             Response.Redirect("~/AccessDenied.aspx");
         }

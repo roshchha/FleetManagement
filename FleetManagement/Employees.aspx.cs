@@ -24,7 +24,7 @@ public partial class Employees : System.Web.UI.Page
     private int EmpID = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!FleetManagement.Common.Common.IsAdminUser(this.Page))
+        if (Common.IsStaffUser(this.Page))
         {
             Response.Redirect("~/AccessDenied.aspx");
         }

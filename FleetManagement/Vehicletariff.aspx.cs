@@ -24,7 +24,7 @@ public partial class Vehicletariff : System.Web.UI.Page
     IEntityService<Tariff> tariffService = new TariffService();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Common.IsAdminUser(this.Page))
+        if (FleetManagement.Common.Common.IsStaffUser(Page))
         {
             Response.Redirect("~/AccessDenied.aspx");
         }

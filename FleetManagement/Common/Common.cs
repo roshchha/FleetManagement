@@ -40,10 +40,31 @@ namespace FleetManagement.Common
         {
             return string.Format("Hello {0}!", page.User.Identity.GetUserName());
         }
+        public static bool IsSuperAdminUser(Page page)
+        {
+            var user = GetCurrentUser(page);
+            var role = _ctx.Roles.FirstOrDefault(r => r.Name.ToLower() == "superadmin");
+            if (user.Roles.Any(r => r.RoleId == role.Id))
+            {
+                return true;
+            }
+            return false;
+        }
         public static bool IsAdminUser(Page page)
         {
             var user = GetCurrentUser(page);
             var role = _ctx.Roles.FirstOrDefault(r => r.Name.ToLower() == "admin");
+            if (user.Roles.Any(r => r.RoleId == role.Id))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool IsStaffUser(Page page)
+        {
+            var user = GetCurrentUser(page);
+            var role = _ctx.Roles.FirstOrDefault(r => r.Name.ToLower() == "staff");
             if (user.Roles.Any(r => r.RoleId == role.Id))
             {
                 return true;
