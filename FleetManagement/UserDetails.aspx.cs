@@ -52,7 +52,7 @@ namespace FleetManagement
                     string role_id = user.Roles.First().RoleId;
                     IdentityRole _role = _ctx.Roles.FirstOrDefault(r => r.Id == role_id);
 
-                    string role = user.Roles.Any() ? _role.Name : UserRoles.Member.ToString();
+                    string role = user.Roles.Any() ? _role.Name : UserRoles.Staff.ToString();
                     ddlRoles.SelectedValue = role;
                 }
                 else

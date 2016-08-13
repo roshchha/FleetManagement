@@ -51,7 +51,9 @@ namespace FleetManagement.Enums
     }
     public enum UserRoles
     {
-        Admin = 1,
-        Member = 2
+        SuperAdmin = 1,
+        Admin = 2,
+        Staff = 3,
+
     }
 }

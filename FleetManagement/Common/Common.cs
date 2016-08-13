@@ -6,7 +6,8 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using System.Web.UI;
 using Microsoft.AspNet.Identity;
-
+using FleetManagement.Enums;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FleetManagement.Common
 {
@@ -41,14 +42,40 @@ namespace FleetManagement.Common
         }
         public static bool IsAdminUser(Page page)
         {
-            string currentUserId = page.User.Identity.GetUserId();
-            var user = _ctx.Users.Find(currentUserId);
+            var user = GetCurrentUser(page);
             var role = _ctx.Roles.FirstOrDefault(r => r.Name.ToLower() == "admin");
             if (user.Roles.Any(r => r.RoleId == role.Id))
             {
                 return true;
             }
             return false;
+        }
+
+        public static UserRoles GetCurrentUserRole(Page page)
+        {
+            var user = GetCurrentUser(page);
+            var admin_role = _ctx.Roles.FirstOrDefault(r => r.Name.ToLower() == "admin");
+            var super_admin_role = _ctx.Roles.FirstOrDefault(r => r.Name.ToLower() == "superadmin");
+            if (user.Roles.Any(r => r.RoleId == admin_role.Id))
+            {
+                return UserRoles.Admin;
+            }
+            else if (user.Roles.Any(r => r.RoleId == super_admin_role.Id))
+            {
+                return UserRoles.SuperAdmin;
+            }
+            else
+            {
+                return UserRoles.Staff;
+            }
+
+        }
+
+        public static IdentityUser GetCurrentUser(Page page)
+        {
+            string currentUserId = page.User.Identity.GetUserId();
+            var user = _ctx.Users.Find(currentUserId);
+            return user;
         }
 
         #endregion
