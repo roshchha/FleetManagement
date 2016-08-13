@@ -22,14 +22,14 @@
     <siteMapNode url="BillingDetails.aspx" title="Billing Details" roles="Admin" description="" cssClass="fa fa-edit" />
     <siteMapNode url="service.aspx" title="Add Service Details"  description="" cssClass="fa fa-edit" />
     <siteMapNode url="Accidentdetails.aspx" title="Add Accident Details"  description="" cssClass="fa fa-edit" />
-    <!--<siteMapNode url="" title="Reports"  description="" roles="Admin" cssClass="fa fa-sitemap">
-      --><!--<siteMapNode url="BookingReport.aspx" title="Booking Details"  description="" cssClass="fa fa-desktop" />
+    <siteMapNode url="" title="Reports"  description="" roles="Admin" cssClass="fa fa-sitemap">
+      <siteMapNode url="BookingReport.aspx" title="Booking Details"  description="" cssClass="fa fa-desktop" />
       <siteMapNode url="VehicleDetailsReport.aspx" title="Vehicle Details"  description="" cssClass="fa fa-desktop" />
-      <siteMapNode url="CustomersReport.aspx" title="Customer Details"  description="" cssClass="fa fa-desktop" />--><!--
-      --><!--<siteMapNode url="billingdetailsrpt.aspx" title="Billing Details"  description="" cssClass="fa fa-desktop" />
+      <siteMapNode url="CustomersReport.aspx" title="Customer Details"  description="" cssClass="fa fa-desktop" />
+      <!--<siteMapNode url="billingdetailsrpt.aspx" title="Billing Details"  description="" cssClass="fa fa-desktop" />
       <siteMapNode url="servicedetailsrpt.aspx" title="Service Details"  description="" cssClass="fa fa-desktop" />
       <siteMapNode url="accidentdetailsrpt.aspx" title="Accident Details"  description="" cssClass="fa fa-desktop" />
-      <siteMapNode url="Employeerpt.aspx" title="Employee Details"  description="" cssClass="fa fa-desktop" />--><!--
-    </siteMapNode>-->
+      <siteMapNode url="Employeerpt.aspx" title="Employee Details"  description="" cssClass="fa fa-desktop" />-->
+    </siteMapNode>
   </siteMapNode>
 </siteMap>

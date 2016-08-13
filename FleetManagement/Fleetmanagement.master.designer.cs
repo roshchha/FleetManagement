@@ -12,13 +12,13 @@
 public partial class Fleetmanagement {
     
     /// <summary>
-    /// DefaultSiteMapDataSource control.
+    /// StaffSiteMapDataSource control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.SiteMapDataSource DefaultSiteMapDataSource;
+    protected global::System.Web.UI.WebControls.SiteMapDataSource StaffSiteMapDataSource;
     
     /// <summary>
     /// AdminSiteMapDataSource control.
@@ -28,6 +28,15 @@ public partial class Fleetmanagement {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.SiteMapDataSource AdminSiteMapDataSource;
+    
+    /// <summary>
+    /// SuperAdminSiteMapDataSource control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.SiteMapDataSource SuperAdminSiteMapDataSource;
     
     /// <summary>
     /// NodesRPT control.

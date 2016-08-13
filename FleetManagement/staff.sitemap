@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode title="Home" description="" url="" >
-    <siteMapNode url="" title="Employee Details"  description="" cssClass="">
-      <siteMapNode url="Employees.aspx" title="Add Employee"  description=""  cssClass="fa fa-edit" />
-      <siteMapNode url="EmployeeDetails.aspx" title="View Employee Details"  description="" cssClass="fa fa-desktop" />
-    </siteMapNode>
     <siteMapNode url="" title="Customer Details"  description="" cssClass="">
       <siteMapNode url="customers.aspx" title="Add Customer"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="viewcustomers.aspx" title="View Customer Details"  description="" cssClass="fa fa-desktop" />
@@ -14,9 +10,6 @@
       <siteMapNode url="viewclientbooking.aspx" title="View Customer Booking Details"  description="" cssClass="fa fa-desktop" />
     </siteMapNode>
    <siteMapNode url="" title="Vehicle"  description="" cssClass="">
-      <siteMapNode url="VehicleType.aspx" title="Add Vehicle Type"  description="" cssClass="fa fa-edit" />
-      <siteMapNode url="Vehiclemaster.aspx" title="Add Vehicle Details"  description="" cssClass="fa fa-edit" />
-      <siteMapNode url="Vehicletariff.aspx" title="Add Vehicle Tariffs"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="ViewVehilcemaster.aspx" title="View Vehicle Details"  description="" cssClass="fa fa-desktop" />
     </siteMapNode>
   <siteMapNode url="BillingDetails.aspx" title="Billing Details" description="" cssClass="fa fa-edit" />

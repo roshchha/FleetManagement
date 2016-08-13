@@ -479,6 +479,9 @@
     <Content Include="VehicleDetailsDataSet.xsc">
       <DependentUpon>VehicleDetailsDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="admin.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="VehicleDetailsDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>VehicleDetailsDataSet.Designer.cs</LastGenOutput>
@@ -487,7 +490,7 @@
     <Content Include="VehicleDetailsDataSet.xss">
       <DependentUpon>VehicleDetailsDataSet.xsd</DependentUpon>
     </Content>
-    <Content Include="admin.sitemap">
+    <Content Include="superadmin.sitemap">
       <SubType>Designer</SubType>
     </Content>
     <None Include="Web.Debug.config">
@@ -496,7 +499,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="Web.sitemap">
+    <Content Include="staff.sitemap">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>

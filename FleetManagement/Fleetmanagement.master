@@ -14,7 +14,6 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
-
          <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
     <script src="assets/js/jquery.jscrollpane.min.js"></script>
@@ -79,8 +78,9 @@
         </nav>
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
-                <asp:SiteMapDataSource ID="DefaultSiteMapDataSource" SiteMapProvider="DefaultSiteMapProvider" runat="server" ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="StaffSiteMapDataSource" SiteMapProvider="StaffSiteMapProvider" runat="server" ShowStartingNode="false" />
                 <asp:SiteMapDataSource ID="AdminSiteMapDataSource" SiteMapProvider="AdminSiteMapProvider" runat="server" ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="SuperAdminSiteMapDataSource" SiteMapProvider="SuperAdminSiteMapProvider" runat="server" ShowStartingNode="false" />
                 <ul class="nav" id="main-menu">
         <asp:Repeater ID="NodesRPT" runat="server" >
             <ItemTemplate>    

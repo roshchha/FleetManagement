@@ -11,6 +11,8 @@ using System.Web.UI.HtmlControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using FleetManagement.Common;
+using FleetManagement.Enums;
 
 public partial class Fleetmanagement : System.Web.UI.MasterPage
 {
@@ -20,13 +22,17 @@ public partial class Fleetmanagement : System.Web.UI.MasterPage
         {
             Response.Redirect("Default.aspx");
         }
-        if (FleetManagement.Common.Common.IsAdminUser(Page))
+        if (Common.GetCurrentUserRole(Page) == UserRoles.SuperAdmin)
+        {
+            NodesRPT.DataSourceID = "SuperAdminSiteMapDataSource";
+        }
+        else if (Common.GetCurrentUserRole(Page) == UserRoles.Admin)
         {
             NodesRPT.DataSourceID = "AdminSiteMapDataSource";
         }
         else
         {
-            NodesRPT.DataSourceID = "DefaultSiteMapDataSource";
+            NodesRPT.DataSourceID = "StaffSiteMapDataSource";
         }
         NodesRPT.DataBind();
     }
