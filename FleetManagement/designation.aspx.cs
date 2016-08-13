@@ -19,8 +19,12 @@ public partial class designation : System.Web.UI.Page
     IEntityService<Designation> designationService = new DesignationService();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!FleetManagement.Common.Common.IsAdminUser(this.Page))
+        {
+            Response.Redirect("~/AccessDenied.aspx");
+        }
     }
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         Designation obj = new Designation();

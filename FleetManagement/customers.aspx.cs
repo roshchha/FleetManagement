@@ -23,6 +23,10 @@ public partial class customers : System.Web.UI.Page
     private int CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Common.IsAdminUser(this.Page))
+        {
+            Response.Redirect("~/AccessDenied.aspx");
+        }
         lblMessage.Visible = false;
         if (!string.IsNullOrWhiteSpace(Request.QueryString["CustomerID"]))
         {
@@ -30,7 +34,7 @@ public partial class customers : System.Web.UI.Page
             this.hdnCustomerID.Value = CustomerID.ToString();
             this.btnSubmit.PostBackUrl = "Customers.aspx";
         }
-       
+
         if (!IsPostBack)
         {
             BindCountries();
@@ -50,7 +54,8 @@ public partial class customers : System.Web.UI.Page
         {
             customer.ID = CustomerID;
         }
-        else { 
+        else
+        {
             List<Customer> customers = customerService.Get();
             if (customers.Any(c => c.Name == txtCustomername.Text.Trim() && c.Email == txtEmail.Text.Trim()))
             {
@@ -75,7 +80,7 @@ public partial class customers : System.Web.UI.Page
             }
             else
             {
-               isSuccess= customerService.Insert(customer);
+                isSuccess = customerService.Insert(customer);
             }
             if (isSuccess)
             {
@@ -89,15 +94,16 @@ public partial class customers : System.Web.UI.Page
             }
         }
         ClearEntries();
-        
+
     }
     private void BindCountries()
     {
         ddlCountry.Items.Clear();
         ddlCountry.Items.AddRange(Common.ToListItems<FleetManagement.Enums.Country>().ToArray());
     }
-    private void LoadData(){
-        Customer customer= customerService.Get(CustomerID).FirstOrDefault();
+    private void LoadData()
+    {
+        Customer customer = customerService.Get(CustomerID).FirstOrDefault();
         if (customer != null)
         {
             this.txtCustomername.Text = customer.Name;
@@ -106,7 +112,8 @@ public partial class customers : System.Web.UI.Page
             this.txtPhoneno.Text = customer.Phone;
             this.txtState.Text = customer.State;
             FleetManagement.Enums.Country country;
-            if(Enum.TryParse(customer.Country,out country)){
+            if (Enum.TryParse(customer.Country, out country))
+            {
                 this.ddlCountry.SelectedValue = ((int)country).ToString();
             }
         }

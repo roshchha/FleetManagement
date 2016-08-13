@@ -11,7 +11,10 @@ namespace FleetManagement
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!FleetManagement.Common.Common.IsAdminUser(this.Page))
+            {
+                Response.Redirect("~/AccessDenied.aspx");
+            }
         }
     }
 }

@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace FleetManagement
 {
-    public partial class CustomersReport : System.Web.UI.Page
+    public partial class AccessDenied : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Common.Common.IsAdminUser(this.Page))
-            {
-                Response.Redirect("~/AccessDenied.aspx");
-            }
+
         }
     }
 }

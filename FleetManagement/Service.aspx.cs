@@ -22,18 +22,22 @@ public partial class Service : System.Web.UI.Page
     IEntityService<ServiceLog> serviceLogService = new ServiceLogService();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Common.IsAdminUser(this.Page))
+        {
+            Response.Redirect("~/AccessDenied.aspx");
+        }
         lblMessage.Visible = false;
         if (!IsPostBack)
         {
-           List<Vehicle> lstVehicles = verhicleService.Get();
+            List<Vehicle> lstVehicles = verhicleService.Get();
 
 
-           ddlVehicleno.DataSource = lstVehicles.Select(v => new { VehicleID = v.VehicleID, VehicleNo = v.VehicleNo });
-           ddlVehicleno.DataValueField = "VehicleID";
-           ddlVehicleno.DataTextField = "VehicleNo";
-           ddlVehicleno.DataBind();
-           ddlVehicleno.Items.Insert(0, new ListItem("Select"));
-          
+            ddlVehicleno.DataSource = lstVehicles.Select(v => new { VehicleID = v.VehicleID, VehicleNo = v.VehicleNo });
+            ddlVehicleno.DataValueField = "VehicleID";
+            ddlVehicleno.DataTextField = "VehicleNo";
+            ddlVehicleno.DataBind();
+            ddlVehicleno.Items.Insert(0, new ListItem("Select"));
+
         }
 
     }
@@ -48,7 +52,7 @@ public partial class Service : System.Web.UI.Page
         obj.SpareExpenditure = decimal.Parse(txtExpenditureonspares.Text);
         obj.VehicleID = int.Parse(ddlVehicleno.SelectedValue);
         serviceLogService.Insert(obj);
-       
+
         lblMessage.Text = "Accident details added successfully";
         lblMessage.Visible = true;
         ddlVehicleno.SelectedIndex = 0;

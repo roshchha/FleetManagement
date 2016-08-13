@@ -13,6 +13,9 @@ public partial class Reports : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!FleetManagement.Common.Common.IsAdminUser(this.Page))
+        {
+            Response.Redirect("~/AccessDenied.aspx");
+        }
     }
 }

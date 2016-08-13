@@ -20,6 +20,10 @@ public partial class Employeedetails : System.Web.UI.Page
     IEntityService<Employee> employeeService = new EmployeeService();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!FleetManagement.Common.Common.IsAdminUser(this.Page))
+        {
+            Response.Redirect("~/AccessDenied.aspx");
+        }
         if (!IsPostBack)
         {
             grdEmp.DataSource = employeeService.Get();
@@ -29,17 +33,17 @@ public partial class Employeedetails : System.Web.UI.Page
 
     protected void grdEmp_RowEditing(object sender, GridViewEditEventArgs e)
     {
-       
+
         GridViewRow row = grdEmp.Rows[e.NewEditIndex];
         HtmlInputHidden hdnEmpID = (HtmlInputHidden)row.FindControl("HdnEmpID");
         int empID = int.Parse(hdnEmpID.Value);
         Response.Redirect("Employees.aspx?EmpID=" + empID);
     }
     protected void grdEmp_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-    {       
-            grdEmp.EditIndex = -1;
-            grdEmp.DataSource = employeeService.Get();
-            grdEmp.DataBind();
+    {
+        grdEmp.EditIndex = -1;
+        grdEmp.DataSource = employeeService.Get();
+        grdEmp.DataBind();
     }
     protected void grdEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -60,7 +64,7 @@ public partial class Employeedetails : System.Web.UI.Page
         grdEmp.DataSource = employeeService.Get();
         grdEmp.DataBind();
     }
-   
+
 
     protected void grdEmp_PreRender(object sender, EventArgs e)
     {

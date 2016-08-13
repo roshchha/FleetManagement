@@ -27,6 +27,11 @@ public partial class Vehiclemaster : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Common.IsAdminUser(this.Page))
+        {
+            Response.Redirect("~/AccessDenied.aspx");
+        }
+
         if (!string.IsNullOrEmpty(Request.QueryString["VehicleID"]))
         {
             int.TryParse(Request.QueryString["VehicleID"].ToString(), out VehicleID);

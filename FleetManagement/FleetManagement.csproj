@@ -107,6 +107,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AccessDenied.aspx" />
     <Content Include="Accidentdetails.aspx" />
     <Content Include="assets\css\bootstrap-theme.min.css" />
     <Content Include="assets\css\bootstrap.css" />
@@ -160,6 +161,7 @@
     <Content Include="Error.aspx" />
     <Content Include="Service.aspx" />
     <Content Include="StyleSheet.css" />
+    <Content Include="UserDetails.aspx" />
     <Content Include="VehicleDetailsReport.aspx" />
     <Content Include="VehicleType.aspx" />
     <Content Include="VehicleAllocation.aspx" />
@@ -175,6 +177,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Accidentdetails.aspx.cs">
       <DependentUpon>Accidentdetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -182,6 +191,7 @@
     <Compile Include="Accidentdetails.aspx.designer.cs">
       <DependentUpon>Accidentdetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="BookingReport.aspx.cs">
       <DependentUpon>BookingReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -343,6 +353,13 @@
     <Compile Include="Services\VehicleService.cs" />
     <Compile Include="Services\VehicleTypeService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="UserDetails.aspx.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserDetails.aspx.designer.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="VehicleDetailsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
