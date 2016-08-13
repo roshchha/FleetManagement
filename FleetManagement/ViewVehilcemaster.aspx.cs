@@ -19,11 +19,6 @@ public partial class ViewVehilcemaster : System.Web.UI.Page
     IEntityService<Vehicle> vehicleService = new VehicleService();
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        if (!Common.IsAdminUser(this.Page))
-        {
-            Response.Redirect("~/AccessDenied.aspx");
-        }
         if (!IsPostBack)
         {
             grdVehiclemaster.DataSource = vehicleService.Get();

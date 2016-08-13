@@ -15,12 +15,7 @@ public partial class VehicleAllocation : System.Web.UI.Page
    
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!FleetManagement.Common.Common.IsAdminUser(this.Page))
-        {
-            Response.Redirect("~/AccessDenied.aspx");
-        }
-
-
+       
     }
 
     protected void btnSubmit_Click1(object sender, EventArgs e)
