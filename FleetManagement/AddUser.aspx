@@ -44,8 +44,9 @@
                         <div>
                             <asp:DropDownList CssClass="form-control" ID="UserRoles" runat="server">
                                 <asp:ListItem Selected="True" Text="-Select-" Value="-1"></asp:ListItem>
-                                <asp:ListItem Text="Admin" Value="1"></asp:ListItem>
-                                <asp:ListItem Text="Member" Value="2"></asp:ListItem>
+                                <asp:ListItem Text="Super Admin" Value="1"></asp:ListItem>
+                                <asp:ListItem Text="Admin" Value="2"></asp:ListItem>
+                                 <asp:ListItem Text="Staff" Value="3"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
                     </div>

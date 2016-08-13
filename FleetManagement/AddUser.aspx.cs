@@ -35,7 +35,7 @@ public partial class AddUser : System.Web.UI.Page
 
             if (result.Succeeded)
             {
-                short role = UserRoles.SelectedValue == "-1" ? (short)2 : Convert.ToInt16(UserRoles.SelectedValue);
+                short role = UserRoles.SelectedValue == "-1" ? (short)3 : Convert.ToInt16(UserRoles.SelectedValue);
                 string roleName = ((FleetManagement.Enums.UserRoles)role).ToString();
 
                 if (!RoleManager.RoleExists(roleName))
