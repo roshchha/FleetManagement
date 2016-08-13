@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using System.Web.UI;
+using Microsoft.AspNet.Identity;
+
 
 namespace FleetManagement.Common
 {
@@ -16,6 +18,9 @@ namespace FleetManagement.Common
             get { return System.Configuration.ConfigurationSettings.AppSettings["HomePageLink"].ToString(); }
         }
         #endregion
+
+        private static ApplicationDbContext _ctx = new ApplicationDbContext();
+
 
         #region Methods
         /// <summary>
@@ -34,8 +39,16 @@ namespace FleetManagement.Common
         {
             return string.Format("Hello {0}!", page.User.Identity.GetUserName());
         }
-        public static bool IsAdminUser(Page page){
-            return page.User.IsInRole("Admin");
+        public static bool IsAdminUser(Page page)
+        {
+            string currentUserId = page.User.Identity.GetUserId();
+            var user = _ctx.Users.Find(currentUserId);
+            var role = _ctx.Roles.FirstOrDefault(r => r.Name.ToLower() == "admin");
+            if (user.Roles.Any(r => r.RoleId == role.Id))
+            {
+                return true;
+            }
+            return false;
         }
 
         #endregion

@@ -19,12 +19,14 @@
     <script src="assets/js/custom-scripts.js"></script>
     <script src="assets/js/jquery.jscrollpane.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
+    <script src="assets/js/d3.v3.js"></script>
+     <script src="assets/js/c3.min.js"></script>
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
         <!-- Custom Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
+     <link href="assets/css/c3.min.css" rel="stylesheet" />
      <!-- Google Fonts-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
      <!-- TABLE STYLES-->
@@ -47,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><i class="fa fa-gear"></i> <strong>CABS Pro</strong></a>
+                <a class="navbar-brand" href="Home.aspx"><i class="fa fa-gear"></i> <strong>CABS Pro</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">               
@@ -63,6 +65,7 @@
                         <%if(FleetManagement.Common.Common.IsAdminUser(Page)){ %>
                          <li><a href="AddUser.aspx"><i class="fa fa-sign-out fa-fw"></i>Add New User</a>
                         <%} %>
+                        <li><a href="ChangePassword.aspx"><i class="fa fa-sign-out fa-fw"></i>Change Password</a>
                         <%--<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>--%>
                         <li class="divider"></li>
@@ -76,7 +79,6 @@
         </nav>
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
-               <%-- <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />--%>
                 <asp:SiteMapDataSource ID="DefaultSiteMapDataSource" SiteMapProvider="DefaultSiteMapProvider" runat="server" ShowStartingNode="false" />
                 <asp:SiteMapDataSource ID="AdminSiteMapDataSource" SiteMapProvider="AdminSiteMapProvider" runat="server" ShowStartingNode="false" />
                 <ul class="nav" id="main-menu">

@@ -13,19 +13,19 @@
                     <div style="margin-bottom: 10px">
                         <asp:Label runat="server" AssociatedControlID="TXtCurrentPassword">Current Password</asp:Label>
                         <div>
-                            <asp:TextBox CssClass="form-control" runat="server" ID="TXtCurrentPassword" />
+                            <asp:TextBox TextMode="Password" CssClass="form-control" runat="server" ID="TXtCurrentPassword" />
                         </div>
                     </div>
                     <div style="margin-bottom: 10px">
                         <asp:Label runat="server" AssociatedControlID="TxtNewPassword">New Password</asp:Label>
                         <div>
-                            <asp:TextBox CssClass="form-control" runat="server" ID="TxtNewPassword" />
+                            <asp:TextBox TextMode="Password" CssClass="form-control" runat="server" ID="TxtNewPassword" />
                         </div>
                     </div>
                     <div style="margin-bottom: 10px">
                         <asp:Label runat="server" AssociatedControlID="TxtConfirmPassword">Confirm Password</asp:Label>
                         <div>
-                            <asp:TextBox CssClass="form-control" runat="server" ID="TxtConfirmPassword" />
+                            <asp:TextBox TextMode="Password" CssClass="form-control" runat="server" ID="TxtConfirmPassword" />
                         </div>
                     </div>
                     <div>

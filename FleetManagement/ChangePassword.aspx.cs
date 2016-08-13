@@ -20,7 +20,7 @@ namespace FleetManagement
         {
             if(TxtNewPassword.Text.Equals(TxtConfirmPassword.Text,StringComparison.CurrentCulture))
             {
-                StatusMessage.Text = "<span class='errorText'>Password & Confirm Password do not match</span>!";
+                StatusMessage.Text = "<span class='errorText'>Password & Confirm Password do not match!</span>";
             }
 
             var userStore = new UserStore<IdentityUser>();
@@ -29,11 +29,11 @@ namespace FleetManagement
             var result = manager.ChangePassword(this.Page.User.Identity.GetUserId(), TXtCurrentPassword.Text, TxtNewPassword.Text);
             if(result.Succeeded)
             {
-                StatusMessage.Text = "<span class='errorText'>we have changed your password successfully</span>!";
+                StatusMessage.Text = "<span class='errorText'>we have changed your password successfully!</span>";
             }
             else
             {
-                StatusMessage.Text = "<span class='errorText'>Please try after some time, we are having issues</span>!";
+                StatusMessage.Text = "<span class='errorText'>Please try after some time, we are having issues!</span>";
             }
 
         }

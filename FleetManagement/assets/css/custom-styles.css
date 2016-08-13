@@ -101,6 +101,7 @@ position: fixed;
   /*overflow-y:scroll!important;*/
   
 }
+.lblMessage{color:red;}
 .jspContainer{height:1200px!important;}
 .navbar-side li{float:left;width:260px;}
 #page-wrapper {

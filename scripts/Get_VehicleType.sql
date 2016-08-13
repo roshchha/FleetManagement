@@ -1,0 +1,20 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[Get_VehicleType]
+	@ID INT = 0
+
+	AS
+		BEGIN
+
+		SELECT
+		ID,
+		Name
+		FROM VehicleType
+		WHERE ID = @ID OR @ID = 0
+
+		END
+
+GO

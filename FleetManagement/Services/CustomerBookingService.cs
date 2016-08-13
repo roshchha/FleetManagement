@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -127,5 +128,89 @@ namespace FleetManagement.Services
            }
            return custBookings;
         }
+
+         public List<BookingLight> GetMonthlyBookingCount()
+        {
+            List<BookingLight> bookingCountList = new List<BookingLight>();
+            DataSet ds = SqlHelper.ExecuteDataset("GET_MonthlyBookingCount", new SqlParameter[] { });
+            if (ds.ValidDataSet())
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                  DateTimeFormatInfo datetimeFormat = new DateTimeFormatInfo();
+                    CultureInfo cultureInfo = new CultureInfo("en-US");
+                    DateTime dt = Convert.ToDateTime(row.GetValue("BookingDate"),cultureInfo.DateTimeFormat);
+                    string dateStr = dt.ToString("dd MMM yy");
+                    bookingCountList.Add(new BookingLight { BookingDateTime = dt, BookingDate = dateStr, BookingCount = row.GetIntValue("BookingCount") });
+                    
+                }
+                DateTime today = DateTime.Today;
+                for (int i = 0; i < 30; i++)
+                {
+                    DateTime dt = today.AddDays(-i);
+                    string dateStr = dt.ToString("dd MMM yy");
+                    if (!bookingCountList.Any(b => b.BookingDateTime == dt))
+                    {
+                        bookingCountList.Add(new BookingLight {BookingDateTime =dt, BookingDate = dateStr, BookingCount = 0 });
+                    }
+                }
+                bookingCountList.Sort((a, b) => a.BookingDateTime.CompareTo(b.BookingDateTime));
+               
+            }
+            return bookingCountList;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+         public List<GrossRevenue> GetGrossMonthlyRevenueForVehicles()
+         {
+             List<GrossRevenue> grossRevenueForVehiclesList = new List<GrossRevenue>();
+            DataSet ds = SqlHelper.ExecuteDataset("Get_MonthlyGrossRevenueFromVehicles", new SqlParameter[] { });
+            if (ds.ValidDataSet())
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    CultureInfo cultureInfo = new CultureInfo("en-US");
+                    DateTime dt = Convert.ToDateTime(row.GetValue("BookingDate"), cultureInfo.DateTimeFormat);
+                    string dateStr = dt.ToString("dd MMM yy");
+                    grossRevenueForVehiclesList.Add(new GrossRevenue
+                    {
+                        BookingDateTime = dt,
+                        BookingDate = dateStr,
+                        VehicleID = row.GetIntValue("VehicleID"),
+                        VehicleType = row.GetIntValue("VehicleType"),
+                        VehicleTypeName = row.GetValue("VehicleTypeName"),
+                        TotalAmount = row.GetDecimalValue("TotalAmount") ?? 0
+
+                    });
+
+                }
+                DateTime today = DateTime.Today;
+                for (int i = 0; i < 30; i++)
+                {
+                    DateTime dt = today.AddDays(-i);
+                    string dateStr = dt.ToString("dd MMM yy");
+                    if (!grossRevenueForVehiclesList.Any(b => b.BookingDateTime == dt))
+                    {
+
+                        grossRevenueForVehiclesList.Add(new GrossRevenue
+                        {
+                            BookingDateTime = dt,
+                            BookingDate = dateStr,
+                            VehicleID = 0,
+                            VehicleType = 0,
+                            VehicleTypeName = string.Empty
+
+                        });
+                    }
+                }
+                grossRevenueForVehiclesList.Sort((a, b) => a.BookingDateTime.CompareTo(b.BookingDateTime));
+
+            }
+            return grossRevenueForVehiclesList;
+        }
+         
     }
+
 }
