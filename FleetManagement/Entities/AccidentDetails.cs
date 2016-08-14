@@ -21,6 +21,10 @@ namespace FleetManagement.Entities
 
         public int? EmployeeID { get; set; }
 
+        public string VehicleName { get; set; }
+
+        public string EmployeeName { get; set; }
+
     }
 
 }

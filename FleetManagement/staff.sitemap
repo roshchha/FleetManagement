@@ -9,11 +9,15 @@
       <siteMapNode url="Clientbooking.aspx" title="Customer Booking"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="viewclientbooking.aspx" title="View Customer Booking Details"  description="" cssClass="fa fa-desktop" />
     </siteMapNode>
-   <siteMapNode url="" title="Vehicle"  description="" cssClass="">
+    <siteMapNode url="" title="Vehicle"  description="" cssClass="">
       <siteMapNode url="ViewVehilcemaster.aspx" title="View Vehicle Details"  description="" cssClass="fa fa-desktop" />
     </siteMapNode>
-  <siteMapNode url="BillingDetails.aspx" title="Billing Details" description="" cssClass="fa fa-edit" />
-  <siteMapNode url="service.aspx" title="Add Service Details"  description="" cssClass="fa fa-edit" />
-  <siteMapNode url="Accidentdetails.aspx" title="Add Accident Details"  description="" cssClass="fa fa-edit" />
+    <siteMapNode url="BillingDetails.aspx" title="Billing Details" description="" cssClass="fa fa-edit" />
+    <siteMapNode url="service.aspx" title="Add Service Details"  description="" cssClass="fa fa-edit" />
+    <siteMapNode url="" title="Accident"  description="" cssClass="">
+      <siteMapNode url="Accidentdetails.aspx" title="Add Accident Details"  description="" cssClass="fa fa-edit" />
+      <siteMapNode url="AccidentdetailsView.aspx" title="View Accident Details"  description="" cssClass="fa fa-edit" />
+    </siteMapNode>
+
   </siteMapNode>
 </siteMap>

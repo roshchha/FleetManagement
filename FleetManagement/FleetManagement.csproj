@@ -165,6 +165,7 @@
     <Content Include="Error.aspx" />
     <Content Include="Service.aspx" />
     <Content Include="StyleSheet.css" />
+    <Content Include="AccidentDetailsView.aspx" />
     <Content Include="UserDetails.aspx" />
     <Content Include="VehicleDetailsReport.aspx" />
     <Content Include="VehicleType.aspx" />
@@ -359,6 +360,13 @@
     <Compile Include="Services\VehicleService.cs" />
     <Compile Include="Services\VehicleTypeService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="AccidentDetailsView.aspx.cs">
+      <DependentUpon>AccidentDetailsView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccidentDetailsView.aspx.designer.cs">
+      <DependentUpon>AccidentDetailsView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserDetails.aspx.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
