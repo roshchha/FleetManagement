@@ -11,6 +11,7 @@
     </siteMapNode>
     <siteMapNode url="" title="Vehicle"  description="" cssClass="">
       <siteMapNode url="ViewVehilcemaster.aspx" title="View Vehicle Details"  description="" cssClass="fa fa-desktop" />
+      <siteMapNode url="VehicletariffView.aspx" title="Add Vehicle Tariffs"  description="" cssClass="fa fa-edit" />
     </siteMapNode>
     <siteMapNode url="BillingDetails.aspx" title="Billing Details" description="" cssClass="fa fa-edit" />
     <siteMapNode url="" title="Service Details"  description="" cssClass="">

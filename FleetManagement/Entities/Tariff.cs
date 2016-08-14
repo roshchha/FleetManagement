@@ -16,7 +16,25 @@ namespace FleetManagement.Entities
 
         public int VehicleType { get; set; }
 
+        public string VehicleTypeName { get; set; }
+
         public bool? AC { get; set; }
+
+        public string AcName
+        {
+            get
+            {
+                return AC == true ? "Yes" : "No";
+            }
+        }
+
+        public string FueTypeName
+        {
+            get
+            {
+                return ((Enums.FuelType)FuelType).ToString();
+            }
+        }
 
         public int? FuelType { get; set; }
 
@@ -62,7 +80,7 @@ namespace FleetManagement.Entities
                 sqlParamList.Add(new SqlParameter("ExtraKmRate", ExtraKmRate));
                 sqlParamList.Add(new SqlParameter("ExtraHourRate", ExtraHourRate));
                 sqlParamList.Add(new SqlParameter("StandCharges", StandCharges));
-                
+
                 sqlParamList.Add(new SqlParameter("ObjectState", this.ObjState));
 
             }

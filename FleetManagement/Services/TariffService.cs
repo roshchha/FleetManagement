@@ -57,20 +57,21 @@ namespace FleetManagement.Services
             return false;
         }
 
-        public Tariff Fill(System.Data.DataRow item)
+        public Tariff Fill(DataRow item)
         {
-            if(item == null) return null;
-            Tariff obj = new Tariff();
-            obj.TariffID = item.GetIntValue("TariffID");
-            obj.TariffCode = item.GetValue("TariffCode");
-            obj.AC = item.GetBoolValue("AC");
-            obj.BasePrice = Math.Round(item.GetDecimalValue("BasePrice") ?? 0, 2);
-            obj.Kms = item.GetIntValue("Kms");
-            obj.ExtraHourRate = Math.Round(item.GetDecimalValue("ExtraHourRate") ?? 0, 2);
-            obj.ExtraKmRate = Math.Round(item.GetDecimalValue("ExtraKmRate") ?? 0, 2);
-            obj.FuelType = item.GetIntValue("FuelType");
-            obj.StandCharges = Math.Round(item.GetDecimalValue("StandCharges") ?? 0, 2);
-            obj.VehicleType = item.GetIntValue("VehicleType");
+            if(item == null)    return null;
+            Tariff obj          = new Tariff();
+            obj.TariffID        = item.GetIntValue("TariffID");
+            obj.TariffCode      = item.GetValue("TariffCode");
+            obj.AC              = item.GetBoolValue("AC");
+            obj.BasePrice       = Math.Round(item.GetDecimalValue("BasePrice") ?? 0, 2);
+            obj.Kms             = item.GetIntValue("Kms");
+            obj.ExtraHourRate   = Math.Round(item.GetDecimalValue("ExtraHourRate") ?? 0, 2);
+            obj.ExtraKmRate     = Math.Round(item.GetDecimalValue("ExtraKmRate") ?? 0, 2);
+            obj.FuelType        = item.GetIntValue("FuelType");
+            obj.StandCharges    = Math.Round(item.GetDecimalValue("StandCharges") ?? 0, 2);
+            obj.VehicleType     = item.GetIntValue("VehicleType");
+            obj.VehicleTypeName = item.GetValue("VehicleTypeName");
             return obj;
         }
     }
