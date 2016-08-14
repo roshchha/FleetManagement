@@ -18,7 +18,7 @@
       <siteMapNode url="VehicleType.aspx" title="Add Vehicle Type"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="Vehiclemaster.aspx" title="Add Vehicle Details"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="Vehicletariff.aspx" title="Add Vehicle Tariffs"  description="" cssClass="fa fa-edit" />
-      <siteMapNode url="VehicletariffView.aspx" title="Add Vehicle Tariffs"  description="" cssClass="fa fa-edit" />
+      <siteMapNode url="VehicletariffView.aspx" title="View Vehicle Tariffs"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="ViewVehilcemaster.aspx" title="View Vehicle Details"  description="" cssClass="fa fa-desktop" />
     </siteMapNode>
     <siteMapNode url="BillingDetails.aspx" title="Billing Details" roles="Admin" description="" cssClass="fa fa-edit" />
