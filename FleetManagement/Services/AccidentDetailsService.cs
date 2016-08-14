@@ -3,6 +3,7 @@ using FleetManagement.Entities;
 using FleetManagement.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -18,7 +19,17 @@ namespace FleetManagement.Services
         /// <returns></returns>
         public List<AccidentDetails> Get(int ID = 0)
         {
-            throw new NotImplementedException();
+            List<AccidentDetails> retObj = new List<AccidentDetails>();
+            DataSet ds = SqlHelper.ExecuteDataset("Get_AccidentDetails", new SqlParameter[0]);
+            if(ds.ValidDataSet())
+            {
+                foreach(DataRow item in ds.Tables[0].Rows)
+                {
+                    retObj.Add(Fill(item));
+                }
+            }
+
+            return retObj;
         }
 
         /// <summary>
@@ -51,9 +62,19 @@ namespace FleetManagement.Services
             throw new NotImplementedException();
         }
 
-        public AccidentDetails Fill(System.Data.DataRow item)
+        public AccidentDetails Fill(DataRow item)
         {
-            throw new NotImplementedException();
+            if (item == null) return null;
+
+            AccidentDetails retObj  = new AccidentDetails();
+            retObj.VehicleID        = item.GetIntValue("VehicleId");
+            retObj.RepairCost       = item.GetDecimalValue("RepairCost") == 0 ? null : item.GetDecimalValue("RepairCost");
+            retObj.AccidentLocation = item.GetValue("AccidentLocation");
+            retObj.AccidentDate     = item.GetDateTimeValue("AccidentDate");
+            retObj.AccidentDesc     = item.GetValue("AccidentDesc");
+            retObj.Damage           = item.GetValue("Damage");
+            retObj.EmployeeID       = item.GetIntValue("EmployeeID");
+            return retObj;
         }
     }
 }
