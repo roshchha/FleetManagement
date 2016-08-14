@@ -21,11 +21,11 @@
       <siteMapNode url="ViewVehilcemaster.aspx" title="View Vehicle Details"  description="" cssClass="fa fa-desktop" />
     </siteMapNode>
     <siteMapNode url="BillingDetails.aspx" title="Billing Details" roles="Admin" description="" cssClass="fa fa-edit" />
-    <siteMapNode url="" title="Service"  description="" cssClass="">
+    <siteMapNode url="" title="Service Details"  description="" cssClass="">
       <siteMapNode url="service.aspx" title="Add Service Details"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="Viewservicedetails.aspx" title="View Service Details"  description="" cssClass="fa fa-edit" />
     </siteMapNode>
-    <siteMapNode url="" title="Accident"  description="" cssClass="">
+    <siteMapNode url="" title="Accident Details"  description="" cssClass="">
       <siteMapNode url="Accidentdetails.aspx" title="Add Accident Details"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="AccidentdetailsView.aspx" title="View Accident Details"  description="" cssClass="fa fa-edit" />
     </siteMapNode>
