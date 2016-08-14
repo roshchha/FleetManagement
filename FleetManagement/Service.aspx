@@ -17,6 +17,7 @@
                         <tr>
                             <td colspan="3" align="center">
                                 <asp:Label ID="lblMessage" runat="server" Visible="False" CssClass="lblMessage"></asp:Label>&nbsp;
+                                <asp:HiddenField ID="HdnID" runat="server" />
                             </td>
                         </tr>
                         <tr>

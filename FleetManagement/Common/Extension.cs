@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI.WebControls;
 
@@ -113,6 +115,13 @@ namespace FleetManagement.Common
             }
             return defaultDate;
         }
+        public static string ToShortDateTimeString(this DateTime dateTime)
+        {
+             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+             return dateTime.ToShortDateString();
+             
+        }
+        
     }
 
 }

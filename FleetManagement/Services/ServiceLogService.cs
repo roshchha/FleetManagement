@@ -65,7 +65,7 @@ namespace FleetManagement.Services
             serviceLog.SentDate             = item.GetDateTimeValue("SentDate");
             serviceLog.MileageReading       = item.GetIntValue("MileageReading");
             serviceLog.ServiceReason        = item.GetValue("ServiceReason");
-            serviceLog.SpareExpenditure     = item.GetDecimalValue("SpareExpenditure");
+            serviceLog.SparesExpenditure     = item.GetDecimalValue("SparesExpenditure");
             serviceLog.LabourExpenditure    = item.GetDecimalValue("LabourExpenditure");
             serviceLog.NextServiceDate      = item.GetDateTimeValue("NextServiceDate");
             serviceLog.InsertTimeStamp      = item.GetDateTimeValue("InsertTimeStamp");

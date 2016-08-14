@@ -32,10 +32,10 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="MileageReading" HeaderText="Mileage Reading" SortExpression="MileageReading" />
                                 <asp:BoundField DataField="ServiceReason" HeaderText="Service Reason" SortExpression="ServiceReason"></asp:BoundField>
-                                <asp:BoundField DataField="SpareExpenditure" HeaderText="Spare Expenditure" SortExpression="SpareExpenditure"></asp:BoundField>
+                                <asp:BoundField DataField="SparesExpenditure" HeaderText="Spares Expenditure" SortExpression="SparesExpenditure"></asp:BoundField>
                                 <asp:BoundField DataField="LabourExpenditure" HeaderText="Labour Expenditure" SortExpression="LabourExpenditure" />
 
-                                <asp:CommandField HeaderText="Edit" ShowDeleteButton="True" ShowEditButton="True"
+                                <asp:CommandField HeaderText="Action" ShowDeleteButton="True" ShowEditButton="True"
                                     ShowHeader="True" />
                             </Columns>
                         </asp:GridView>
@@ -68,6 +68,9 @@
             });
         });
     </script>
+    <style type="text/css">
+        .table-responsive table tr th:first-child, .table-responsive table tr td:first-child{display:none;}
+    </style>
 
 </asp:Content>
 

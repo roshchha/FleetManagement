@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="AccidentDetailsView.aspx.cs" Inherits="FleetManagement.UserDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="AccidentDetailsView.aspx.cs" Inherits="FleetManagement.AccidentDetailsView" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
@@ -31,13 +31,13 @@
                             <ItemTemplate>
                                 <tr>
                                     <td>
-                                        <asp:Label ID="Lbl_VehicleName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "VehicleName")%>'></asp:Label>
+                                        <asp:Label ID="Lbl_VehicleName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "VehicleNo")%>'></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label ID="Lbl_EmployeeName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "EmployeeName")%>'></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:Label ID="Lbl_Date" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "AccidentDate")%>'></asp:Label>
+                                        <asp:Label ID="Lbl_Date" runat="server" Text=' <%#Eval("AccidentDate","{0:dd MMM yyyy}") %>'></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label ID="Lbl_Location" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "AccidentLocation")%>'></asp:Label>

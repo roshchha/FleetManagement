@@ -75,7 +75,7 @@ namespace FleetManagement.Services
             retObj.Damage           = item.GetValue("Damage");
             retObj.EmployeeID       = item.GetIntValue("EmployeeID");
             retObj.EmployeeName     = item.GetValue("EmployeeName");
-            retObj.VehicleName      = item.GetValue("VehicleName");
+            retObj.VehicleNo      = item.GetValue("VehicleNo");
             return retObj;
         }
     }

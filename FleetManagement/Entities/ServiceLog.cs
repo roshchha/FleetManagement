@@ -21,7 +21,7 @@ namespace FleetManagement.Entities
 
         public string ServiceReason { get; set; }
 
-        public decimal? SpareExpenditure { get; set; }
+        public decimal? SparesExpenditure { get; set; }
 
         public decimal? LabourExpenditure { get; set; }
 
@@ -57,7 +57,7 @@ namespace FleetManagement.Entities
                 sqlParamList.Add(new SqlParameter("@SentDate", SentDate));
                 sqlParamList.Add(new SqlParameter("@MileageReading", MileageReading));
                 sqlParamList.Add(new SqlParameter("@ServiceReason", ServiceReason));
-                sqlParamList.Add(new SqlParameter("@SpareExpenditure", SpareExpenditure));
+                sqlParamList.Add(new SqlParameter("@SpareExpenditure", SparesExpenditure));
                 sqlParamList.Add(new SqlParameter("@LabourExpenditure", LabourExpenditure));
                 sqlParamList.Add(new SqlParameter("@NextServiceDate", NextServiceDate));
                 sqlParamList.Add(new SqlParameter("@ObjectState", this.ObjState));

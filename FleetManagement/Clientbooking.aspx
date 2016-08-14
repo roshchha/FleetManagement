@@ -22,7 +22,8 @@
                             <td style="width: 146px">
                                 <asp:Label ID="lblCustomername" runat="server" Text="Customer Name"></asp:Label></td>
                             <td>
-                                <asp:DropDownList CssClass="form-control" ID="ddlCustomername" runat="server"></asp:DropDownList>
+                                <asp:DropDownList CssClass="form-control cust-select" ID="ddlCustomername" runat="server"></asp:DropDownList>
+                                <div style="display:inline-block"><a href="customers.aspx">Add Customer</a></div>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="ddlCustomername" SetFocusOnError="True" InitialValue="Select">Name Reqiured</asp:RequiredFieldValidator>
@@ -164,5 +165,8 @@
         $('#<%=txtFromdate.ClientID%>').datepicker();
         $('#<%=txtTodate.ClientID%>').datepicker();
     </script>
+    <style type="text/css">
+        .cust-select{width:120px;display:inline-block;}
+    </style>
 </asp:Content>
 

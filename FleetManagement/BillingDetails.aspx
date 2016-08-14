@@ -25,7 +25,7 @@
                                 <asp:Label ID="lblBookingRef" Text="Booking Reference" runat="server"></asp:Label>
                             </td>
                             <td>
-                                <asp:DropDownList CssClass="form-control" ID="ddlBookingRef" runat="server" AutoPostBack="true" />
+                                <asp:DropDownList CssClass="form-control" ID="ddlBookingRef" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlBookingRef_SelectedIndexChanged" />
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="ddlBookingRef" InitialValue="Select" SetFocusOnError="True" ValidationGroup="first">Select</asp:RequiredFieldValidator>

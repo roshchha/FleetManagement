@@ -112,13 +112,13 @@ namespace FleetManagement.Services
             vehicle.PurchaseDate = item.GetDateTimeValue("PurchaseDate");
             vehicle.RegistrationNo = item.GetValue("RegistrationNo");
             vehicle.NoOfSeating = item.GetIntValue("NoOfSeating");
-            vehicle.InsuranceAmount = item.GetDecimalValue("InsuranceAmount");
+            vehicle.InsuranceAmount = Math.Round(item.GetDecimalValue("InsuranceAmount") ?? 0, 2);
             vehicle.InsuranceExpirationDate = item.GetDateTimeValue("InsuranceExpirationDate");
             vehicle.AC = item.GetBoolValue("AC");
             vehicle.ChasisNo = item.GetValue("ChasisNo");
             vehicle.EngineNo = item.GetValue("EngineNo");
             vehicle.FuelType = item.GetIntValue("FuelType");
-            vehicle.VehicleCost = Math.Ceiling(item.GetDecimalValue("VehicleCost") ?? 0);
+            vehicle.VehicleCost = Math.Round(item.GetDecimalValue("VehicleCost") ?? 0, 2);// Math.Ceiling(item.GetDecimalValue("VehicleCost") ?? 0);
             vehicle.VehicleType = item.GetIntValue("VehicleType");
             vehicle.VehicleTypeName = item.GetValue("VehicleTypeName");
             vehicle.TankCapacity = item.GetIntValue("TankCapacity");

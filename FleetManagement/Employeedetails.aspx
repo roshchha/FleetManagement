@@ -70,5 +70,8 @@
             });
         });
     </script>
+     <style type="text/css">
+        .table-responsive table tr th:first-child, .table-responsive table tr td:first-child{display:none;}
+    </style>
 </asp:Content>
 

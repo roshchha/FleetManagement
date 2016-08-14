@@ -83,6 +83,7 @@ public partial class customers : System.Web.UI.Page
             {
                 lblMessage.Text = "Customer details added sucessfully";
                 lblMessage.Visible = true;
+                Response.Redirect("~/Clientbooking.aspx");
             }
             else
             {

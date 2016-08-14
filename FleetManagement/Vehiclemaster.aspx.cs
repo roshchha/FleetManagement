@@ -70,15 +70,17 @@ public partial class Vehiclemaster : System.Web.UI.Page
         vehicle.InsuranceAmount = int.Parse(txtInsuranceamt.Text);
         vehicle.TankCapacity = int.Parse(txtTankcapacity.Text);
         vehicle.VehicleCost = decimal.Parse(txtVehiclecost.Text);
-        vehicle.AC = ddlAc.SelectedValue == ((int)YesNo.Yes).ToString() ? true : false;
+        vehicle.AC = true;// ddlAc.SelectedValue == ((int)YesNo.Yes).ToString() ? true : false;
         vehicle.FuelType = int.Parse(ddlFueltype.SelectedValue);
         vehicle.VehicleType = int.Parse(ddlVehicletype.SelectedValue);
         vehicle.VehicleNo = txtVehicleNo.Text;
 
         bool success = false;
+        bool isUpdate = false;
         if (VehicleID > 0)
         {
             success = vehicleService.Update(vehicle);
+            isUpdate = true;
         }
         else
         {
@@ -86,7 +88,12 @@ public partial class Vehiclemaster : System.Web.UI.Page
         }
         if (success)
         {
-            lblMessage.Text = "Vehicle Details added sucessfully";
+            if (isUpdate)
+            lblMessage.Text = "Vehicle Details updated sucessfully";
+            else
+                lblMessage.Text = "Vehicle Details added sucessfully";
+
+
             lblMessage.Visible = true;
         }
         else
@@ -108,11 +115,12 @@ public partial class Vehiclemaster : System.Web.UI.Page
         ddlFueltype.SelectedIndex = 0;
         txtTankcapacity.Text = "";
         txtSeating.Text = "";
-        ddlAc.SelectedIndex = 0;
+        //ddlAc.SelectedIndex = 0;
         txtVehiclecost.Text = "";
         txtPurchasedate.Text = "";
         txtInsuranceamt.Text = "";
         txtInsuranceexpdate.Text = "";
+        txtVehicleNo.Text = "";
     }
     private void BindVehicleTypes()
     {
@@ -131,8 +139,8 @@ public partial class Vehiclemaster : System.Web.UI.Page
     }
     private void BindAC()
     {
-        ddlAc.Items.Clear();
-        ddlAc.Items.AddRange(Common.ToListItems<YesNo>().ToArray());
+       // ddlAc.Items.Clear();
+       // ddlAc.Items.AddRange(Common.ToListItems<YesNo>().ToArray());
     }
     private void LoadData()
     {
@@ -142,15 +150,15 @@ public partial class Vehiclemaster : System.Web.UI.Page
             txtChasisno.Text = vehicle.ChasisNo;
             txtEngno.Text = vehicle.EngineNo;
             txtRegno.Text = vehicle.RegistrationNo;
-            txtRegdate.Text = vehicle.RegistrationDate.ToShortDateString();
+            txtRegdate.Text = vehicle.RegistrationDate.ToShortDateTimeString();
             txtSeating.Text = vehicle.NoOfSeating.ToString();
-            txtPurchasedate.Text = vehicle.PurchaseDate.ToShortDateString();
+            txtPurchasedate.Text = vehicle.PurchaseDate.ToShortDateTimeString();
             txtInsuranceamt.Text = Math.Ceiling(vehicle.InsuranceAmount ?? 0).ToString();
-            txtInsuranceexpdate.Text = vehicle.InsuranceExpirationDate.GetValueOrDefault().ToShortDateString();
+            txtInsuranceexpdate.Text = vehicle.InsuranceExpirationDate.GetValueOrDefault().ToShortDateTimeString();
             txtTankcapacity.Text = vehicle.TankCapacity.ToString();
             txtVehiclecost.Text = Math.Ceiling(vehicle.VehicleCost).ToString();
             txtVehicleNo.Text = vehicle.VehicleNo;
-            ddlAc.SelectedValue = (vehicle.AC ? (int)YesNo.Yes : (int)YesNo.No).ToString();
+           // ddlAc.SelectedValue = (vehicle.AC ? (int)YesNo.Yes : (int)YesNo.No).ToString();
             ddlFueltype.SelectedValue = vehicle.FuelType.ToString();
             ddlVehicletype.SelectedValue = vehicle.VehicleType.ToString();
 

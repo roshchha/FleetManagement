@@ -13,11 +13,16 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using FleetManagement.Common;
 using FleetManagement.Enums;
+using System.Globalization;
+using System.Threading;
 
 public partial class Fleetmanagement : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        CultureInfo cultureInfo = new CultureInfo("en-US");
+        Thread.CurrentThread.CurrentCulture = cultureInfo;
+        Thread.CurrentThread.CurrentUICulture = cultureInfo;
         if (!this.Page.User.Identity.IsAuthenticated)
         {
             Response.Redirect("Login.aspx");

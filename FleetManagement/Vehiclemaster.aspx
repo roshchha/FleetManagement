@@ -46,7 +46,7 @@
                         </tr>
                         <tr>
                             <td><asp:Label ID="lblRegdate" runat="server" Text="Registration Date"></asp:Label></td>
-                            <td><asp:TextBox CssClass="form-control" ID="txtRegdate" onclick="ds_sh(this)" onfocus="ds_sh(this)" runat="server"></asp:TextBox></td>
+                            <td><asp:TextBox CssClass="form-control" ID="txtRegdate" runat="server"></asp:TextBox></td>
                             <td><asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtRegdate">Date Required</asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
@@ -55,7 +55,7 @@
                             <td><asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtEngno" SetFocusOnError="True">Engine Num Required</asp:RequiredFieldValidator></td>
                         </tr>
                         <tr>
-                            <td><asp:Label ID="lblChasisno" runat="server" Text="Chasis No"></asp:Label></td>
+                            <td><asp:Label ID="lblChasisno" runat="server" Text="Chassis No"></asp:Label></td>
                             <td><asp:TextBox CssClass="form-control" ID="txtChasisno" runat="server"></asp:TextBox></td>
                             <td><asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="txtChasisno" SetFocusOnError="True">Chasis Num required</asp:RequiredFieldValidator></td>
                         </tr>
@@ -80,14 +80,14 @@
                             <td><asp:TextBox CssClass="form-control" ID="txtSeating" runat="server"></asp:TextBox></td>
                             <td><asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator8" runat="server" ErrorMessage="*" ControlToValidate="txtSeating">Num of Seating required</asp:RequiredFieldValidator></td>
                         </tr>
-                        <tr>
+                        <%--<tr>
                             <td><asp:Label ID="lblAc" runat="server" Text="A/C "></asp:Label></td>
                             <td>
                                 <asp:DropDownList CssClass="form-control" ID="ddlAc" runat="server">
                                 </asp:DropDownList>
                             </td>
                             <td><asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator9" runat="server" ErrorMessage="*" ControlToValidate="ddlAc" InitialValue="Select">Select</asp:RequiredFieldValidator></td>
-                        </tr>
+                        </tr>--%>
                         <tr>
                             <td>
                                 <asp:Label ID="lblCost" runat="server" Text="Vehicle Cost" Height="20px" Width="84px"></asp:Label>
@@ -104,7 +104,7 @@
                                 <asp:Label ID="lblPurchasedate" runat="server" Text="Purchase Date" Height="20px" Width="95px"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox CssClass="form-control" ID="txtPurchasedate" onclick="ds_hh(this)" onfocus="ds_hh(this)" runat="server"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="txtPurchasedate" runat="server"></asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator11" runat="server" ErrorMessage="*" ControlToValidate="txtPurchasedate" SetFocusOnError="True">Date Required</asp:RequiredFieldValidator>
@@ -133,7 +133,7 @@
                                 <asp:Label ID="lblExpiredate" runat="server" Text="Insurance Expire date" Height="20px" Width="96px"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox CssClass="form-control" ID="txtInsuranceexpdate" onclick=ds_hh(this) runat="server"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="txtInsuranceexpdate" runat="server"></asp:TextBox>
                             </td>
                             <td>
                             </td>
@@ -149,6 +149,10 @@
             </div>
         </div>
     </div>
-
+     <script type="text/javascript">
+         $('#<%=txtPurchasedate.ClientID%>').datepicker();
+         $('#<%=txtRegdate.ClientID%>').datepicker();
+         $('#<%=txtInsuranceexpdate.ClientID%>').datepicker();
+    </script>
 </asp:Content>
 

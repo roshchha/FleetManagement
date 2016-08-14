@@ -29,6 +29,7 @@ public partial class BillingDetails : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         lblMessage.Visible = false;
+        
         if (!IsPostBack || Session["PendingBookingsForBilling"] == null)
         {
             pendingBookingsForBilling = customerBookingService.GetPendingBookingsForBilling();
@@ -52,12 +53,12 @@ public partial class BillingDetails : System.Web.UI.Page
             }
         }
 
-        GetBooking();
-        if (CurrentBooking != null && !IsPostBack)
-        {
-            this.txtInMeterReading.Text = CurrentBooking.BillingDetails.InMeterReading != 0 ? CurrentBooking.BillingDetails.InMeterReading.ToString() : "";
-            this.txtOutMeterReading.Text = CurrentBooking.BillingDetails.OutMeterReading != 0 ? CurrentBooking.BillingDetails.OutMeterReading.ToString() : "";
-        }
+        //GetBooking();
+        //if (CurrentBooking != null && !IsPostBack)
+        //{
+        //    this.txtInMeterReading.Text = CurrentBooking.BillingDetails.InMeterReading != 0 ? CurrentBooking.BillingDetails.InMeterReading.ToString() : "";
+        //    this.txtOutMeterReading.Text = CurrentBooking.BillingDetails.OutMeterReading != 0 ? CurrentBooking.BillingDetails.OutMeterReading.ToString() : "";
+        //}
         
        // SetButtonVisibility();
         txtDiscount.Attributes.Add("onkeydown", "numbersOnly(event)");
@@ -137,41 +138,47 @@ public partial class BillingDetails : System.Web.UI.Page
             if (selBookingId > 0)
             {
                 CurrentBooking = pendingBookingsForBilling.FirstOrDefault(b => b.BookingID == selBookingId);
-
-                if (txtDiscount.Text != CurrentBooking.BillingDetails.Discount.ToString())
-                {
-                    txtDiscount.Text = CurrentBooking.BillingDetails.Discount.ToString();
-                }
-                if (txtGrossAmount.Text != CurrentBooking.BillingDetails.GrossAmount.ToString())
-                {
-                    txtGrossAmount.Text = CurrentBooking.BillingDetails.GrossAmount.ToString();
-                }
-                if (txtTotalAmount.Text != CurrentBooking.BillingDetails.TotalAmount.ToString())
-                {
-                    txtTotalAmount.Text = CurrentBooking.BillingDetails.TotalAmount.ToString();
-                }
-                if (txtDutySlipDate.Text != CurrentBooking.BillingDetails.DutySlipDate.ToString() &&
-                    CurrentBooking.BillingDetails.DutySlipDate != DateTime.MinValue)
-                {
-                    txtDutySlipDate.Text = CurrentBooking.BillingDetails.DutySlipDate.ToString();
-                }
-                if (txtDutySlipNo.Text != CurrentBooking.BillingDetails.DutySlipNo.ToString())
-                {
-                    txtDutySlipNo.Text = CurrentBooking.BillingDetails.DutySlipNo.ToString();
-                }
-                if (txtInMeterReading.Text != CurrentBooking.BillingDetails.InMeterReading.ToString())
-                {
-                    txtInMeterReading.Text = CurrentBooking.BillingDetails.InMeterReading.ToString();
-                }
-                if (txtOutMeterReading.Text != CurrentBooking.BillingDetails.OutMeterReading.ToString())
-                {
-                    txtOutMeterReading.Text = CurrentBooking.BillingDetails.OutMeterReading.ToString();
-                }
+                
             }
         }
         catch (Exception e) { }
     }
-   
+    protected void ddlBookingRef_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GetBooking();
+        if (CurrentBooking == null || CurrentBooking.BillingDetails == null) return;
+        CustomerBilling billingDetails = CurrentBooking.BillingDetails;
+        if (txtDiscount.Text != billingDetails.Discount.ToString() && billingDetails.Discount > 0)
+        {
+            txtDiscount.Text = billingDetails.Discount.ToString();
+        }
+        if (txtGrossAmount.Text != billingDetails.GrossAmount.ToString() && billingDetails.GrossAmount > 0)
+        {
+            txtGrossAmount.Text = billingDetails.GrossAmount.ToString();
+        }
+        if (txtTotalAmount.Text != billingDetails.TotalAmount.ToString() && billingDetails.TotalAmount > 0)
+        {
+            txtTotalAmount.Text = billingDetails.TotalAmount.ToString();
+        }
+        if (txtDutySlipDate.Text != billingDetails.DutySlipDate.ToString() &&
+            billingDetails.DutySlipDate != DateTime.MinValue)
+        {
+            txtDutySlipDate.Text = billingDetails.DutySlipDate.ToString();
+        }
+        if (!string.IsNullOrEmpty(billingDetails.DutySlipNo) &&
+            txtDutySlipNo.Text != billingDetails.DutySlipNo.ToString())
+        {
+            txtDutySlipNo.Text = billingDetails.DutySlipNo.ToString();
+        }
+        if (txtInMeterReading.Text != billingDetails.InMeterReading.ToString() && billingDetails.InMeterReading > 0)
+        {
+            txtInMeterReading.Text = billingDetails.InMeterReading.ToString();
+        }
+        if (txtOutMeterReading.Text != billingDetails.OutMeterReading.ToString() && billingDetails.OutMeterReading > 0)
+        {
+            txtOutMeterReading.Text = billingDetails.OutMeterReading.ToString();
+        }
+    }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         GetBooking();

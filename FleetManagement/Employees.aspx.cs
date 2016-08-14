@@ -136,8 +136,8 @@ public partial class Employees : System.Web.UI.Page
             this.txtFirstname.Text = employee.FirstName;
             this.txtLastName.Text = employee.LastName;
 
-            txtDob.Text = employee.DateOfBirth.ToShortDateString();
-            txtJoiningdate.Value = employee.DateOfJoin.ToShortDateString();
+            txtDob.Text = employee.DateOfBirth.ToShortDateTimeString();
+            txtJoiningdate.Value = employee.DateOfJoin.ToShortDateTimeString();
             txtSalary.Text = Math.Ceiling(employee.Salary).ToString();
             txtAddress.Text = employee.Address;
             txtContactno.Text = employee.Phone;

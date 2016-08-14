@@ -22,11 +22,11 @@
                                 <asp:BoundField DataField="VehicleTypeName" HeaderText="Vehicle" SortExpression="VehicleTypeName" />
                                 <asp:BoundField DataField="RegistrationNo" HeaderText="Registration No" SortExpression="RegistrationNo" ReadOnly="true" />
                                 <asp:BoundField DataField="FuelTypeName" HeaderText="Fuel" SortExpression="FuelTypeName" />
-                                <asp:TemplateField HeaderText="Has AC">
+                                <%--<asp:TemplateField HeaderText="Has AC">
                                     <ItemTemplate>
                                         <%#Boolean.Parse(Eval("AC").ToString()) ? "Yes" : "No" %>
                                     </ItemTemplate>
-                                </asp:TemplateField>
+                                </asp:TemplateField>--%>
                                 <asp:TemplateField HeaderText="Purchase Date">
                                     <ItemTemplate>
                                         <%#Eval("PurchaseDate","{0:dd MMM yyyy}") %>
@@ -34,7 +34,13 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="noofseating" HeaderText="Seating No" SortExpression="noofseating" />
                                 <asp:BoundField DataField="VehicleCost" HeaderText="Vehicle Cost (INR)" SortExpression="VehicleCost" />
-                                <asp:CommandField HeaderText="Edit" ShowDeleteButton="True" ShowEditButton="True"
+                                 <asp:BoundField DataField="InsuranceAmount" HeaderText="Insurance Amount (INR)" SortExpression="InsuranceAmount" />                    
+                                <asp:TemplateField HeaderText="Insurance Expiration Date">
+                                    <ItemTemplate>
+                                        <%#Eval("InsuranceExpirationDate","{0:dd MMM yyyy}") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:CommandField HeaderText="Action" ShowDeleteButton="True" ShowEditButton="True"
                                     ShowHeader="True" />
                             </Columns>
                         </asp:GridView>
@@ -57,6 +63,7 @@
                 "aoColumns": [
                                 null,
                                 null, //put as many null values as your columns
+                                null,
                                 null,
                                 null,
                                 null,
