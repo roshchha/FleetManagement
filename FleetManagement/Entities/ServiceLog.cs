@@ -52,6 +52,7 @@ namespace FleetManagement.Entities
             }
             else
             {
+                sqlParamList.Add(new SqlParameter("@ID", ID));
                 sqlParamList.Add(new SqlParameter("@VehicleID", VehicleID));
                 sqlParamList.Add(new SqlParameter("@SentDate", SentDate));
                 sqlParamList.Add(new SqlParameter("@MileageReading", MileageReading));

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="page-header"></h3>
+            <h3 class="page-header">Employee Details</h3>
         </div>
     </div>
     <div class="row">
@@ -23,7 +23,7 @@
                                 <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="FirstName" />
                                 <%--<asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />--%>
                                 <asp:BoundField DataField="Designation" HeaderText="Designation" SortExpression="Designation" />
-                                <asp:BoundField DataField="Salary" HeaderText="Salary" SortExpression="Salary" />
+                                <asp:BoundField DataField="Salary" HeaderText="Salary (INR)" SortExpression="Salary" />
                                 <asp:TemplateField HeaderText="Joining Date">
                                     <ItemTemplate>
                                         <%#Eval("DateOfJoin","{0:dd MMM yyyy}") %>
@@ -34,7 +34,7 @@
                                 <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country"></asp:BoundField>--%>
                                 <asp:BoundField DataField="Phone" HeaderText="Contact Number" SortExpression="Phone"></asp:BoundField>
                                 <asp:BoundField DataField="EmailID" HeaderText="Email Address" SortExpression="EmailID" />
-                                <asp:CommandField HeaderText="Edit" ShowDeleteButton="True" ShowEditButton="True"
+                                <asp:CommandField HeaderText="Action" ShowDeleteButton="True" ShowEditButton="True"
                                     ShowHeader="True"  />
                             </Columns>
                         </asp:GridView>

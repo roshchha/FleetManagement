@@ -14,6 +14,8 @@ body {
   /*background: #32C2CD url(../img/bg-img.jpg) !important;*/
   
 }
+/*.sorting_asc:after{content:' &#9660;';}
+.sorting_desc:after{content: ' &#9650;'}*/
 body.home, row.home{
 background: rgba(0, 0, 0, 0.05) url(../img/homepage-img.jpg) !important;
 background-size:100% auto!important;
@@ -22,7 +24,7 @@ background-repeat:no-repeat;
 .home .section-content{margin-top:80px;}
 .home .section-content h1{font-size:44px;margin-bottom:10px;}
 .home .section-content h2{font-size:24px;color:#4f5c61;}
-.errorText{color:red;}
+.errorText{color:red;display:block;}
 table tr td{padding-bottom:5px;}
 .table-responsive{overflow:hidden;}
  #wrapper {

@@ -35,6 +35,12 @@ public partial class Vehicletariff : System.Web.UI.Page
             BindAC();
         }
         lblMessage.Visible = false;
+        txtKms.Attributes.Add("onkeydown", "numbersOnly(event)");
+        txtBaseprice.Attributes.Add("onkeydown", "numbersOnly(event)");
+        txtExtrahour.Attributes.Add("onkeydown", "numbersOnly(event)");
+        txtExtrakm.Attributes.Add("onkeydown", "numbersOnly(event)");
+        txtStandcharges.Attributes.Add("onkeydown", "numbersOnly(event)");
+
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
@@ -51,7 +57,7 @@ public partial class Vehicletariff : System.Web.UI.Page
             obj.BasePrice = decimal.Parse(txtBaseprice.Text);
             obj.ExtraHourRate = decimal.Parse(txtExtrahour.Text);
             obj.ExtraKmRate = decimal.Parse(txtExtrakm.Text);
-            obj.FuelType = 0;
+            obj.FuelType = int.Parse(ddlFuelType.SelectedValue);
             obj.Kms = int.Parse(txtKms.Text);
             obj.StandCharges = decimal.Parse(txtStandcharges.Text);
             obj.VehicleType = int.Parse(ddlVehicletype.SelectedValue);

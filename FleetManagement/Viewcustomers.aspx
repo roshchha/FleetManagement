@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="page-header"></h3>
+            <h3 class="page-header">Customer Details</h3>
         </div>
     </div>
     <div class="row">
@@ -23,7 +23,7 @@
                                 <asp:BoundField DataField="address" HeaderText="Address" SortExpression="address" />
                                 <asp:BoundField DataField="phone" HeaderText="Contact Number" SortExpression="phone"></asp:BoundField>
                                 <asp:BoundField DataField="email" HeaderText="Email Id" SortExpression="emailid" />
-                                <asp:CommandField HeaderText="Edit" ShowDeleteButton="True" ShowEditButton="True"
+                                <asp:CommandField HeaderText="Action" ShowDeleteButton="True" ShowEditButton="True"
                                     ShowHeader="True" />
                             </Columns>
                         </asp:GridView>

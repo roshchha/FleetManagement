@@ -553,7 +553,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Total Amount</Value>
+                              <Value>Total Amount (INR)</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -661,7 +661,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Gross Amount</Value>
+                              <Value>Gross Amount (INR)</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -697,7 +697,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Discount</Value>
+                              <Value>Discount(INR)</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>11pt</FontSize>

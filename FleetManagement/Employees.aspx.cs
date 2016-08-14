@@ -44,6 +44,8 @@ public partial class Employees : System.Web.UI.Page
                 LoadData();
             }
         }
+        txtContactno.Attributes.Add("onkeydown", "numbersOnly(event)");
+        txtSalary.Attributes.Add("onkeydown", "numbersOnly(event)");
     }
     private void BindCountries()
     {
@@ -67,7 +69,7 @@ public partial class Employees : System.Web.UI.Page
             emp.DateOfJoin = DateTime.Parse(txtJoiningdate.Value);
             emp.Qualification = ddlQualification.SelectedItem.Text;
             emp.DesignationID = int.Parse(ddlDesignation.SelectedValue);
-            emp.Salary = decimal.Parse(txtSalery.Text);
+            emp.Salary = decimal.Parse(txtSalary.Text);
             emp.Address = txtAddress.Text;
             emp.Country = ddlCountry.SelectedItem.Text;
             emp.State = txtState.Text;
@@ -107,7 +109,7 @@ public partial class Employees : System.Web.UI.Page
         txtFirstname.Text = "";
         txtLastName.Text = "";
         ddlDesignation.SelectedIndex = 0;
-        txtSalery.Text = "";
+        txtSalary.Text = "";
         txtJoiningdate.Value = "";
         ddlQualification.SelectedIndex = 0;
         txtDob.Text = "";
@@ -136,7 +138,7 @@ public partial class Employees : System.Web.UI.Page
 
             txtDob.Text = employee.DateOfBirth.ToShortDateString();
             txtJoiningdate.Value = employee.DateOfJoin.ToShortDateString();
-            txtSalery.Text = Math.Ceiling(employee.Salary).ToString();
+            txtSalary.Text = Math.Ceiling(employee.Salary).ToString();
             txtAddress.Text = employee.Address;
             txtContactno.Text = employee.Phone;
             txtEmailid.Text = employee.EmailID;

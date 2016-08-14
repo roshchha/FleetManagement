@@ -16,6 +16,11 @@
                 <div class="panel-body">
                     <table align="center" width="99%">
                         <tr>
+                            <td colspan="3" align="center">
+                                <asp:Label ID="lblMessage" runat="server" Visible="False" CssClass="lblMessage"></asp:Label>&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <asp:Label ID="lblBookingRef" Text="Booking Reference" runat="server"></asp:Label>
                             </td>
@@ -105,11 +110,7 @@
                                 <asp:Button ID="btnBack" CssClass="btn btn-primary" runat="server" Text="Back" PostBackUrl="~/Home.aspx" />
                             </td>  
                         </tr>
-                        <tr>
-                            <td colspan="3" align="center">
-                                <asp:Label ID="lblMessage" runat="server" Visible="False" CssClass="lblMessage"></asp:Label>&nbsp;
-                            </td>
-                        </tr>
+                        
                     </table>
                 </div>
             </div>

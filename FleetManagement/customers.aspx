@@ -46,9 +46,10 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="txtPhoneno" runat="server" CssClass="form-control"  MaxLength="13"></asp:TextBox>
-                            </td>                            <td>
-                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtPhoneno"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtPhoneno" SetFocusOnError="True" ValidationExpression="^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$">Eg: 9885098850</asp:RegularExpressionValidator>
+                            </td>                            
+                            <td>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator4" runat="server" ErrorMessage="Phone no Required" ControlToValidate="txtPhoneno"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator  CssClass="errorText" ID="RegularExpressionValidator3" runat="server" ErrorMessage="Invalid phone no" ControlToValidate="txtPhoneno" SetFocusOnError="True" ValidationExpression="^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$"></asp:RegularExpressionValidator>
                             </td>
                         </tr>
                         <tr>
@@ -59,7 +60,7 @@
                                 <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator10" runat="server" ErrorMessage="*" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>&nbsp;
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator10" runat="server" ErrorMessage="Email Address Required" ControlToValidate="txtEmail"></asp:RequiredFieldValidator>&nbsp;
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtEmail" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Eg: proj@g.com</asp:RegularExpressionValidator>
                             </td>
                         </tr>

@@ -2,12 +2,12 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[Update_CustomerBilling]
+alter PROCEDURE [dbo].[Update_CustomerBooking]
 @Billing BIT,
 @OutMeterReading bigint,
 @InMeterReading bigint,
 @DutySlipNo nchar(10),
-@DutySlipDate datetime,
+@DutySlipDate datetime = null,
 @GrossAmount money,
 @Discount money,
 @TotalAmount money,

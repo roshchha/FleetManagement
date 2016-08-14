@@ -1,9 +1,5 @@
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 
-ALTER PROCEDURE [dbo].[Get_PendingBookingsForBilling]
+alter PROCEDURE [dbo].[Get_PendingBookingsForBilling]
 AS
 	BEGIN
 		SELECT CB.BookingID,
@@ -35,7 +31,8 @@ AS
 		T.StandCharges
 		FROM 
 		CustomerBooking CB JOIN Customer C ON CB.CustomerID = C.ID
-		JOIN CustomerBilling CBL ON CB.BookingID = CBL.BillingID
+		JOIN CustomerBilling CBL ON CB.BookingID = CBL.BookingID
 		JOIN Tariff T ON CBL.TariffID = T.TariffID
 		WHERE CBL.Billing = 0
 	END
+

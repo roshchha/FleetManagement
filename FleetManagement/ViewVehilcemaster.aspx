@@ -33,7 +33,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="noofseating" HeaderText="Seating No" SortExpression="noofseating" />
-                                <asp:BoundField DataField="VehicleCost" HeaderText="Vehicle Cost" SortExpression="VehicleCost" />
+                                <asp:BoundField DataField="VehicleCost" HeaderText="Vehicle Cost (INR)" SortExpression="VehicleCost" />
                                 <asp:CommandField HeaderText="Edit" ShowDeleteButton="True" ShowEditButton="True"
                                     ShowHeader="True" />
                             </Columns>

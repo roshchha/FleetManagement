@@ -86,6 +86,19 @@ namespace FleetManagement.Common
 
         #endregion
 
+        public static DateTime? ToDateTimeNullable(this string dateTimeStr)
+        {
+            if (string.IsNullOrWhiteSpace(dateTimeStr)) return null;
+            else
+            {
+                DateTime date;
+                if (DateTime.TryParse(dateTimeStr, System.Globalization.DateTimeFormatInfo.InvariantInfo, System.Globalization.DateTimeStyles.None, out date))
+                {
+                    return date;
+                }
+            }
+            return null;
+        }
         public static DateTime ToDateTime(this string dateTimeStr)
         {
             DateTime defaultDate = new DateTime(1900,1,1);

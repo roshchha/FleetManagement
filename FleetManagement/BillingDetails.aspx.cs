@@ -34,19 +34,20 @@ public partial class BillingDetails : System.Web.UI.Page
             pendingBookingsForBilling = customerBookingService.GetPendingBookingsForBilling();
             ddlBookingRef.Items.Clear();
             ddlBookingRef.Items.Add(new ListItem("Select", "0"));
-            if(pendingBookingsForBilling.Count > 0){
-            Session["PendingBookingsForBilling"] = pendingBookingsForBilling;
-            //fill booking references
-            
-            pendingBookingsForBilling.ForEach(b =>
+            if (pendingBookingsForBilling.Count > 0)
             {
-                ddlBookingRef.Items.Add(new ListItem(b.BookingRef, b.BookingID.ToString()));
-            });
-            
+                Session["PendingBookingsForBilling"] = pendingBookingsForBilling;
+                //fill booking references
+
+                pendingBookingsForBilling.ForEach(b =>
+                {
+                    ddlBookingRef.Items.Add(new ListItem(b.BookingRef, b.BookingID.ToString()));
+                });
+
             }
             else
             {
-                lblMessage.Text = "Booking does not exist in the system";
+                lblMessage.Text = "NO Booking exists in the system";
                 lblMessage.Visible = true;
             }
         }
@@ -58,8 +59,8 @@ public partial class BillingDetails : System.Web.UI.Page
             this.txtOutMeterReading.Text = CurrentBooking.BillingDetails.OutMeterReading != 0 ? CurrentBooking.BillingDetails.OutMeterReading.ToString() : "";
         }
         
-        SetButtonVisibility();
-     
+       // SetButtonVisibility();
+        txtDiscount.Attributes.Add("onkeydown", "numbersOnly(event)");
     }
 
     private void SetButtonVisibility()
@@ -83,7 +84,7 @@ public partial class BillingDetails : System.Web.UI.Page
             GetBooking();
             
             decimal basePrice = 0, standCharges = 0, extraHoursPrice = 0;
-            Discount = decimal.Parse(txtDiscount.Text);
+            decimal.TryParse(txtDiscount.Text,out Discount);
             InMeterReading = long.Parse(txtInMeterReading.Text);
             OutMeterReading = long.Parse(txtOutMeterReading.Text);
 
@@ -136,6 +137,36 @@ public partial class BillingDetails : System.Web.UI.Page
             if (selBookingId > 0)
             {
                 CurrentBooking = pendingBookingsForBilling.FirstOrDefault(b => b.BookingID == selBookingId);
+
+                if (txtDiscount.Text != CurrentBooking.BillingDetails.Discount.ToString())
+                {
+                    txtDiscount.Text = CurrentBooking.BillingDetails.Discount.ToString();
+                }
+                if (txtGrossAmount.Text != CurrentBooking.BillingDetails.GrossAmount.ToString())
+                {
+                    txtGrossAmount.Text = CurrentBooking.BillingDetails.GrossAmount.ToString();
+                }
+                if (txtTotalAmount.Text != CurrentBooking.BillingDetails.TotalAmount.ToString())
+                {
+                    txtTotalAmount.Text = CurrentBooking.BillingDetails.TotalAmount.ToString();
+                }
+                if (txtDutySlipDate.Text != CurrentBooking.BillingDetails.DutySlipDate.ToString() &&
+                    CurrentBooking.BillingDetails.DutySlipDate != DateTime.MinValue)
+                {
+                    txtDutySlipDate.Text = CurrentBooking.BillingDetails.DutySlipDate.ToString();
+                }
+                if (txtDutySlipNo.Text != CurrentBooking.BillingDetails.DutySlipNo.ToString())
+                {
+                    txtDutySlipNo.Text = CurrentBooking.BillingDetails.DutySlipNo.ToString();
+                }
+                if (txtInMeterReading.Text != CurrentBooking.BillingDetails.InMeterReading.ToString())
+                {
+                    txtInMeterReading.Text = CurrentBooking.BillingDetails.InMeterReading.ToString();
+                }
+                if (txtOutMeterReading.Text != CurrentBooking.BillingDetails.OutMeterReading.ToString())
+                {
+                    txtOutMeterReading.Text = CurrentBooking.BillingDetails.OutMeterReading.ToString();
+                }
             }
         }
         catch (Exception e) { }
@@ -144,12 +175,13 @@ public partial class BillingDetails : System.Web.UI.Page
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         GetBooking();
+        CalculateRates();
         CustomerBilling billing = CurrentBooking.BillingDetails;
         billing.Discount = Discount;
         billing.TotalAmount = TotalAmount;
         billing.GrossAmount = GrossAmount;
         billing.DutySlipNo = txtDutySlipNo.Text;
-        billing.DutySlipDate = txtDutySlipDate.Text.ToDateTime();
+        billing.DutySlipDate = txtDutySlipDate.Text.ToDateTimeNullable();
         billing.OutMeterReading = OutMeterReading;
         billing.InMeterReading = InMeterReading;
         billing.Billing = chkPaid.Checked;

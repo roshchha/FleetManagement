@@ -39,6 +39,7 @@ public partial class customers : System.Web.UI.Page
                 LoadData();
             }
         }
+        txtPhoneno.Attributes.Add("onkeydown", "numbersOnly(event)");
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {

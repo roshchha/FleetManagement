@@ -49,19 +49,19 @@
                                 </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="ddlDesignation" meta:resourcekey="RequiredFieldValidator3Resource1" SetFocusOnError="True">Select</asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Designation Required" InitialValue="0" ControlToValidate="ddlDesignation" meta:resourcekey="RequiredFieldValidator3Resource1" SetFocusOnError="True"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:Label ID="lblSalery" runat="server" Text="Salary" meta:resourcekey="lblSaleryResource1"></asp:Label>
+                                <asp:Label ID="lblSalary" runat="server" Text="Salary (INR)" meta:resourcekey="lblSaleryResource1"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox CssClass="form-control" ID="txtSalery" runat="server" meta:resourcekey="txtSaleryResource1" MaxLength="12"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="txtSalary" runat="server" meta:resourcekey="txtSaleryResource1" MaxLength="12"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtSalery" meta:resourcekey="RequiredFieldValidator4Resource1"></asp:RequiredFieldValidator><asp:CompareValidator
-            ID="CompareValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtSalery" Operator="DataTypeCheck" Type="Integer">Eg: 10000</asp:CompareValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator4" runat="server" ErrorMessage="Salary Required" ControlToValidate="txtSalary" meta:resourcekey="RequiredFieldValidator4Resource1"></asp:RequiredFieldValidator><asp:CompareValidator
+            ID="CompareValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtSalary" Operator="DataTypeCheck" Type="Integer">Eg: 10000</asp:CompareValidator>
     &nbsp;<%--<asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtSalery" MaximumValue="9" MinimumValue="0" Type="Integer"></asp:RangeValidator>--%>
                             </td>
                         </tr>
@@ -100,10 +100,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Label ID="lblDateofbirth" runat="server" Text="DOB" meta:resourcekey="lblDateofbirthResource1"></asp:Label>
+                                <asp:Label ID="lblDateofbirth"  runat="server" Text="DOB" meta:resourcekey="lblDateofbirthResource1"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox CssClass="form-control" ID="txtDob" runat="server"></asp:TextBox>
+                                <asp:TextBox AutoCompleteType="None" CssClass="form-control" ID="txtDob" runat="server"></asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator7" runat="server" ErrorMessage="*" ControlToValidate="txtDob">Date Required</asp:RequiredFieldValidator>
@@ -149,7 +149,7 @@
                             <td>
                                 <asp:TextBox CssClass="form-control" ID="txtContactno" runat="server" meta:resourcekey="txtContactnoResource1" MaxLength="13"></asp:TextBox></td>
                             <td>
-                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator11" runat="server" ErrorMessage="*" ControlToValidate="txtContactno" meta:resourcekey="RequiredFieldValidator11Resource1"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator CssClass="errorText" ID="RequiredFieldValidator11" runat="server" ErrorMessage="Contact No required" ControlToValidate="txtContactno" meta:resourcekey="RequiredFieldValidator11Resource1"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtContactno" SetFocusOnError="True" ValidationExpression="^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$"></asp:RegularExpressionValidator>
                             </td>
                         </tr>
@@ -176,8 +176,9 @@
         </div>
     </div>
     <script type="text/javascript">
-        $('#<%=txtJoiningdate.ClientID%>').datepicker();
-        $('#<%=txtDob.ClientID%>').datepicker();
+        bindDatePicker('<%=txtJoiningdate.ClientID%>');
+        bindDatePicker('<%=txtDob.ClientID%>');
+      
     </script>
 </asp:Content>
 

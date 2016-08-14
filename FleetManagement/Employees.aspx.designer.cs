@@ -111,22 +111,22 @@ public partial class Employees {
     protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
     
     /// <summary>
-    /// lblSalery control.
+    /// lblSalary control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblSalery;
+    protected global::System.Web.UI.WebControls.Label lblSalary;
     
     /// <summary>
-    /// txtSalery control.
+    /// txtSalary control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox txtSalery;
+    protected global::System.Web.UI.WebControls.TextBox txtSalary;
     
     /// <summary>
     /// RequiredFieldValidator4 control.

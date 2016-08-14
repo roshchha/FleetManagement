@@ -388,7 +388,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Vehicle Cost</Value>
+                              <Value>Vehicle Cost(INR)</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
                                 <FontSize>11pt</FontSize>
