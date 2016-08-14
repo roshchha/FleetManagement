@@ -70,6 +70,10 @@
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i><%=FleetManagement.Common.Common.GetUserName(this.Page, "Hello") %></a>
                         </li>
+                          <%if (FleetManagement.Common.Common.IsSuperAdminUser(Page))
+                          { %>
+                         <li><a href="UserDetails.aspx"><i class="fa fa-sign-out fa-fw"></i>Manage Users</a>
+                        <%} %>
                         <%if (FleetManagement.Common.Common.IsSuperAdminUser(Page))
                           { %>
                          <li><a href="AddUser.aspx"><i class="fa fa-sign-out fa-fw"></i>Add New User</a>
