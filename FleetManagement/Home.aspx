@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Home" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Fleetmanagement.master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     <div class="row home">
@@ -17,7 +17,12 @@
                     <div id="BarChart">
 
                     </div>
-                    <div id="PieChart">
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Monthly Gross Revenue By Vehicle Type (Last 30 Days)</div>
+                <div class="panel-body">
+                      <div id="PieChart">
 
                     </div>
                 </div>
@@ -57,22 +62,24 @@
                     }
                 }
             });
+            var jsonData = <%=JsonGrossRevenueForVehiclesData%>
 
-            var pieChart = c3.generate({
-                bindto: '#PieChart',
-                data:{
-                    json:'<%=JsonGrossRevenueForVehiclesData%>',
+            var data = {};
+            var sites = [];
+            jsonData.forEach(function(e) {
+                sites.push(e.Key);
+                data[e.Key] = e.Value;
+            })    
+
+            chart = c3.generate({
+                bindto:'#PieChart',
+                data: {
+                    json: [ data ],
                     keys: {
-                        x: 'VehicleTypeName', // it's possible to specify 'x' when category axis
-                        value: ['TotalAmount'],
+                        value: sites,
                     },
                     type:'pie'
                 },
-                axis: {
-                    x: {
-                        type: 'category' // this needed to load string x value
-                    }
-                }
             });
 
         });

@@ -17,7 +17,12 @@ namespace FleetManagement.Services
         public List<CustomerBooking> Get(int ID = 0)
         {
             List<CustomerBooking> custBooking = new List<CustomerBooking>();
-            DataSet ds = SqlHelper.ExecuteDataset("Get_CustomerBooking", new SqlParameter[] { });
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            if (ID > 0)
+            {
+                sqlParams.Add(new SqlParameter("BookingID", ID));
+            }
+            DataSet ds = SqlHelper.ExecuteDataset("Get_CustomerBooking", sqlParams.ToArray());
             if (ds.ValidDataSet())
             {
                 foreach (DataRow row in ds.Tables[0].Rows)
@@ -66,26 +71,27 @@ namespace FleetManagement.Services
             customerBooking.BillingDetails.DutySlipNo = item.GetValue("DutySlipNo");
             customerBooking.BillingDetails.InMeterReading = item.GetLongValue("InMeterReading");
             customerBooking.BillingDetails.OutMeterReading = item.GetLongValue("OutMeterReading");
-            customerBooking.BillingDetails.Discount = item.GetDecimalValue("Discount") ?? 0;
-            customerBooking.BillingDetails.GrossAmount = item.GetDecimalValue("GrossAmount") ?? 0;
-            customerBooking.BillingDetails.TotalAmount = item.GetDecimalValue("TotalAmount") ?? 0;
+            customerBooking.BillingDetails.Discount = Math.Round(item.GetDecimalValue("Discount") ?? 0, 2);
+            customerBooking.BillingDetails.GrossAmount = Math.Round(item.GetDecimalValue("GrossAmount") ?? 0, 2);
+            customerBooking.BillingDetails.TotalAmount = Math.Round(item.GetDecimalValue("TotalAmount") ?? 0, 2);
             customerBooking.BillingDetails.TariffID = item.GetIntValue("TariffID");
             customerBooking.TariffDetails = new Tariff();
             customerBooking.TariffDetails.TariffID = customerBooking.BillingDetails.TariffID;
             customerBooking.TariffDetails.TariffCode = item.GetValue("TariffCode");
-            customerBooking.TariffDetails.StandCharges = item.GetDecimalValue("StandCharges") ?? 0;
-            customerBooking.TariffDetails.BasePrice = item.GetDecimalValue("BasePrice") ?? 0;
-            customerBooking.TariffDetails.ExtraHourRate = item.GetDecimalValue("ExtraHourRate") ?? 0;
-            customerBooking.TariffDetails.ExtraKmRate = item.GetDecimalValue("ExtraKmRate") ?? 0;
+            customerBooking.TariffDetails.StandCharges = Math.Round(item.GetDecimalValue("StandCharges") ?? 0,2);
+            customerBooking.TariffDetails.BasePrice = Math.Round(item.GetDecimalValue("BasePrice") ?? 0,2);
+            customerBooking.TariffDetails.ExtraHourRate = Math.Round(item.GetDecimalValue("ExtraHourRate") ?? 0,2);
+            customerBooking.TariffDetails.ExtraKmRate = Math.Round(item.GetDecimalValue("ExtraKmRate") ?? 0,2);
             customerBooking.TariffDetails.Kms = item.GetIntValue("Kms");
 
             return customerBooking;
         }
 
 
-        public bool CreateCustomerBooking(CustomerBooking customerBooking, Entities.VehicleAllocation vehicleAllocation)
+        public bool CreateCustomerBooking(CustomerBooking customerBooking, Entities.VehicleAllocation vehicleAllocation, out int bookingId)
         {
             bool success = false;
+            bookingId = 0;
             try
             {
                 List<SqlParameter> sqlParams = new List<SqlParameter>();
@@ -101,7 +107,7 @@ namespace FleetManagement.Services
                 sqlParams.Add(new SqlParameter("TariffID", customerBooking.BillingDetails.TariffID));
 
                 object objBookingId = SqlHelper.ExecuteScalar("Create_CustomerBooking", sqlParams.ToArray());
-                int bookingId = Convert.ToInt32(objBookingId);
+                bookingId = Convert.ToInt32(objBookingId);
                 if (bookingId > 0)
                 {
                     success = true;

@@ -30,7 +30,7 @@ public partial class BillingDetails : System.Web.UI.Page
     {
         lblMessage.Visible = false;
         
-        if (!IsPostBack || Session["PendingBookingsForBilling"] == null)
+        if (!IsPostBack)
         {
             pendingBookingsForBilling = customerBookingService.GetPendingBookingsForBilling();
             ddlBookingRef.Items.Clear();
@@ -48,7 +48,7 @@ public partial class BillingDetails : System.Web.UI.Page
             }
             else
             {
-                lblMessage.Text = "NO Booking exists in the system";
+                lblMessage.Text = "NO Pending Booking exists in the system for payment";
                 lblMessage.Visible = true;
             }
         }
@@ -91,20 +91,23 @@ public partial class BillingDetails : System.Web.UI.Page
 
             if (InMeterReading == 0 || OutMeterReading == 0 || InMeterReading < OutMeterReading)
             {
-                lblMessage.Text = "Enter proper values for meter reading. ";
+                lblMessage.Text = "Enter valid values for meter reading. Out Meter Reading must be less than In Meter Reading";
                 lblMessage.Visible = true;
                 return false;
             }
+            DateTime startDate = CurrentBooking.FromDate;
+            DateTime endDate = CurrentBooking.ToDate;
+            int days = (endDate - startDate).Days + 1 ;
+          
             int totalKmsRun = (int)(InMeterReading - OutMeterReading);
-            if (totalKmsRun <= CurrentBooking.TariffDetails.Kms)
+            int minKms = CurrentBooking.TariffDetails.Kms * days;
+            basePrice = CurrentBooking.TariffDetails.BasePrice * days;
+            if (totalKmsRun > minKms)
             {
-                basePrice = CurrentBooking.TariffDetails.BasePrice;
+                decimal extraKms = totalKmsRun - minKms;
+                basePrice += (extraKms * CurrentBooking.TariffDetails.ExtraKmRate);
             }
-            else
-            {
-                decimal extraKms = totalKmsRun - CurrentBooking.TariffDetails.Kms;
-                basePrice = CurrentBooking.TariffDetails.BasePrice + (extraKms * CurrentBooking.TariffDetails.ExtraKmRate);
-            }
+            
             if (chkStandCharges.Checked)
             {
                 standCharges = CurrentBooking.TariffDetails.StandCharges;
@@ -134,11 +137,20 @@ public partial class BillingDetails : System.Web.UI.Page
         try
         {
             pendingBookingsForBilling = Session["PendingBookingsForBilling"] as List<CustomerBooking>;
-            int selBookingId = int.Parse(ddlBookingRef.SelectedValue);
-            if (selBookingId > 0)
+            if (pendingBookingsForBilling == null) pendingBookingsForBilling = customerBookingService.GetPendingBookingsForBilling();
+            if (pendingBookingsForBilling != null)
             {
-                CurrentBooking = pendingBookingsForBilling.FirstOrDefault(b => b.BookingID == selBookingId);
-                
+                int selBookingId = int.Parse(ddlBookingRef.SelectedValue);
+                if (selBookingId > 0)
+                {
+                    CurrentBooking = pendingBookingsForBilling.FirstOrDefault(b => b.BookingID == selBookingId);
+
+                }
+            }
+            else
+            {
+                lblMessage.Text = "NO Pending Booking exists in the system for payment";
+                lblMessage.Visible = true;
             }
         }
         catch (Exception e) { }
@@ -161,9 +173,9 @@ public partial class BillingDetails : System.Web.UI.Page
             txtTotalAmount.Text = billingDetails.TotalAmount.ToString();
         }
         if (txtDutySlipDate.Text != billingDetails.DutySlipDate.ToString() &&
-            billingDetails.DutySlipDate != DateTime.MinValue)
+            (billingDetails.DutySlipDate ?? DateTime.MinValue) != DateTime.MinValue)
         {
-            txtDutySlipDate.Text = billingDetails.DutySlipDate.ToString();
+            txtDutySlipDate.Text = ((DateTime)billingDetails.DutySlipDate).ToShortDateTimeString();
         }
         if (!string.IsNullOrEmpty(billingDetails.DutySlipNo) &&
             txtDutySlipNo.Text != billingDetails.DutySlipNo.ToString())
@@ -193,6 +205,7 @@ public partial class BillingDetails : System.Web.UI.Page
         billing.InMeterReading = InMeterReading;
         billing.Billing = chkPaid.Checked;
 
+        lblMessage.Visible = true;
         if (customerBillingService.Update(billing))
         {
             lblMessage.Text = "Billing details updated successfully";

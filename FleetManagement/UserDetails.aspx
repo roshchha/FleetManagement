@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="page-header"></h3>
+            <h3 class="page-header">Manage Users</h3>
         </div>
     </div>
     <div class="row">

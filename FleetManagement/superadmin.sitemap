@@ -10,16 +10,16 @@
       <siteMapNode url="customers.aspx" title="Add Customer"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="viewcustomers.aspx" title="View Customer Details"  description="" cssClass="fa fa-desktop" />
     </siteMapNode>
-    <siteMapNode url="" title="Booking"  description="" cssClass="">
-      <siteMapNode url="Clientbooking.aspx" title="Customer Booking"  description="" cssClass="fa fa-edit" />
-      <siteMapNode url="viewclientbooking.aspx" title="View Customer Booking Details"  description="" cssClass="fa fa-desktop" />
-    </siteMapNode>
     <siteMapNode url="" title="Vehicle"  description="" cssClass="">
       <siteMapNode url="VehicleType.aspx" title="Add Vehicle Type"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="Vehiclemaster.aspx" title="Add Vehicle Details"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="Vehicletariff.aspx" title="View Vehicle Tariffs"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="VehicletariffView.aspx" title="Add Vehicle Tariffs"  description="" cssClass="fa fa-edit" />
       <siteMapNode url="ViewVehilcemaster.aspx" title="View Vehicle Details"  description="" cssClass="fa fa-desktop" />
+    </siteMapNode>
+    <siteMapNode url="" title="Booking"  description="" cssClass="">
+      <siteMapNode url="Clientbooking.aspx" title="Customer Booking"  description="" cssClass="fa fa-edit" />
+      <siteMapNode url="viewclientbooking.aspx" title="View Customer Booking Details"  description="" cssClass="fa fa-desktop" />
     </siteMapNode>
     <siteMapNode url="BillingDetails.aspx" title="Billing Details" roles="Admin" description="" cssClass="fa fa-edit" />
     <siteMapNode url="" title="Service Details"  description="" cssClass="">

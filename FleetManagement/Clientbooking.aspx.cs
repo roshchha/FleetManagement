@@ -16,6 +16,7 @@ using FleetManagement.Interfaces;
 using System.Collections.Generic;
 using FleetManagement.Common;
 using FleetManagement.Enums;
+using System.Linq;
 
 public partial class Clientbooking : System.Web.UI.Page
 {
@@ -90,10 +91,13 @@ public partial class Clientbooking : System.Web.UI.Page
            vehicleAllocation.VehicleID = vehicleToAllocate;
            vehicleAllocation.EmployeeID = driverToAllocate;
 
-           if (customerBookingService.CreateCustomerBooking(customerBooking, vehicleAllocation))
+           int bookingId = 0;
+           if (customerBookingService.CreateCustomerBooking(customerBooking, vehicleAllocation, out bookingId))
            {
-
-               lblMessage.Text = "Booking created successfully";
+               //load booking again
+               customerBooking = customerBookingService.Get(bookingId).FirstOrDefault();
+               lblMessage.Text = "Booking created successfully. Your booking reference no is " + customerBooking.BookingRef;
+               
                clearFields();
                lblMessage.Visible = true;
                return;

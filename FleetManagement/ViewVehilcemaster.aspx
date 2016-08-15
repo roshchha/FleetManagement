@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="page-header"></h3>
+            <h3 class="page-header">View Vehicle Details</h3>
         </div>
     </div>
     <div class="row">
@@ -21,6 +21,7 @@
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="VehicleTypeName" HeaderText="Vehicle" SortExpression="VehicleTypeName" />
                                 <asp:BoundField DataField="RegistrationNo" HeaderText="Registration No" SortExpression="RegistrationNo" ReadOnly="true" />
+                                 <asp:BoundField DataField="VehicleNo" HeaderText="Vehicle No" SortExpression="VehicleNo" />        
                                 <asp:BoundField DataField="FuelTypeName" HeaderText="Fuel" SortExpression="FuelTypeName" />
                                 <%--<asp:TemplateField HeaderText="Has AC">
                                     <ItemTemplate>
@@ -63,6 +64,7 @@
                 "aoColumns": [
                                 null,
                                 null, //put as many null values as your columns
+                                null,
                                 null,
                                 null,
                                 null,

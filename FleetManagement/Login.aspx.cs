@@ -15,7 +15,6 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!string.IsNullOrEmpty(Request.QueryString["SOut"]) && Request.QueryString["SOut"].ToString() == "1")
         {
-           
             SignOutUser();
         }
         if (!IsPostBack)

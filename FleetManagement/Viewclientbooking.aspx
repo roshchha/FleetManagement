@@ -39,6 +39,11 @@
                                         <%#Eval("ToDate","{0:dd MMM yyyy}") %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                 <asp:TemplateField HeaderText="Total Amount">
+                                    <ItemTemplate>
+                                               <p><%#DataBinder.Eval(Container.DataItem, "BillingDetails.TotalAmount")%></p>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 
                                <%-- <asp:CommandField HeaderText="Edit" ShowDeleteButton="True" ShowEditButton="True"
                                     ShowHeader="True" />--%>
@@ -63,6 +68,7 @@
                 "aoColumns": [
                                 null,
                                 null, //put as many null values as your columns
+                                null,
                                 null,
                                 null,
                                 null,

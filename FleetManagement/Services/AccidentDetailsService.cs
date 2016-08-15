@@ -68,7 +68,7 @@ namespace FleetManagement.Services
 
             AccidentDetails retObj  = new AccidentDetails();
             retObj.VehicleID        = item.GetIntValue("VehicleId");
-            retObj.RepairCost       = item.GetDecimalValue("RepairCost") == 0 ? null : item.GetDecimalValue("RepairCost");
+            retObj.RepairCost       = Math.Round(item.GetDecimalValue("RepairCost") ?? 0, 2);
             retObj.AccidentLocation = item.GetValue("AccidentLocation");
             retObj.AccidentDate     = item.GetDateTimeValue("AccidentDate");
             retObj.AccidentDesc     = item.GetValue("AccidentDesc");
