@@ -11,7 +11,12 @@ namespace FleetManagement.Entities
         List<string> ValidationErrors { get; set; }
         //test
 
+<<<<<<< HEAD
         ///hhhh vishal
+=======
+        //hhh - roshu
+        //3333
+>>>>>>> Test
         List<string> ValidationMessages { get; set; }
     }
 }
