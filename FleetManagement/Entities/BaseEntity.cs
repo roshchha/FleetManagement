@@ -10,6 +10,8 @@ namespace FleetManagement.Entities
         public Enums.ObjectState ObjState { get; set; }
         List<string> ValidationErrors { get; set; }
         //test
+
+        //hhh - roshu
         List<string> ValidationMessages { get; set; }
     }
 }
