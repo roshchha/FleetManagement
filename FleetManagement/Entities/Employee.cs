@@ -19,6 +19,7 @@ namespace FleetManagement.Entities
         public DateTime DateOfJoin { get; set; }
         public string Qualification { get; set; }
         public DateTime DateOfBirth { get; set; }
+        //Vishal Changes
         public string Address { get; set; }
         public string Country { get; set; }
         public string State { get; set; }
