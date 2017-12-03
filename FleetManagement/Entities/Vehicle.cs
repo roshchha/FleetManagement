@@ -15,7 +15,7 @@ namespace FleetManagement.Entities
         public string RegistrationNo { get; set; }
         public string VehicleNo { get; set; }
         public int VehicleType { get; set; }
-
+        //Changes here
         public DateTime RegistrationDate { get; set; }
 
         public string EngineNo { get; set; }
